@@ -13,9 +13,17 @@ class Topic {
         }
     }
 
+    static hasMany = [
+                      subscriptions:Subscription,
+                      resources:Resource,
+                      ]
+    static belongsTo = [ createdBy : User]
 
     static constraints = {
-        visibility(type: IdentityEnumType)
+        visibility type: IdentityEnumType
+        name unique: 'createdBy',nullable: false,blank: false
+        visibility nullable: false,blank: false
+        createdBy nullable: false
     }
 
     String name

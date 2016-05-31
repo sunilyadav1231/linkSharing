@@ -4,17 +4,16 @@ import org.codehaus.groovy.grails.orm.hibernate.cfg.IdentityEnumType
 
 class Resource {
 
-    enum ResourceType{
-        LINK_RESOURCE(1),DOCUMENT_RESOURCE(2)
-        int resourceType
-        ResourceType(int rescType){
-            this.resourceType=rescType
-        }
-    }
+    static hasMany = [
+                      resourceOperations:ResourceOperation
+    ]
 
     static constraints = {
-        resourceType(type:IdentityEnumType)
+        documentResourceUrl nullable: true
+        linkResourceUrl nullable: true
     }
+
+    static belongsTo = [ createdBy : User,topic:Topic]
 
 
     String description
@@ -22,7 +21,8 @@ class Resource {
     Topic topic
     Date dateCreated
     Date lastUpdated
-    String resourcePath
-    ResourceType resourceType
+    String documentResourceUrl
+    String linkResourceUrl
+    float averageRating
 
 }

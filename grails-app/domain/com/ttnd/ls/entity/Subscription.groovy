@@ -12,8 +12,12 @@ class Subscription {
         }
     }
     static constraints = {
-        seriousness(type: IdentityEnumType)
+        seriousness type: IdentityEnumType, nullable: false
+        user nullable: false, unique: 'topic'
+        topic nullable: false
     }
+
+    static belongsTo = [ user : User,topic:Topic]
 
     Topic topic
     User user
