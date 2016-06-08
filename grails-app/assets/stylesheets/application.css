@@ -11,3 +11,6 @@
 *= require mobile
 *= require_self
 */
+.tab-space {padding-left: 10px}
+
+.padd-bottom {padding-bottom: 10px}

@@ -13,13 +13,107 @@
 		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
 		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
   		<asset:stylesheet src="application.css"/>
-		<asset:javascript src="application.js"/>
+		<asset:stylesheet src="bootstrap.min.css"/>
+		<asset:stylesheet src="bootstrap-theme.min.css"/>
+		<asset:stylesheet src="font-awesome.min.css"/>
+		<asset:javascript src="jquery.min.js"/>
+		<asset:javascript src="bootstrap.min.js"/>
+		%{--<asset:javascript src="application.js"/>--}%
 		<g:layoutHead/>
 	</head>
-	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>
-		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+	<body class="container">
+
+
+			<div class="row">
+				<div  class=" panel panel-default">
+					<div class="panel-body">
+						<div class="col-xs-8">
+							<h3><a href="#">Link Sharing</a></h3>
+						</div>
+						<div class="col-xs-4">
+							<g:if test="${session.userData}">
+								<g:render  template="/templates/create_topic"/>
+								<g:render  template="/templates/share_link"/>
+								<g:render  template="/templates/share_document"/>
+								<g:render  template="/templates/send_invitation"/>
+								<div class="row  pull-right ">
+									<div class="col-xs-12 pull-right">
+
+
+										<a href="#" title="Create Topic"  data-toggle="modal" data-target="#create_topic"><i class="fa fa-comment fa-lg"></i></a>
+										<a title="Send Invitation" class="tab-space" data-toggle="modal" data-target="#send_invitation"  href="#"><i class="fa fa-envelope-o fa-lg"></i></a>
+										<a href="#" title="Share Link" data-toggle="modal" data-target="#share_link" class="tab-space"><i class="fa fa-link fa-lg"></i></a>
+										<a href="#" title="Share Document" data-toggle="modal" data-target="#share_document" class="tab-space"><i class="fa fa-file-o fa-lg"></i></a>
+
+										<span class="tab-space"></span>
+										<span class="tab-space">
+											<asset:image src="personIcon.png" height="8%" width="8%"></asset:image>
+											<span>${session.userData.fullName}</span>
+											<g:link controller="login" action="logout" class="tab-space" href="#"><i class="fa fa-sign-out fa-lg"></i></g:link>
+
+										</span>
+									</div>
+								</div>
+								<div class=" row padd-bottom"></div>
+							</g:if>
+							<div class="row">
+								<div class="col-xs-12 pull-right">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+										<input type="text" class="form-control" placeholder="Search" name="q">
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+
+						%{--<div class="col-xs-6">
+							<div class="row">
+								<div class="col-xs-4 ">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+										<input type="text" class="form-control" placeholder="Search" name="q">
+
+									</div>
+								</div>
+								<div class="col-xs-8">
+									<div class="row">
+										<div class="col-xs-6">
+											<a  href="#"><i class="fa fa-envelope-o fa-lg"></i></a>
+											<a class="tab-space" href="#"><i class="fa fa-comment fa-lg"></i></a>
+											<a class="tab-space" href="#"><i class="fa fa-link fa-lg"></i></a>
+											<a class="tab-space" href="#"><i class="fa fa-file-o fa-lg"></i></a>
+										</div>
+										<div class="col-xs-6">
+
+											<asset:image src="personIcon.png" height="20%" width="20%"></asset:image>
+											<span>Udday</span>
+											<div class="btn-group">
+												<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+
+													<span class="caret"></span>
+												</a>
+												<ul class="dropdown-menu">
+													--}%%{--<li>Hello</li>--}%%{--
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>--}%
+
+
+					</div>
+				</div>
+			</div>
+			<g:layoutBody/>
+			<div class="row" id="footer">
+
+			</div>
+
 	</body>
 </html>

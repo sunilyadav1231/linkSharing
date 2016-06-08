@@ -60,6 +60,12 @@ grails {
 }
 
 
+files {
+    paths {
+        profilePicDir = "${System.getProperty('user.home')}${File.separator}profilePic"
+    }
+}
+
 grails.converters.encoding = "UTF-8"
 // scaffolding templates configuration
 grails.scaffolding.templates.domainSuffix = 'Instance'

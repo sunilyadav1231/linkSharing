@@ -1,13 +1,16 @@
 package com.ttnd.ls.entity
 
+import spock.util.mop.Use
+
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 
 class User {
 
-
-
+    static mapping = {
+        sort id: 'desc'
+    }
 
 
     static hasMany = [topics:Topic,
@@ -29,15 +32,24 @@ class User {
 
     }
 
+    User(Long id){
+        this.id=id
+    }
+
+    String getFullName() {
+        return "$firstName $lastName"
+    }
+
     String email
     String userName
     String password
     String firstName
     String lastName
+    transient  String fullName
     String verificationToken
     Date verificationExpiry
-    Boolean admin
-    Boolean active
+    Boolean admin=false
+    Boolean active=false
     String photoPath
     Date dateCreated
     Date lastUpdated

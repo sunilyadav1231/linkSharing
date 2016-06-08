@@ -4,7 +4,7 @@ import com.ttnd.ls.entity.Resource
 
 class ResourceController {
 
-    static scaffold = Resource
+    //static scaffold = Resource
 
     def index() { }
 }

@@ -8,10 +8,10 @@ class Resource {
                       resourceOperations:ResourceOperation
     ]
 
-    static constraints = {
+/*    static constraints = {
         documentResourceUrl nullable: true
         linkResourceUrl nullable: true
-    }
+    }*/
 
     static belongsTo = [ createdBy : User,topic:Topic]
 
@@ -21,8 +21,6 @@ class Resource {
     Topic topic
     Date dateCreated
     Date lastUpdated
-    String documentResourceUrl
-    String linkResourceUrl
     float averageRating
 
 }
