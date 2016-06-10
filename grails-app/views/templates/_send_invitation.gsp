@@ -21,7 +21,7 @@
                             <label class="control-label" for="invite">Topic* :</label>
                         </div>
                         <div id="invite" class="col-xs-8">
-                            <g:select name="topic.id" from="${subscribedTopics?.name}"/>
+                            <g:select name="topic" from="${subscribedTopics}" optionKey="id" optionValue="name"/>
                         </div>
                     </div>
                 </div>

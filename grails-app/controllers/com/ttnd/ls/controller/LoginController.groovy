@@ -20,9 +20,21 @@ class LoginController {
     }
 
 
-    def home(){
+    def showImage(){
 
-        render(view: 'home',model:[ publicTopics:loginService.fetchLoginData()])
+        def photo = new File(params.path)
+        byte[] image = photo.bytes
+        response.contentType = "image/jpeg"
+        response.outputStream << image
+        response.outputStream.flush()
+    }
+
+
+    def home(){
+        if(session.userData){
+            redirect(controller: 'user', action: 'index')
+        }
+        render(view: 'home',model:loginService.fetchLoginData())
     }
 
     def loginHandler() {

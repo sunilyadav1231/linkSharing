@@ -24,7 +24,7 @@ class User {
         password(minSize: 5,nullable: false,blank: false)
         firstName (nullable: false,blank: false)
         lastName (nullable: false,blank: false)
-        photoPath(nullable: true)
+        photoPath(nullable: true,blank: true)
         active(nullable: true)
         admin(nullable: true)
         verificationToken(nullable: true)

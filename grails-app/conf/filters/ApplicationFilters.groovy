@@ -8,10 +8,13 @@ class ApplicationFilters {
                 log.info "Params in before filter for controller: $controllerName      action: $actionName    params:  $params"
             }
             after = { Map model ->
-                log.info "Params in after filter for controller: $controllerName      action: $actionName    params:  $params"
+                log.info "Params in after filter for controller: $controllerName      action: $actionName"
             }
             afterView = { Exception e ->
-                log.error "Error: ${e.message}", e
+                if(e){
+                    log.error "Error: ${e?.message}"
+                }
+
             }
         }
     }

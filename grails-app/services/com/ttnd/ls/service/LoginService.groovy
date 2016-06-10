@@ -13,6 +13,7 @@ import liquibase.util.file.FilenameUtils
 class LoginService {
 
     TopicService topicService
+    ResourceService resourceService
 
     def validateLogin(Map map){
         def respData = new ResponseData()
@@ -50,14 +51,21 @@ class LoginService {
     }
 
     def fetchUserData(Map userDto){
+        if(userDto.proflePicFile.size){
+            saveImage(userDto)
+        }
 
-        saveImage(userDto)
         if(!userDto.password.equals(userDto.confirmPassword)){
             userDto.valid=false
         }
     }
 
     def fetchLoginData(){
-        topicService.publicTopics();
+        Map map =[:]
+        map.put("recentShares",resourceService.fetchRecentShare())
+        map.put("topPosts",resourceService.fetchTopPosts())
+        map
     }
+
+
 }

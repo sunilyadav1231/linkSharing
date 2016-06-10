@@ -18,7 +18,8 @@
 		<asset:stylesheet src="font-awesome.min.css"/>
 		<asset:javascript src="jquery.min.js"/>
 		<asset:javascript src="bootstrap.min.js"/>
-		%{--<asset:javascript src="application.js"/>--}%
+		<asset:javascript src="jquery.timeago.js"/>
+		<asset:javascript src="application.js"/>
 		<g:layoutHead/>
 	</head>
 	<body class="container">
@@ -38,16 +39,23 @@
 								<g:render  template="/templates/send_invitation"/>
 								<div class="row  pull-right ">
 									<div class="col-xs-12 pull-right">
-
-
 										<a href="#" title="Create Topic"  data-toggle="modal" data-target="#create_topic"><i class="fa fa-comment fa-lg"></i></a>
-										<a title="Send Invitation" class="tab-space" data-toggle="modal" data-target="#send_invitation"  href="#"><i class="fa fa-envelope-o fa-lg"></i></a>
-										<a href="#" title="Share Link" data-toggle="modal" data-target="#share_link" class="tab-space"><i class="fa fa-link fa-lg"></i></a>
-										<a href="#" title="Share Document" data-toggle="modal" data-target="#share_document" class="tab-space"><i class="fa fa-file-o fa-lg"></i></a>
+										<g:if test="${subscribedTopics}">
+											<a title="Send Invitation" class="tab-space" data-toggle="modal" data-target="#send_invitation"  href="#"><i class="fa fa-envelope-o fa-lg"></i></a>
+											<a href="#" title="Share Link" data-toggle="modal" data-target="#share_link" class="tab-space"><i class="fa fa-link fa-lg"></i></a>
+											<a href="#" title="Share Document" data-toggle="modal" data-target="#share_document" class="tab-space"><i class="fa fa-file-o fa-lg"></i></a>
+										</g:if>
 
 										<span class="tab-space"></span>
 										<span class="tab-space">
-											<asset:image src="personIcon.png" height="8%" width="8%"></asset:image>
+
+											<g:if test="${session.userData.photoPath}">
+												<img  height="7%" width="7% "  src="${createLink(controller:'user', action:'showImage',params: [path: "${session.userData.photoPath}"] )}" />
+											</g:if>
+											<g:else>
+												<asset:image height="8%" width="8% "  src="personIcon.png"></asset:image>
+											</g:else>
+
 											<span>${session.userData.fullName}</span>
 											<g:link controller="login" action="logout" class="tab-space" href="#"><i class="fa fa-sign-out fa-lg"></i></g:link>
 
@@ -67,45 +75,6 @@
 							</div>
 
 						</div>
-
-
-						%{--<div class="col-xs-6">
-							<div class="row">
-								<div class="col-xs-4 ">
-									<div class="input-group">
-										<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-										<input type="text" class="form-control" placeholder="Search" name="q">
-
-									</div>
-								</div>
-								<div class="col-xs-8">
-									<div class="row">
-										<div class="col-xs-6">
-											<a  href="#"><i class="fa fa-envelope-o fa-lg"></i></a>
-											<a class="tab-space" href="#"><i class="fa fa-comment fa-lg"></i></a>
-											<a class="tab-space" href="#"><i class="fa fa-link fa-lg"></i></a>
-											<a class="tab-space" href="#"><i class="fa fa-file-o fa-lg"></i></a>
-										</div>
-										<div class="col-xs-6">
-
-											<asset:image src="personIcon.png" height="20%" width="20%"></asset:image>
-											<span>Udday</span>
-											<div class="btn-group">
-												<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-
-													<span class="caret"></span>
-												</a>
-												<ul class="dropdown-menu">
-													--}%%{--<li>Hello</li>--}%%{--
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>--}%
-
 
 					</div>
 				</div>

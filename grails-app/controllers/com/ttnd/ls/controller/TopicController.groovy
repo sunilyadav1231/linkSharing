@@ -34,7 +34,7 @@ class TopicController {
             flash.message="Topic saved successfully"
         }
 
-        render(view: 'home', flash.message )
+        redirect(controller: 'user', action: 'dashboard')
     }
 
 

@@ -23,14 +23,7 @@ class UserController {
     }
 
 
-    def showImage(){
 
-        def photo = new File(params.path)
-        byte[] image = photo.bytes
-        response.contentType = "image/jpeg"
-        response.outputStream << image
-        response.outputStream.flush()
-    }
 
 
     def dashboard(){

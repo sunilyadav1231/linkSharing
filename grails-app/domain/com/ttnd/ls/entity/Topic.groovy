@@ -7,6 +7,7 @@ class Topic {
 
     static mapping = {
         sort name: 'asc'
+        createdBy lazy: false
     }
 
     static hasMany = [

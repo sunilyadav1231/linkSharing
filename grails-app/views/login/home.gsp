@@ -27,43 +27,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Recent Shares</div>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-xs-4 ">
-                            <asset:image src="personIcon.png"></asset:image>
-                           %{-- <img height="100" width="100" src="images/"  class="img-rounded">--}%
-                        </div>
-                        <div class="col-xs-8">
-                            <div>
-                                <p style="font-size: 12px">Uday Pratap Singh  <span class="small text-center">@uday 21 Jul 2014 </span>           <a href="#" class="pull-right">Grails</a><br/>
-                                    Lorem Ipsum Depsum sit amet, consectetur adipiscing elit, Nulla quam sfsf sdfs dfg  asfisoi ndsoufb sadfs ghgfhijb juseeih nishci sacromfj</p>
-                            </div>
-                            <div class="">
-                                <a href="#"><i class="fa fa-facebook-official"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <div class="pull-right"><a href="#">View post</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <br/>
-                    <div class="row">
-                        <div class="col-xs-4 ">
-                            <asset:image src="personIcon.png"></asset:image>
-                        </div>
-                        <div class="col-xs-8">
-                            <div>
-                                <p style="font-size: 12px">Uday Pratap Singh  <span class="small text-center">@uday 21 Jul 2014 </span>           <a href="#" class="pull-right">Grails</a><br/>
-                                    Lorem Ipsum Depsum sit amet, consectetur adipiscing elit, Nulla quam sfsf sdfs dfg  asfisoi ndsoufb sadfs ghgfhijb juseeih nishci sacromfj</p>
-                            </div>
-                            <div class="">
-                                <a href="#"><i class="fa fa-facebook-official"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <div class="pull-right"><a href="#">View post</a></div>
-                            </div>
-                        </div>
-                    </div>
 
+                    <g:render template="/templates/resource_brief" collection="${recentShares}" var="resource"/>
                 </div>
             </div>
             <!--<div class="col-lg-5 col-md-5 col-xs-5 col-sm-5">dd</div>-->
@@ -83,23 +48,7 @@
 
                 </div>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-xs-4 ">
-                            <asset:image src="personIcon.png"></asset:image>
-                        </div>
-                        <div class="col-xs-8">
-                            <div>
-                                <p style="font-size: 12px">Uday Pratap Singh  <span class="small text-center">@uday 21 Jul 2014 </span>           <a href="#" class="pull-right">Grails</a><br/>
-                                    Lorem Ipsum Depsum sit amet, consectetur adipiscing elit, Nulla quam sfsf sdfs dfg  asfisoi ndsoufb sadfs ghgfhijb juseeih nishci sacromfj</p>
-                            </div>
-                            <div class="">
-                                <a href="#"><i class="fa fa-facebook-official"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <div class="pull-right"><a href="#">View post</a></div>
-                            </div>
-                        </div>
-                    </div>
+                    <g:render template="/templates/resource_brief" collection="${topPosts}" var="resource"/>
                 </div>
             </div>
 

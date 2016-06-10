@@ -63,6 +63,7 @@ grails {
 files {
     paths {
         profilePicDir = "${System.getProperty('user.home')}${File.separator}profilePic"
+        fileDocDir = "${System.getProperty('user.home')}${File.separator}fileDoc"
     }
 }
 

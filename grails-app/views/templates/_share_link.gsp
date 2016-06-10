@@ -1,7 +1,7 @@
 
 <div class="modal fade" id="share_link" role="dialog">
     <div class="modal-dialog">
-        <form class="form-horizontal">
+        <g:form controller="resource" action="createLinkResource" class="form-horizontal">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -10,18 +10,18 @@
                 <div class="modal-body">
                     <div class="form-group form-group-sm">
                         <div class="col-xs-4 ">
-                            <label class=" control-label" for="Username">Link* :</label>
+                            <label class=" control-label" for="documentUrl">Link* :</label>
                         </div>
                         <div class="col-xs-8 ">
-                            <input class="form-control" placeholder="link" type="text" id="Username" >
+                            <input class="form-control" name="urlDocument" placeholder="link" type="text" id="documentUrl" >
                         </div>
                     </div>
                     <div class="form-group form-group-sm">
                         <div class="col-xs-4 ">
-                            <label class="control-label" for="Password">Description* :</label>
+                            <label class="control-label" for="link_description">Description* :</label>
                         </div>
                         <div class="col-xs-8 ">
-                            <textarea class="form-control" placeholder="description" type="" id="Password" ></textarea>
+                            <textarea class="form-control" name="description" placeholder="description" type="" id="link_description" ></textarea>
                         </div>
                     </div>
                     <div class="form-group form-group-sm">
@@ -29,13 +29,8 @@
                             <label class="control-label" for="topic">Topic* :</label>
                         </div>
                         <div id="topic" class="col-xs-8 ">
-                            <g:select name="topic.id" from="${subscribedTopics?.name}"/>
+                            <g:select name="topic" from="${subscribedTopics}" optionKey="id" optionValue="name"/>
 
-                            %{--<select class="form-control">
-                                <option>Topic</option>
-                                <option>Topic</option>
-                                <option>Topic</option>
-                            </select>--}%
                         </div>
                     </div>
                 </div>
@@ -45,7 +40,7 @@
 
                 </div>
             </div>
-        </form>
+        </g:form>
     </div>
 </div>
 

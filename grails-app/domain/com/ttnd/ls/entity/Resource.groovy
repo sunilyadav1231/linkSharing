@@ -8,6 +8,12 @@ class Resource {
                       resourceOperations:ResourceOperation
     ]
 
+    static mapping = {
+        createdBy lazy: false
+        topic lazy: false
+
+    }
+
 /*    static constraints = {
         documentResourceUrl nullable: true
         linkResourceUrl nullable: true

@@ -1,7 +1,7 @@
 
 <div class="modal fade" id="share_document" role="dialog">
     <div class="modal-dialog">
-        <form class="form-horizontal">
+        <g:uploadForm controller="resource" action="createFileResource"  class="form-horizontal">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -13,7 +13,7 @@
                             <label class="control-label" for="photo">Document* :</label>
                         </div>
                         <div class="col-xs-8">
-                            <input class="" type="file" id="photo">
+                            <input class="" name="docFile" type="file" id="photo">
                         </div>
                     </div>
                     <div class="form-group form-group-sm">
@@ -21,7 +21,7 @@
                             <label class="control-label" for="Password">Description* :</label>
                         </div>
                         <div class="col-xs-8 ">
-                            <textarea class="form-control" placeholder="description" type="" id="Password" ></textarea>
+                            <textarea class="form-control" name="description" placeholder="description" type="" id="Password" ></textarea>
                         </div>
                     </div>
                     <div class="form-group form-group-sm">
@@ -29,7 +29,7 @@
                             <label class="control-label" for="topic">Topic* :</label>
                         </div>
                         <div id="topic" class="col-xs-8 ">
-                            <g:select name="topic.id" from="${subscribedTopics?.name}"/>
+                            <g:select name="topic" from="${subscribedTopics}" optionKey="id" optionValue="name"/>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
 
                 </div>
             </div>
-        </form>
+        </g:uploadForm>
     </div>
 </div>
 

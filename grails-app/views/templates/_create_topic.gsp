@@ -1,7 +1,5 @@
 
-
-
-<div class="modal fade" id="create_topic" role="dialog">
+<div class="modal fade" id="create_topic" role="dialog " aria-hidden="true">
      <div class="modal-dialog">
         <g:form  controller="topic" action="save" class="form-horizontal">
         <div class="modal-content">

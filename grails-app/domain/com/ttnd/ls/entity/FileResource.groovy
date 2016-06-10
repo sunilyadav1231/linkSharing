@@ -1,8 +1,8 @@
 package com.ttnd.ls.entity
 
-class PathResource {
+class FileResource extends Resource{
 
     static constraints = {
     }
-    String documentPath
+    String fileDocument
 }

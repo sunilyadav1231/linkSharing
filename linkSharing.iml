@@ -239,6 +239,7 @@
           <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.1/dist/grails-plugin-testing-2.5.1-sources.jar!/" />
           <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.1/dist/grails-docs-2.5.1-sources.jar!/" />
           <root url="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.1/dist/grails-scripts-2.5.1-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ideaLibSources/spring-tx-4.1.6.RELEASE-sources.jar!/" />
         </SOURCES>
         <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
       </library>

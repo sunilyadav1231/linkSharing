@@ -14,16 +14,34 @@ import liquibase.util.file.FilenameUtils
 class UserService {
 
     TopicService topicService
-
     SubscriptionService subscriptionService
+    ResourceService resourceService
 
 
     def dashboardData(User user){
             Map map = [:]
-            map.put("subscribedTopics",subscriptionService.fetchSubscriptions(user).topic)
-            map.put("subscriptions",subscriptionService.fetchSubscriptions(user))
-            map.put("trendingTopics",topicService.publicTopics())
-            map.put('userData', fetchUserData(user.id))
+            user = fetchUserData(user.id)
+            List<Topic> subscribedTopics = topicService.fetchSubscribedTopic(user)
+            List<Topic> top5Subscription = []
+            if(subscribedTopics.size()>4){
+                top5Subscription =subscribedTopics.subList(0,5)
+            }else{
+                top5Subscription =subscribedTopics
+            }
+
+            List<Topic> trendingTopics = topicService.trendingTopics(user)
+            List<Topic> top5Trending= []
+            if(trendingTopics.size()>4){
+                top5Trending =trendingTopics.subList(0,5)
+            }else{
+                top5Trending =trendingTopics
+            }
+
+            map.put("subscribedTopics",subscribedTopics)
+            map.put("subscriptions",top5Subscription)
+            map.put("trendingTopics",top5Trending)
+            map.put("inboxResources",resourceService.fetchUnreadResource(user))
+            map.put('userData', user)
             map
     }
 

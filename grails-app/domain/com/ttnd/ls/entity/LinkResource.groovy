@@ -1,8 +1,8 @@
 package com.ttnd.ls.entity
 
-class UrlResource {
+class LinkResource extends Resource{
 
     static constraints = {
     }
-    String documentUrl
+    String urlDocument
 }
