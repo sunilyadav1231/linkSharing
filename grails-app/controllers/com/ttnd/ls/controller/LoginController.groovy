@@ -25,12 +25,23 @@ class LoginController {
 
 
     def showImage(){
-
         def photo = new File(params.path)
-        byte[] image = photo.bytes
         response.contentType = "image/jpeg"
-        response.outputStream << image
+        response.outputStream << photo.bytes
         response.outputStream.flush()
+    }
+
+    def downloadResource(){
+        def file = new File(params.path)
+
+        if (file.exists())
+        {
+            response.setContentType("application/octet-stream") // or or image/JPEG or text/xml or whatever type the file is
+            response.setHeader("Content-disposition", "attachment;filename=\"${file.name}\"")
+            response.outputStream << file.bytes
+            response.outputStream.flush()
+        }
+
     }
 
 
