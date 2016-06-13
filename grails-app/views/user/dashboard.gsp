@@ -64,9 +64,6 @@
                     </div>
                 </div>
             </div>
-
-
-
             <div class="col-xs-7" >
                 <div class="panel panel-default">
                     <div class="panel-heading">Inbox <a href="#" class="pull-right">View All</a></div>
@@ -78,25 +75,10 @@
                             <g:else>
                                 O o ! There is nothing in your box
                             </g:else>
-
                         </div>
                     </div>
                 </div>
-
-                <!--<div class="col-lg-5 col-md-5 col-xs-5 col-sm-5">dd</div>-->
-
-
-
-
-                <!--<div class="col-lg-5 col-md-5 col-xs-5 col-sm-5">dd</div>-->
-
-
-
-
-
             </div>
-
         </div>
-        <!--</div>-->
 </body>
 </html>

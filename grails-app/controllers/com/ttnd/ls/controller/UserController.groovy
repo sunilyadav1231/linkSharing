@@ -23,11 +23,7 @@ class UserController {
     }
 
 
-
-
-
     def dashboard(){
-
         Map map = userService.dashboardData(session.userData)
         session.userData = map.userData
         render(view: 'dashboard',model:map)

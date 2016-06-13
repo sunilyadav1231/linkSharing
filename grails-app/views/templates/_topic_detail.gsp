@@ -1,6 +1,7 @@
 <g:set var="subscription" value="${session.userData.subscriptions.findAll({it.topic==topic})}"/>
 
 <div class="row">
+    <div class="col-xs-12">
         <div class="row">
             <div class="col-xs-4">
                 <g:render template="/templates/show_image" model='[photoPath:"${topic?.createdBy.photoPath}"]'/>
@@ -79,11 +80,11 @@
 
                 <span class="tab-space">
                     <g:if test="${session.userData.admin || subscription.size()>0}">
-                        <a href="#"><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i></a>
+                        <a data-target="#send_invitation" data-toggle="modal"  title="send invitation" href="#"><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i></a>
                     </g:if>
                     <g:if test="${canUpdateTopic=='true'}">
-                        <a href="#"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
+                        <a href="#" title="edit"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a>
+                        <a href="#" title="delete"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
                     </g:if>
                 </span>
                 <span class="tab-space"></span>
@@ -102,4 +103,5 @@
             </div>--}%
         </div>
     </div>
+</div>
 <hr>

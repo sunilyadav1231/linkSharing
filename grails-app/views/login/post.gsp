@@ -5,58 +5,49 @@
 
 </head>
 <body>
-<div class="container">
-    <!-- <div class="row">-->
+
     <div class="row"   >
         <div class="col-xs-7" >
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-xs-3 ">
-                            <asset:image  src="personIcon.png"></asset:image>
-                        </div>
-                        <div class="col-xs-9">
-                            <div class="row">
-                                <span class="col-xs-8">Uday Pratap Singh</span>
-                                <a class="col-xs-4" href="#">Grails</a>
-                            </div>
-                            <div class="row">
-                                <span class="col-xs-8">@uday  </span>
-                                <span class="col-xs-4"><small>21 Jul 2014 </small>  </span>
-                            </div>
-                            <div class="row">
-                                <span class="col-xs-5 pull-right">
-                                     <i class="glyphicon glyphicon-heart"></i>
-                                     <i class="glyphicon glyphicon-heart"></i>
-                                    <i class="glyphicon glyphicon-heart-empty"></i>
-                                    <i class="glyphicon glyphicon-heart-empty"></i>
-                                    <i class="glyphicon glyphicon-heart-empty"></i>
-
-                                </span>
-                            </div>
-                            <div class="row">
-                                    Lorem Ipsum Depsum sit amet, consectetur adipiscing elit, Nulla quam sfsf sdfs dfg  asfisoi ndsoufb sadfs ghgfhijb juseeih nishci sacromfj</p>
-                            </div>
-                            <div class="">
-                                <a href="#"><i class="fa fa-facebook-official"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <div class="pull-right">
-                                    <a href="#" class="tab-space"><small>Delete</small></a>
-                                    <a href="#" class="tab-space"><small>Edit</small></a>
-                                    <a href="#" class="tab-space"><small>Download</small></a>
-                                    <a href="#" class="tab-space"><small>View full site</small></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <g:render template="/templates/resource_detail" model="${resource}" var="resource"/>
                 </div>
             </div>
-            <!--<div class="col-lg-5 col-md-5 col-xs-5 col-sm-5">dd</div>-->
         </div>
 
         <div class="col-xs-5" >
-            <div class="panel panel-default">
+            <g:if test="${session.userData}">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Trending topics</div>
+                    <div class="panel-body">
+                        <g:if test="${trendingTopics}">
+                            <g:render template="/templates/topic_detail" collection="${trendingTopics}" var="topic"/>
+                        </g:if>
+                        <g:else>
+                            Nothing is trending for you :-(
+                        </g:else>
+                    </div>
+                </div>
+
+            </g:if>
+            <g:else>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Login</div>
+                    <div class="panel-body">
+                        <g:render template="/templates/login"/>
+                    </div>
+                </div>
+
+                <div class="panel panel-default ">
+                    <div class="panel-heading">Register</div>
+                    <div class="panel-body">
+                        <g:render template="/templates/register"/>
+                    </div>
+                </div>
+            </g:else>
+
+
+            %{--<div class="panel panel-default">
                 <div class="panel-heading">Trending topics</div>
                 <div class="panel-body">
                     <div class="row">
@@ -141,21 +132,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--}%
             <!--<div class="col-lg-5 col-md-5 col-xs-5 col-sm-5">dd</div>-->
         </div>
 
-
-
-
-
-
-
-
-
-
     </div>
     <!--</div>-->
-</div>
 </body>
 </html>

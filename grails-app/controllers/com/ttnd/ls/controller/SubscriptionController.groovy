@@ -21,11 +21,11 @@ class SubscriptionController {
             flash.message="Topic subscribed successfully"
         }
 
-        render(view: 'home', flash.message )
+        redirect(controller: 'user', action: 'dashboard')
     }
 
     def unSubscribe(Subscription subscription){
-        params
+
         subscriptionService.unsubscribe(subscription)
         if(hasErrors()){
             flash.message=errors.toString()

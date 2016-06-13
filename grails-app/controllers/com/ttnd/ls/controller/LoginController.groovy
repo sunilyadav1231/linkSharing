@@ -3,12 +3,16 @@ package com.ttnd.ls.controller
 import com.ttnd.ls.constants.LSConstants
 import com.ttnd.ls.dto.ResponseData
 import com.ttnd.ls.dto.UserDto
+import com.ttnd.ls.entity.Resource
 import com.ttnd.ls.entity.User
 import com.ttnd.ls.service.LoginService
+import com.ttnd.ls.service.ResourceService
 
 class LoginController {
 
     LoginService loginService
+
+    ResourceService resourceService
 
     def index() {
 
@@ -62,13 +66,18 @@ class LoginController {
         User user = new User()
         bindData(user,params)
         loginService.saveUser(user)
-
         params.user=user
-
         session.userData=user
-
         redirect(controller: 'user', action: 'index')
+    }
 
+
+    def showPost(Resource resource){
+        Map map1=[:]
+        map1.resource=resource
+        map1.user = session.userData
+        Map map = resourceService.showPostDetail(map1)
+        render(view: 'post',model:map)
     }
 
 

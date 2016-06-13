@@ -16,10 +16,13 @@
 		<asset:stylesheet src="bootstrap.min.css"/>
 		<asset:stylesheet src="bootstrap-theme.min.css"/>
 		<asset:stylesheet src="font-awesome.min.css"/>
+		<asset:stylesheet src="star-rating.css"/>
 		<asset:javascript src="jquery.min.js"/>
 		<asset:javascript src="bootstrap.min.js"/>
 		<asset:javascript src="jquery.timeago.js"/>
+		<asset:javascript src="star-rating.js"/>
 		<asset:javascript src="application.js"/>
+
 		<g:layoutHead/>
 	</head>
 	<body class="container">
@@ -50,7 +53,7 @@
 										<span class="tab-space">
 
 											<g:if test="${session.userData.photoPath}">
-												<img  height="7%" width="7% "  src="${createLink(controller:'user', action:'showImage',params: [path: "${session.userData.photoPath}"] )}" />
+												<img  height="7%" width="7% "  src="${createLink(controller:'login', action:'showImage',params: [path: "${session.userData.photoPath}"] )}" />
 											</g:if>
 											<g:else>
 												<asset:image height="8%" width="8% "  src="personIcon.png"></asset:image>

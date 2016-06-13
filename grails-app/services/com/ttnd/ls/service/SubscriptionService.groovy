@@ -52,12 +52,9 @@ class SubscriptionService {
                 }
                 eq('user',user)
             }
-
-
         }).sort{
             Subscription subscription-> -subscription.topic.resources.size()
         }
-
         subscriptionList = subscriptionList.unique{a,b ->
              a.topic.id<=>  b.topic.id
         }
