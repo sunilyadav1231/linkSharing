@@ -16,7 +16,6 @@
 		<asset:stylesheet src="bootstrap.min.css"/>
 		<asset:stylesheet src="bootstrap-theme.min.css"/>
 		<asset:stylesheet src="font-awesome.min.css"/>
-		<asset:stylesheet src="star-rating.css"/>
 		<asset:javascript src="jquery.min.js"/>
 		<asset:javascript src="bootstrap.min.js"/>
 		<asset:javascript src="jquery.timeago.js"/>

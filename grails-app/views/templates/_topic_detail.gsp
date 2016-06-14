@@ -1,5 +1,5 @@
-<g:set var="subscription" value="${session.userData.subscriptions.findAll({it.topic==topic})}"/>
 
+<g:set var="subscription" value="${session.userData.subscriptions.findAll({it.topic.id==topic.id})}"/>
 <div class="row">
     <div class="col-xs-12">
         <div class="row">
@@ -14,8 +14,8 @@
                 </div>
                 %{--<div class="padd-bottom"></div>--}%
                 <div class="row">
-                    <div class="col-xs-5">
-                        <small>@${topic?.createdBy.userName}</small>
+                    <div class="col-xs-5 small">
+                       @${topic?.createdBy.userName}
                     </div>
                     <div class="col-xs-4 ">
                         Subscription
@@ -58,13 +58,9 @@
         <div class="row pull-right ">
             <div class="col-xs-12">
             <g:if test="${subscription.size()>0}">
-                    <g:select from="${['VERY SERIOUS','SERIOUS','CASUAL']}" name="seriousness" value="${subscription[0]?.seriousness}">
+                    <g:select identity="${subscription[0].id}" class="topic_seriousness serious_${topic.id}" from="${['VERY_SERIOUS','SERIOUS','CASUAL']}" name="seriousness" value="${subscription[0]?.seriousness}">
                     </g:select>
             </g:if>
-                </span>
-
-
-
                 <g:if test="${session.userData.admin || topic.createdBy.id==session.userData.id}">
                     <g:set var="canUpdateTopic" value="true"/>
                 </g:if>
@@ -73,7 +69,7 @@
                 </g:else>
                 <g:if test="${canUpdateTopic=='true'}">
                     <span class="tab-space">
-                        <g:select from="${['PUBLIC','PRIVATE']}" name="visibility" value="${topic.visibility}">
+                        <g:select identity="${topic.id}" class="topic_visiblity visible_${topic.id}" from="${['PUBLIC','PRIVATE']}" name="visibility" value="${topic.visibility}">
                         </g:select>
                     </span>
                 </g:if>

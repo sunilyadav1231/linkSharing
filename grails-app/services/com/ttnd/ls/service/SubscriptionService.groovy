@@ -11,10 +11,6 @@ import org.hibernate.FetchMode
 @Transactional
 class SubscriptionService {
 
-    def serviceMethod() {
-
-    }
-
     def subscribe(Map map){
         Subscription subscription = new Subscription(user: map.user, topic: map.topic)
         subscription.save(flush: true)
@@ -25,20 +21,23 @@ class SubscriptionService {
         subscription.delete()
     }
 
+    def changeSeriousness(Map map){
+        Subscription subscription = Subscription.load(map.subscriptionId)
+        subscription.seriousness=map.topicSeriousness
+        subscription
+        /*subscription.merge()*/
+    }
+
+
+
     def fetchSubscriptions(User user){
         def criteria = Subscription.createCriteria()
         List<Subscription> subscriptionList = (criteria.list{
             maxResults(5)
             eq('user',user)
-            /*'topic' {
-                'resources' {
-                    order('dateCreated', 'asc')
-                }
-            }*/
         }).sort{
             Subscription subscription -> subscription.topic.resources.dateCreated
         }
-//        List<Subscription> subscriptions = Subscription.findAllByUser(user)
         subscriptionList
 
     }
@@ -58,7 +57,6 @@ class SubscriptionService {
         subscriptionList = subscriptionList.unique{a,b ->
              a.topic.id<=>  b.topic.id
         }
-        //subscriptionList = subscriptionList.unique()
         List result
         if(subscriptionList.size()>4){
             result =subscriptionList.subList(0,5)

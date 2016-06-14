@@ -3,6 +3,7 @@ package com.ttnd.ls.controller
 import com.ttnd.ls.entity.Subscription
 import com.ttnd.ls.entity.Topic
 import com.ttnd.ls.service.SubscriptionService
+import grails.converters.JSON
 
 class SubscriptionController {
 
@@ -34,5 +35,11 @@ class SubscriptionController {
         }
 
         redirect(controller: 'user', action: 'dashboard')
+    }
+
+    def changeSeriousness(){
+        Subscription subscription =subscriptionService.changeSeriousness(params)
+        Map map = [:]
+        render map as JSON
     }
 }

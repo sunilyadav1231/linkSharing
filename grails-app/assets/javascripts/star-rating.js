@@ -9,7 +9,7 @@
             value: 0,
             glyph: "glyphicon-star",
             coloroff: "gray",
-            coloron: "gold",
+            coloron: "green",
             size: "1.3em",
             cursor: "pointer",
             onClick: function () {
@@ -58,6 +58,44 @@
             });
 
         }
+
+        if (method == 'show') {
+            //this.html('');	//junk whatever was there
+
+            //initialize the data-rating property
+            this.each(function () {
+                attr = $(this).attr('data-rating');
+                if (attr === undefined || attr === false) {
+                    $(this).attr('data-rating', settings.value);
+                }
+            });
+
+            //bolt in the glyphs
+            for (var i = 0; i < settings.limit; i++) {
+                this.append('<div data-value="' + (i + 1) + '" class="ratingicon glyphicon ' + settings.glyph + '" style="' + style + '" aria-hidden="true"></div>');
+            }
+
+           /* $('.ratingicon').mouseover(function () {
+                var starValue = $(this).data('value');
+                var ratingIcons = $('.ratingicon');
+                for (var i = 0; i < starValue; i++) {
+                    $(ratingIcons[i]).css('color', settings.coloron);
+                }
+            }).mouseout(function () {
+                var currentRate = $(this).parent().attr('data-rating');
+                var ratingIcons = $('.ratingicon');
+                for (var i = ratingIcons.length; i >= currentRate; i--) {
+                    $(ratingIcons[i]).css('color', settings.coloroff);
+                }
+            });*/
+
+            //paint
+            this.each(function () {
+                paintShow($(this));
+            });
+
+        }
+
         if (method == 'set') {
             this.attr('data-rating', options);
             this.each(function () {
@@ -78,6 +116,22 @@
             rating = parseInt(div.attr('data-rating'));
             div.find("input").val(rating);	//if there is an input in the div lets set it's value
             div.find("span.ratingicon").each(function () {	//now paint the stars
+
+                var rating = parseInt($(this).parent().attr('data-rating'));
+                var value = parseInt($(this).attr('data-value'));
+                if (value > rating) {
+                    $(this).css('color', settings.coloroff);
+                }
+                else {
+                    $(this).css('color', settings.coloron);
+                }
+            })
+        }
+
+        function paintShow(div) {
+            rating = parseInt(div.attr('data-rating'));
+            div.find("input").val(rating);	//if there is an input in the div lets set it's value
+            div.find("div.ratingicon").each(function () {	//now paint the stars
 
                 var rating = parseInt($(this).parent().attr('data-rating'));
                 var value = parseInt($(this).attr('data-value'));

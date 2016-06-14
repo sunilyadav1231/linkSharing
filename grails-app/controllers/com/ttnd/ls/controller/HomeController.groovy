@@ -12,7 +12,6 @@ class HomeController {
     }
 
 
-
     def posts(){
 
         render(view: '/login/post',model: [])

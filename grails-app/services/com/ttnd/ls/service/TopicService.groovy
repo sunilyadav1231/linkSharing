@@ -25,21 +25,12 @@ class TopicService {
             respData.respCode=LSConstants.FAILURE_CODE
             respData.respMessageCode=LSConstants.FAILURE_CODE
         }
-
     }
 
     def topicList(Long userId){
-
         List<Topic> topicList = Topic.findAllById(userId)
-
         topicList
     }
-
-/*    def subscribedTopics(User user){
-        List<Topic> subscribedTopics = Subscription.findAllByUser(user)*.topic
-        subscribedTopics
-    }*/
-
 
     def publicTopics(){
         List<Topic> publicTopic = Topic.findAllByVisibility(Visibility.PUBLIC)
@@ -52,55 +43,29 @@ class TopicService {
         List<Topic> topics = user.subscriptions*.topic.sort{
             Topic topic -> topic.resources.dateCreated
         }
-
         topics
-        /*def criteria = Subscription.createCriteria()*/
-/*        List<Subscription> subscriptionList = (criteria.list{
-            maxResults(5)
-            eq('user',user)
-            *//*'topic' {
-                'resources' {
-                    order('dateCreated', 'asc')
-                }
-            }*//*
-        }).sort{
-            Subscription subscription -> subscription.topic.resources.dateCreated
-        }
-        subscriptionList*/
-
     }
 
     def trendingTopics(User user){
+        def criteria = Topic.createCriteria()
 
-        List<Topic> topics = Topic.findAllByCreatedByOrVisibility(User.load(user.id),Visibility.PUBLIC)
-        topics.sort{
+        List<Topic> topicList = criteria.list {
+            or{
+                eq('visibility',Visibility.PUBLIC)
+                'subscriptions'{
+                    eq('user',user)
+                }
+            }
+        }
+        topicList.sort {
             Topic topic -> -topic.resources.size()
         }
-        topics
+        topicList
+    }
 
-        /*List<Subscription> subscriptionList = (criteria.list{
-            or{
-                'topic'{
-                    eq("visibility",Visibility.PUBLIC)
-                }
-                eq('user',user)
-            }
-
-
-        }).sort{
-            Subscription subscription-> -subscription.topic.resources.size()
-        }
-
-        subscriptionList = subscriptionList.unique{a,b ->
-            a.topic.id<=>  b.topic.id
-        }*/
-        //subscriptionList = subscriptionList.unique()
-        /*List result
-        if(subscriptionList.size()>4){
-            result =subscriptionList.subList(0,5)
-        }else{
-            result =subscriptionList
-        }
-        result*/
+    def changeVisibility(Map map){
+        Topic topic = Topic.load(map.topicId)
+        topic.visibility=map.topicVisibility
+        topic
     }
 }

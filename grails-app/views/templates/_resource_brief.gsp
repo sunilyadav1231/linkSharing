@@ -51,7 +51,7 @@
                     <a href="#"><i class="fa fa-google-plus"></i></a>
                     <div class="pull-right">
                         <g:if test="${session.userData && resource instanceof com.ttnd.ls.entity.FileResource}">
-                            <span class="tab-space"><a href="#"><small>Download</small></a></span>
+                            <span class="tab-space"><g:link controller="login" action="downloadResource" params='[path: "${resource.fileDocument}"]'><small>Download</small></g:link></span>
                         </g:if>
                         <g:if test="${session.userData && resource instanceof com.ttnd.ls.entity.LinkResource}">
                             <span class="tab-space"><a target="_blank" href="${resource.urlDocument}"><small>View full site</small></a></span>

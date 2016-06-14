@@ -4,6 +4,7 @@ import com.ttnd.ls.dto.TopicDto
 import com.ttnd.ls.entity.Topic
 import com.ttnd.ls.entity.User
 import com.ttnd.ls.service.TopicService
+import grails.converters.JSON
 
 class TopicController {
     //static scaffold = Topic
@@ -37,5 +38,9 @@ class TopicController {
         redirect(controller: 'user', action: 'dashboard')
     }
 
+    def changeVisiblity(){
+        Topic topic =topicService.changeVisibility(params)
+        render topic as JSON
+    }
 
 }

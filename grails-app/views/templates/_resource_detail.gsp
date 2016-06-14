@@ -1,9 +1,4 @@
-<script>
-    $(document).ready(function(){
 
-        $("#stars-herats").rating('create',{coloron:'green',limit:5,glyph:'glyphicon-heart'});
-    });
-</script>
 
 <g:if test="${session.userData?.admin || resource.createdBy.id==session.userData?.id}">
     <g:set var="canUpdateTopic" value="true"/>
@@ -11,6 +6,7 @@
 <g:else>
     <g:set var="canUpdateTopic" value="false"/>
 </g:else>
+
 
 <div class="row">
     <div class="col-xs-3 ">
@@ -26,27 +22,33 @@
             </a>
         </div>
         <div class="row">
-            <span class="col-xs-8"> @${resource?.createdBy?.userName}  </span>
-            <span class="col-xs-4">
-                <small>
+            <span class="col-xs-7"> @${resource?.createdBy?.userName}  </span>
+            <span class="col-xs-5 small pull-right">
                     <time class="timeago" datetime="${resource?.dateCreated}">
                         <g:formatDate format="MMM dd, yyyy hh:mm" date="${resource?.dateCreated}"/>
                     </time>
-                </small>
             </span>
         </div>
         <div class="row">
-            <span class="col-xs-5 pull-right">
-                %{--<div id="stars-herats" data-rating="3"></div>--}%
-
-                <div id="stars-herats" disabled="true" data-rating="3"></div>
-               %{-- <i class="glyphicon glyphicon-heart"></i>
-                <i class="glyphicon glyphicon-heart"></i>
-                <i class="glyphicon glyphicon-heart-empty"></i>
-                <i class="glyphicon glyphicon-heart-empty"></i>
-                <i class="glyphicon glyphicon-heart-empty"></i>--}%
-
-            </span>
+            <g:if test="${resource.averageRating}">
+                <span class="col-xs-5 pull-right resource-rating" id="res_avg_count_${resource.id}" data-rating="${resource.averageRating}">
+                </span>
+            </g:if>
+            <g:else>
+                <span class="col-xs-5 pull-right resource-rating">
+                </span>
+            </g:else>
+        </div>
+        <div class="row">
+            <g:if test="${resource.averageRating}">
+                <span  class="col-xs-5 pull-right">
+                    <span id="res_user_count_${resource.id}">${resource.ratingUserCount}</span> rating
+                </span>
+            </g:if>
+            <g:else>
+                <span class="col-xs-5 pull-right" id="res_user_count_${resource.id}">
+                </span>
+            </g:else>
         </div>
         <div class="row text-justify">
                 <div class="col-xs-12 " >
@@ -67,7 +69,7 @@
                         <span class="tab-space"><a href="#"><small>Edit</small></a></span>
                     </g:if>
                     <g:if test="${resource instanceof com.ttnd.ls.entity.FileResource}">
-                        <span class="tab-space"><a href="#"><small>Download</small></a></span>
+                        <span class="tab-space"><g:link controller="login" action="downloadResource" params='[path: "${resource.fileDocument}"]'><small>Download</small></g:link></span>
                     </g:if>
                     <g:if test="${resource instanceof com.ttnd.ls.entity.LinkResource}">
                         <span class="tab-space"><a target="_blank" href="${resource.urlDocument}"><small>View full site</small></a></span>

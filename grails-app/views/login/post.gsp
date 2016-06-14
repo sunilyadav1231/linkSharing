@@ -3,6 +3,40 @@
 <head>
     <meta name="layout" content="main">
 
+    <script>
+        $(document).ready(function(){
+            <g:if test="${session.userData}">
+            $(".resource-rating").rating('create',{coloron:'green',limit:5,glyph:'glyphicon-heart'});
+            $(".resource-rating").addClass('clickable')
+            </g:if>
+            <g:else>
+            $(".resource-rating").rating('show',{coloron:'green',limit:5,glyph:'glyphicon-heart'});
+            </g:else>
+
+            $(".clickable").click(function(){
+                var rating = $(this).rating('get')
+                $.ajax({
+                    url:"${g.createLink(controller:'resourceOperation',action:'rateResource')}",
+                    dataType: 'json',
+                    type : 'POST',
+                    data: {
+                            'resourceId':${resource.id},
+                            'resourceScore':$(this).rating('get')
+                    },
+                    success: function(data) {
+                        alert(data.ratingUserCount)
+                        $("#alert_model").modal();
+                        $("#res_avg_count_"+${resource.id}).rating('set',data.averageRating)
+                        $("#res_user_count_"+${resource.id}).text(data.ratingUserCount)
+
+                    },
+                    error: function(request, status, error) {
+                        $(this).rating('set',rating)
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -47,96 +81,28 @@
             </g:else>
 
 
-            %{--<div class="panel panel-default">
-                <div class="panel-heading">Trending topics</div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="row">
-                            <div class="col-xs-3 ">
-                                <asset:image  src="personIcon.png"></asset:image>
-                            </div>
-                            <div class="col-xs-9">
-
-                                <div class="row">
-                                    <span class="col-xs-8">Uday Pratap Singh</span>
-                                    <a class="col-xs-4" href="#">Grails</a>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-4">
-                                        <br/> <small>@uday</small>
-                                        <br/> <a href="#" >Subscribe</a>
-
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <br/><small>Subscription</small> <br/>
-                                        50
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <br/><small>Topics</small><br/>
-                                        30
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="row">
-                            <div class="col-xs-3 ">
-                                <asset:image  src="personIcon.png"></asset:image>
-                            </div>
-                            <div class="col-xs-9">
-
-                                        <div class="row">
-                                            <span class="col-xs-8">Uday Pratap Singh</span>
-                                            <a class="col-xs-4" href="#">Grails</a>
-                                        </div>
-
-                                <div class="row">
-                                    <div class="col-xs-4">
-                                        <br/> <small>@uday</small>
-                                        <br/> <a href="#" >Unsubscribe</a>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <br/><small>Subscription</small> <br/>
-                                        50
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <br/><small>Topics</small><br/>
-                                        30
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-3"></div>
-                            <div class="col-xs-3">
-                                <select class="dropdown">
-                                    <option>Serious</option>
-                                    <option>Serious</option>
-                                    <option>Serious</option>
-                                </select>
-                            </div>
-                            <div class="col-xs-3">
-                                <select class="dropdown">
-                                    <option>Private</option>
-                                    <option>Private</option>
-                                    <option>Private</option>
-                                </select>
-                            </div>
-                            <div class="col-xs-3">
-                                <a href="#">edit</a>
-                                <a class="tab-space" href="#">delete</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>--}%
-            <!--<div class="col-lg-5 col-md-5 col-xs-5 col-sm-5">dd</div>-->
         </div>
 
     </div>
-    <!--</div>-->
+
+    <div class="modal fade" id="alert_model" role="alert">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Post Rated Successfully</h4>
+                </div>
+                <div class="modal-body">
+                    <p>You rated the post successfully</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>
