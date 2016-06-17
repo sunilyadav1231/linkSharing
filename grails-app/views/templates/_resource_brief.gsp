@@ -5,7 +5,10 @@
 
     <div class="row">
         <div class="col-xs-3 ">
-            <g:render template="/templates/show_image" model='[photoPath:"${resource?.createdBy.photoPath}"]'/>
+            <g:link controller="login" action="fetchUserDetail" params= "['userName':resource?.createdBy.userName]">
+                <g:render template="/templates/show_image" model='[photoPath:"${resource?.createdBy.photoPath}"]'/>
+            </g:link>
+
         </div>
         <div class="col-xs-9">
             <div class="row">
@@ -13,18 +16,23 @@
                     <div class="row">
                         <div class="col-xs-6 ">
                             <a href="#" class="">
-                                ${resource?.createdBy?.fullName}
+                                <g:link controller="login" action="fetchUserDetail" params= "['userName':resource?.createdBy.userName]">
+                                    ${resource?.createdBy?.fullName}
+                                </g:link>
+
                             </a>
                         </div>
                         <div class="col-xs-6 pull-right">
-                            <a href="#" class="tab-space pull-right">
+                            <g:link class="tab-space pull-right" controller="login" action="showTopic" params= "['topic.id': resource?.topic?.id]">
                                 ${resource?.topic?.name}
-                            </a>
+                            </g:link>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-6 small">
-                            @${resource?.createdBy?.userName}
+                            <g:link controller="login" action="fetchUserDetail" params= "['userName':resource?.createdBy.userName]">
+                                @${resource?.createdBy?.userName}
+                            </g:link>
                         </div>
                         <div class="col-xs-6 pull-right small">
                                     <time class="timeago" datetime="${resource?.dateCreated}">

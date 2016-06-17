@@ -10,10 +10,10 @@
 
                     <div class="form-group form-group-sm">
                         <div class="col-xs-4 ">
-                            <label class=" control-label" for="email">Email* :</label>
+                            <label class=" control-label" for="sentTo">Email* :</label>
                         </div>
                         <div class="col-xs-8">
-                            <textarea class="form-control" placeholder="Email" type="text" id="email"></textarea>
+                            <textarea class="form-control" placeholder="Email" type="text" id="sentTo"></textarea>
                         </div>
                     </div>
                     <div class="form-group form-group-sm">
@@ -21,12 +21,12 @@
                             <label class="control-label" for="invite">Topic* :</label>
                         </div>
                         <div id="invite" class="col-xs-8">
-                            <g:select name="topic" from="${subscribedTopics}" optionKey="id" optionValue="name"/>
+                            <g:select class="topicToInvite" name="topic" from="${session.userData.subscriptions*.topic}" optionKey="id" optionValue="name"/>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-default">Invite</button>
+                    <button type="button" id="sendInvitation"  class="btn btn-default">Invite</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 
                 </div>
@@ -34,42 +34,3 @@
         </form>
     </div>
 </div>
-
-%{--
-
-<div class="panel panel-default ">
-    <div class="panel-heading">Send invitation(Pop up)</div>
-    <div class="panel-body">
-        <form class="form-horizontal">
-
-            <div class="form-group form-group-sm">
-                <div class="col-xs-4 ">
-                    <label class=" control-label" for="email">Email* :</label>
-                </div>
-                <div class="col-xs-8">
-                    <textarea class="form-control" placeholder="Email" type="text" id="email"></textarea>
-                </div>
-            </div>
-            <div class="form-group form-group-sm">
-                <div class="col-xs-4 ">
-                    <label class="control-label" for="invite">Topic* :</label>
-                </div>
-                <div id="invite" class="col-xs-8">
-                    <select class="form-control">
-                        <option>Topic</option>
-                        <option>Topic</option>
-                        <option>Topic</option>
-                    </select>
-                </div>
-            </div>
-
-
-            <div class="">
-                <button class="col-xs-3 pull-right">Cancel</button>
-                <button class="col-xs-3 pull-right">Invite</button>
-            </div>
-        </form>
-    </div>
-</div>
-<!--<div class="col-lg-5 col-md-5 col-xs-5 col-sm-5">dd</div>-->
---}%

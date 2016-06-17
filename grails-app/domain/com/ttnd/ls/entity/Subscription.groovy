@@ -15,6 +15,7 @@ class Subscription {
 
     static mapping = {
         topic lazy: false
+        user lazy:false
     }
 
     static belongsTo = [ user : User,topic:Topic]

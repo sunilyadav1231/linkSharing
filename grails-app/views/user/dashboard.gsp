@@ -23,24 +23,7 @@
                 });
             });
 
-            $(".topic_visiblity").change(function(){
-                $.ajax({
-                    url:"${g.createLink(controller:'topic',action:'changeVisiblity')}",
-                    dataType: 'json',
-                    type : 'POST',
-                    data: {
-                        'topicId':$(this).attr('identity'),
-                        'topicVisibility':$(this).val()
-                    },
-                    success: function(data) {
-                        //$(".visible_"+data.id).val(data.visibility);
-                        $("#seriousness_alert_model").modal();
-                    },
-                    error: function(request, status, error) {
 
-                    }
-                });
-            });
         });
     </script>
 </head>
@@ -50,31 +33,7 @@
             <div class="col-xs-5" >
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4 ">
-                                <g:render template="/templates/show_image" model='[photoPath:"${session.userData?.photoPath}"]'/>
-
-                            </div>
-                            <div class="col-xs-8">
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <div><b>${userData.fullName}</b></div>
-                                            <div><small>@${userData.userName}</small></div>
-                                        </div>
-                                    </div>
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                       <small>Subscriptions</small> <br/>
-                                        ${userData.subscriptions.size()}
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <small>Topics</small><br/>
-                                        ${userData.topics.size()}
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <g:render template="/templates/user_detail" model="${session.userData}" var="userData"/>
                     </div>
                 </div>
 
@@ -121,44 +80,6 @@
             </div>
         </div>
 
-<div class="modal fade" id="visiblity_alert_model" role="dialog">
-    <div class="modal-dialog">
 
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title text-center">Visibility Changed Successfully</h4>
-            </div>
-            <div class="modal-body text-center">
-                <p>You have changed visibility successfully</p>
-            </div>
-            <div class="modal-footer">
-                <center><button type="submit" class="btn btn-default" data-dismiss="modal">Ok</button></center>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<div class="modal fade" id="seriousness_alert_model" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title text-center">Seriousness changed!!</h4>
-            </div>
-            <div class="modal-body text-center">
-                <p>You have changed seriousness successfully</p>
-            </div>
-            <div class="modal-footer text-center">
-                <center><button type="submit" class="btn btn-default" data-dismiss="modal">Ok</button></center>
-            </div>
-        </div>
-
-    </div>
-</div>
 </body>
 </html>

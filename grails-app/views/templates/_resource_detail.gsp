@@ -1,6 +1,6 @@
 
 
-<g:if test="${session.userData?.admin || resource.createdBy.id==session.userData?.id}">
+<g:if test="${session.userData?.admin || resource?.createdBy?.id==session.userData?.id}">
     <g:set var="canUpdateTopic" value="true"/>
 </g:if>
 <g:else>
@@ -10,19 +10,28 @@
 
 <div class="row">
     <div class="col-xs-3 ">
-        <g:render template="/templates/show_image" model='[photoPath:"${resource?.createdBy.photoPath}"]'/>
+        <g:link controller="login" action="fetchUserDetail" params= "['userName':resource?.createdBy.userName]">
+            <g:render template="/templates/show_image" model='[photoPath:"${resource?.createdBy?.photoPath}"]'/>
+        </g:link>
     </div>
     <div class="col-xs-9">
         <div class="row">
             <span class="col-xs-8">
-                ${resource?.createdBy?.fullName}
+                <g:link controller="login" action="fetchUserDetail" params= "['userName':resource?.createdBy.userName]">
+                    ${resource?.createdBy?.fullName}
+                </g:link>
             </span>
-            <a class="col-xs-4" href="#">
+            <g:link class="col-xs-4" controller="login" action="showTopic" params= "['topic.id': resource?.topic?.id]">
                 ${resource?.topic?.name}
-            </a>
+            </g:link>
         </div>
         <div class="row">
-            <span class="col-xs-7"> @${resource?.createdBy?.userName}  </span>
+            <span class="col-xs-7">
+                <g:link controller="login" action="fetchUserDetail" params= "['userName':resource?.createdBy.userName]">
+                    @${resource?.createdBy?.userName}
+                </g:link>
+
+            </span>
             <span class="col-xs-5 small pull-right">
                     <time class="timeago" datetime="${resource?.dateCreated}">
                         <g:formatDate format="MMM dd, yyyy hh:mm" date="${resource?.dateCreated}"/>
@@ -30,23 +39,25 @@
             </span>
         </div>
         <div class="row">
-            <g:if test="${resource.averageRating}">
-                <span class="col-xs-5 pull-right resource-rating" id="res_avg_count_${resource.id}" data-rating="${resource.averageRating}">
+
+            <g:if test="${resource?.averageRating}">
+
+                <span class="col-xs-5 pull-right resource-rating" identity="${resource?.id}" id="res_avg_count_${resource?.id}" data-rating="${resource.averageRating}">
                 </span>
             </g:if>
             <g:else>
-                <span class="col-xs-5 pull-right resource-rating">
+                <span class="col-xs-5 pull-right resource-rating" identity="${resource?.id}">
                 </span>
             </g:else>
         </div>
         <div class="row">
-            <g:if test="${resource.averageRating}">
+            <g:if test="${resource?.averageRating}">
                 <span  class="col-xs-5 pull-right">
-                    <span id="res_user_count_${resource.id}">${resource.ratingUserCount}</span> rating
+                    <span id="res_user_count_${resource?.id}">${resource?.ratingUserCount}</span> rating
                 </span>
             </g:if>
             <g:else>
-                <span class="col-xs-5 pull-right" id="res_user_count_${resource.id}">
+                <span class="col-xs-5 pull-right" id="res_user_count_${resource?.id}">
                 </span>
             </g:else>
         </div>
@@ -65,8 +76,8 @@
                 <a href="#"><i class="fa fa-google-plus"></i></a>
                 <div class="pull-right">
                     <g:if test="${canUpdateTopic=='true'}">
-                        <span class="tab-space"><a href="#"><small>Delete</small></a></span>
-                        <span class="tab-space"><a href="#"><small>Edit</small></a></span>
+                        <span class="tab-space"><a href="#" class="delete_resource" identity="${resource.id}" ><small>Delete</small></a></span>
+                        <span class="tab-space"><a href="#" identity="${resource.id}" ><small>Edit</small></a></span>
                     </g:if>
                     <g:if test="${resource instanceof com.ttnd.ls.entity.FileResource}">
                         <span class="tab-space"><g:link controller="login" action="downloadResource" params='[path: "${resource.fileDocument}"]'><small>Download</small></g:link></span>
@@ -82,3 +93,4 @@
         </div>
     </div>
 </div>
+<hr/>

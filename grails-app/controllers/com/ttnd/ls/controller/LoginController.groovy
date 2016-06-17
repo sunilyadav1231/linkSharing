@@ -4,15 +4,17 @@ import com.ttnd.ls.constants.LSConstants
 import com.ttnd.ls.dto.ResponseData
 import com.ttnd.ls.dto.UserDto
 import com.ttnd.ls.entity.Resource
+import com.ttnd.ls.entity.Topic
 import com.ttnd.ls.entity.User
 import com.ttnd.ls.service.LoginService
 import com.ttnd.ls.service.ResourceService
+import grails.plugin.asyncmail.AsynchronousMailService
 
 class LoginController {
 
     LoginService loginService
-
     ResourceService resourceService
+
 
     def index() {
 
@@ -72,7 +74,6 @@ class LoginController {
     }
 
     def register() {
-
         loginService.fetchUserData(params)
         User user = new User()
         bindData(user,params)
@@ -89,6 +90,21 @@ class LoginController {
         map1.user = session.userData
         Map map = resourceService.showPostDetail(map1)
         render(view: 'post',model:map)
+    }
+
+    def showTopic(Topic topic){
+        Map map1=[:]
+        map1.topic=topic
+        map1.user = session.userData
+        Map map = resourceService.showTopicDetail(map1)
+        render(view: 'topic',model:map)
+    }
+
+    def fetchUserDetail(String userName){
+        Map map=[:]
+            map = loginService.fetchUserDetail(userName,session.userData)
+        render(view: 'user_profile',model:map)
+
     }
 
 

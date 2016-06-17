@@ -17,9 +17,13 @@
 
 p { word-wrap: break-word}
 
-a {outline: none}
+a {outline: none;outline: none}
 
 
+.layout {
+    background-image: url(../images/dark_wood.png);
+}
 
-
+.header{background: none}
+.heading{color: #2b669a }
 

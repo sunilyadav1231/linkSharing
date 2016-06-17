@@ -23,6 +23,11 @@ class ResourceController {
         redirect(controller: 'user', action: 'dashboard')
     }
 
+    def deleteResource(){
+        resourceService.deleteResource(params)
+        redirect(controller: 'user', action: 'dashboard')
+    }
+
 
 
 

@@ -130,3 +130,17 @@ log4j.main = {
 
 
 }
+
+
+grails {
+    mail {
+        host = "smtp.gmail.com"
+        port = 587
+        username = "linksharing.sunil@gmail.com"
+        password = "Link@123"
+        props = ["mail.smtp.auth":"true",
+                 "mail.smtp.socketFactory.port": "465",
+                 "mail.smtp.socketFactory.class": "javax.net.ssl.SSLSocketFactory",
+                 "mail.smtp.socketFactory.fallback": "false"]
+    }
+}

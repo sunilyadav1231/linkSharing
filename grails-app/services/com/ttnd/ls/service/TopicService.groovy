@@ -41,7 +41,7 @@ class TopicService {
     def fetchSubscribedTopic(User user){
         user = User.get(user.id)
         List<Topic> topics = user.subscriptions*.topic.sort{
-            Topic topic -> topic.resources.dateCreated
+            Topic topic -> topic.resources.lastUpdated
         }
         topics
     }
@@ -66,6 +66,12 @@ class TopicService {
     def changeVisibility(Map map){
         Topic topic = Topic.load(map.topicId)
         topic.visibility=map.topicVisibility
+        topic
+    }
+
+    def deleteTopic(Map map){
+        Topic topic = Topic.load(map.id)
+        topic.delete()
         topic
     }
 }

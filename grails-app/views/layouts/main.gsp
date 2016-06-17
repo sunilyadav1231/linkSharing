@@ -15,23 +15,147 @@
   		<asset:stylesheet src="application.css"/>
 		<asset:stylesheet src="bootstrap.min.css"/>
 		<asset:stylesheet src="bootstrap-theme.min.css"/>
+		<asset:stylesheet src="bootstrap-toggle.min.css"/>
+
 		<asset:stylesheet src="font-awesome.min.css"/>
 		<asset:javascript src="jquery.min.js"/>
 		<asset:javascript src="bootstrap.min.js"/>
+		<asset:javascript src="bootstrap-toggle.min.js"/>
+
 		<asset:javascript src="jquery.timeago.js"/>
 		<asset:javascript src="star-rating.js"/>
 		<asset:javascript src="application.js"/>
-
 		<g:layoutHead/>
+	<script>
+		$(document).ready(function(){
+			<g:if test="${session.userData}">
+			$(".resource-rating").rating('create',{coloron:'green',limit:5,glyph:'glyphicon-heart'});
+			$(".resource-rating").addClass('clickable')
+			</g:if>
+			<g:else>
+			$(".resource-rating").rating('show',{coloron:'green',limit:5,glyph:'glyphicon-heart'});
+			</g:else>
+
+			$(".clickable").click(function(){
+				var rating = $(this).rating('get')
+				var id = $(this).attr('identity')
+				$.ajax({
+					url:"${g.createLink(controller:'resourceOperation',action:'rateResource')}",
+					dataType: 'json',
+					type : 'POST',
+					data: {
+						'resourceId':id,
+						'resourceScore':$(this).rating('get')
+					},
+					success: function(data) {
+						$("#alert_model").modal();
+						$("#res_avg_count_"+id).rating('set',data.averageRating)
+						$("#res_user_count_"+id).text(data.ratingUserCount)
+
+					},
+					error: function(request, status, error) {
+						$(this).rating('set',rating)
+					}
+				});
+			});
+		});
+	</script>
+		<script>
+
+			$(document).ready(function(){
+
+				$(".topic_visibility").change(function(){
+					var topicVisibility = ""
+					if($(this). prop("checked") == true){
+						topicVisibility = "PUBLIC"
+					}else{
+						topicVisibility = "PRIVATE"
+					}
+					$.ajax({
+					 url:"${g.createLink(controller:'topic',action:'changeVisiblity')}",
+					 dataType: 'json',
+					 type : 'POST',
+					 data: {
+					 'topicId':$(this).attr('identity'),
+					 'topicVisibility':topicVisibility
+					 },
+					 success: function(data) {
+					 //$(".visible_"+data.id).val(data.visibility);
+					 $("#seriousness_alert_model").modal();
+					 },
+					 error: function(request, status, error) {
+
+					 }
+					 });
+				});
+
+				$("#sendInvitation").click(function(){
+					$.ajax({
+						url:"${g.createLink(controller:'user',action:'sendInvitation')}",
+						dataType: 'json',
+						type : 'POST',
+						data: {
+							'topicId':$(".topicToInvite").val(),
+							'sentTo':$("#sentTo").val()
+						},
+						success: function(data) {
+							$('#send_invitation').modal('toggle');
+							$("#send_invitation_model").modal();
+						},
+						error: function(request, status, error) {
+
+						}
+					});
+				});
+
+				$(".invitation_modal").click(function(){
+					$('.topicToInvite').prop('disabled', false);
+					var ident = $(this).attr('identity');
+					if(ident){
+						$(".topicToInvite").val(ident);
+						$('.topicToInvite').prop('disabled', true);
+					}
+
+				});
+
+				$(".delete_topic").click(function(){
+					var ident = $(this).attr('identity');
+						$("#deleteTopicId").val(ident)
+						$("#delete_topic").modal();
+
+				});
+
+				$(".delete_resource").click(function(){
+					var ident = $(this).attr('identity');
+					$("#deleteResourceId").val(ident)
+					$("#delete_resource").modal();
+
+				});
+
+			});
+
+
+		</script>
 	</head>
-	<body class="container">
+	<body class="container layout">
 
 
-			<div class="row">
+			<div class="row header">
 				<div  class=" panel panel-default">
-					<div class="panel-body">
+					<div class="panel-body header">
 						<div class="col-xs-8">
-							<h3><a href="#">Link Sharing</a></h3>
+							<div class="row">
+								<div class="col-xs-4">
+									<g:link controller="login" action="index" >
+										<asset:image height="50%" width="50%"  src="logo_2099511_web.png"/>
+									</g:link>
+								</div>
+								<div class="col-xs-8 heading">
+									<h1>Link Sharing</h1>
+									<h4 class="pull-right">share your views...</h4>
+								</div>
+							</div>
+
 						</div>
 						<div class="col-xs-4">
 							<g:if test="${session.userData}">
@@ -39,26 +163,30 @@
 								<g:render  template="/templates/share_link"/>
 								<g:render  template="/templates/share_document"/>
 								<g:render  template="/templates/send_invitation"/>
+								<g:render template="/templates/update_profile"/>
+								<g:render template="/templates/delete_topic"/>
+								<g:render template="/templates/delete_resource"/>
 								<div class="row  pull-right ">
 									<div class="col-xs-12 pull-right">
 										<a href="#" title="Create Topic"  data-toggle="modal" data-target="#create_topic"><i class="fa fa-comment fa-lg"></i></a>
-										<g:if test="${subscribedTopics}">
-											<a title="Send Invitation" class="tab-space" data-toggle="modal" data-target="#send_invitation"  href="#"><i class="fa fa-envelope-o fa-lg"></i></a>
+										<g:if test="${session.userData.subscriptions}">
+											<a title="Send Invitation" class="tab-space invitation_modal" data-toggle="modal" data-target="#send_invitation"  href="#"><i class="fa fa-envelope-o fa-lg"></i></a>
 											<a href="#" title="Share Link" data-toggle="modal" data-target="#share_link" class="tab-space"><i class="fa fa-link fa-lg"></i></a>
 											<a href="#" title="Share Document" data-toggle="modal" data-target="#share_document" class="tab-space"><i class="fa fa-file-o fa-lg"></i></a>
 										</g:if>
 
 										<span class="tab-space"></span>
 										<span class="tab-space">
+											<g:link controller="login" action="fetchUserDetail" params= "['userName':session.userData.userName]">
+												<g:if test="${session.userData.photoPath}">
+													<img  height="7%" width="7% "  src="${createLink(controller:'login', action:'showImage',params: [path: "${session.userData.photoPath}"] )}" />
+												</g:if>
+												<g:else>
+													<asset:image height="8%" width="8% "  src="personIcon.png"></asset:image>
+												</g:else>
 
-											<g:if test="${session.userData.photoPath}">
-												<img  height="7%" width="7% "  src="${createLink(controller:'login', action:'showImage',params: [path: "${session.userData.photoPath}"] )}" />
-											</g:if>
-											<g:else>
-												<asset:image height="8%" width="8% "  src="personIcon.png"></asset:image>
-											</g:else>
-
-											<span>${session.userData.fullName}</span>
+												<span>${session.userData.fullName}</span>
+											</g:link>
 											<g:link controller="login" action="logout" class="tab-space" href="#"><i class="fa fa-sign-out fa-lg"></i></g:link>
 
 										</span>
@@ -86,5 +214,86 @@
 
 			</div>
 
+
+	<div class="modal fade" id="send_invitation_model" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title text-center">Invitation Sent</h4>
+				</div>
+				<div class="modal-body text-center">
+					<p>Invitation sent successfully</p>
+				</div>
+				<div class="modal-footer text-center">
+					<center><button type="submit" class="btn btn-default" data-dismiss="modal">Ok</button></center>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="modal fade" id="visiblity_alert_model" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title text-center">Visibility Changed Successfully</h4>
+				</div>
+				<div class="modal-body text-center">
+					<p>You have changed visibility successfully</p>
+				</div>
+				<div class="modal-footer">
+					<center><button type="submit" class="btn btn-default" data-dismiss="modal">Ok</button></center>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="modal fade" id="seriousness_alert_model" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title text-center">Seriousness changed!!</h4>
+				</div>
+				<div class="modal-body text-center">
+					<p>You have changed seriousness successfully</p>
+				</div>
+				<div class="modal-footer text-center">
+					<center><button type="submit" class="btn btn-default" data-dismiss="modal">Ok</button></center>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="modal fade" id="alert_model" role="alert">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Post Rated Successfully</h4>
+				</div>
+				<div class="modal-body">
+					<p>You rated the post successfully</p>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-default" data-dismiss="modal">Ok</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
 	</body>
 </html>

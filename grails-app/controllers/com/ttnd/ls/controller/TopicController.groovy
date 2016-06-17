@@ -43,4 +43,9 @@ class TopicController {
         render topic as JSON
     }
 
+    def deleteTopic(){
+        Topic topic =topicService.deleteTopic(params)
+        redirect(controller: 'user', action: 'dashboard')
+    }
+
 }

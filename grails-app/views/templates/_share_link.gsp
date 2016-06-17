@@ -29,7 +29,7 @@
                             <label class="control-label" for="topic">Topic* :</label>
                         </div>
                         <div id="topic" class="col-xs-8 ">
-                            <g:select name="topic" from="${subscribedTopics}" optionKey="id" optionValue="name"/>
+                            <g:select name="topic" from="${session.userData.subscriptions*.topic}" optionKey="id" optionValue="name"/>
 
                         </div>
                     </div>
