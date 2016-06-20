@@ -11,41 +11,48 @@ class TopicController {
 
     TopicService topicService
 
-    def show(){
+    /*def show(){
         Topic topic=Topic.read(params.topicId)
         if(topic){
 
         }
-    }
-
-    def showAll(){
-
-    }
-
+    }*/
 
     def save() {
-        Topic topic = new Topic(params)
+        params.createdBy=session.userData
+        Map respMap =topicService.createTopic(params)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
 
-        topic.createdBy=session.userData
-
-        topicService.createTopic(topic)
-        if(hasErrors()){
-            flash.message=errors.toString()
-        }else{
-            flash.message="Topic saved successfully"
-        }
-
-        redirect(controller: 'user', action: 'dashboard')
+        render respMap as JSON
     }
 
     def changeVisiblity(){
-        Topic topic =topicService.changeVisibility(params)
-        render topic as JSON
+        Map respMap =topicService.changeVisibility(params)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+
+        render respMap as JSON
     }
 
     def deleteTopic(){
-        Topic topic =topicService.deleteTopic(params)
-        redirect(controller: 'user', action: 'dashboard')
+        Map respMap =topicService.deleteTopic(params)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+
+        render respMap as JSON
+    }
+
+    def updateTopic(){
+        params.createdBy=session.userData
+        Map respMap =topicService.updateTopic(params)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+
+        render respMap as JSON
+    }
+
+    def userTopicList(){
+        params.max=10
+        params.user=session.userData
+        Map map = topicService.userTopicList(params)
+        render(view: '/user/topics',model: map)
     }
 
 }

@@ -12,34 +12,25 @@ class SubscriptionController {
 
     def index() { }
 
-    def subscribe(Topic topic){
+    def subscribe(){
         params.user=session.userData
-        params.topic = topic
-        subscriptionService.subscribe(params)
-        if(hasErrors()){
-            flash.message=errors.toString()
-        }else{
-            flash.message="Topic subscribed successfully"
-        }
+        Map respMap =subscriptionService.subscribe(params)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
 
-        redirect(controller: 'user', action: 'dashboard')
+        render respMap as JSON
     }
 
-    def unSubscribe(Subscription subscription){
+    def unSubscribe(){
+        Map respMap =subscriptionService.unsubscribe(params)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
 
-        subscriptionService.unsubscribe(subscription)
-        if(hasErrors()){
-            flash.message=errors.toString()
-        }else{
-            flash.message="Topic subscribed successfully"
-        }
-
-        redirect(controller: 'user', action: 'dashboard')
+        render respMap as JSON
     }
 
     def changeSeriousness(){
-        Subscription subscription =subscriptionService.changeSeriousness(params)
-        Map map = [:]
-        render map as JSON
+        Map respMap =subscriptionService.changeSeriousness(params)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+
+        render respMap as JSON
     }
 }

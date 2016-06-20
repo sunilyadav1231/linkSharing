@@ -9,4 +9,18 @@
 
 $(document).ready(function() {
 	$("time.timeago").timeago();
+
+	$(".delete_topic").click(function(){
+		var ident = $(this).attr('identity');
+		$("#deleteTopicId").val(ident)
+		$("#delete_topic").modal();
+	});
+
+	$(".delete_resource").click(function(){
+		var ident = $(this).attr('identity');
+		$("#deleteResourceId").val(ident)
+		$("#delete_resource").modal();
+
+	});
 });
+

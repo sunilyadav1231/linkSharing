@@ -1,14 +1,12 @@
 package com.ttnd.ls.controller
 
 import com.ttnd.ls.constants.LSConstants
-import com.ttnd.ls.dto.ResponseData
-import com.ttnd.ls.dto.UserDto
 import com.ttnd.ls.entity.Resource
 import com.ttnd.ls.entity.Topic
 import com.ttnd.ls.entity.User
 import com.ttnd.ls.service.LoginService
 import com.ttnd.ls.service.ResourceService
-import grails.plugin.asyncmail.AsynchronousMailService
+import grails.converters.JSON
 
 class LoginController {
 
@@ -56,13 +54,10 @@ class LoginController {
 
     def loginHandler() {
         def respMap= loginService.validateLogin(params)
-        if(respMap.respData.respCode==LSConstants.SUCCESS_CODE){
-                session.userData = respMap.user
-            redirect(controller: 'user', action: 'index')
-        }else{
-            flash.error = respMap.respData.respMessageCode
-            render(view: 'home', flash.error )
-        }
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+        session.userData = respMap.user
+        render respMap as JSON
+
     }
 
 
@@ -74,13 +69,9 @@ class LoginController {
     }
 
     def register() {
-        loginService.fetchUserData(params)
-        User user = new User()
-        bindData(user,params)
-        loginService.saveUser(user)
-        params.user=user
-        session.userData=user
-        redirect(controller: 'user', action: 'index')
+        Map respMap =loginService.register(params)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+        render respMap as JSON
     }
 
 
@@ -107,5 +98,16 @@ class LoginController {
 
     }
 
+    def forgetPassword(){
+        Map map=[:]
+        map = loginService.forgetPassword(params)
+        redirect(controller: 'login',action: 'home')
+    }
+
+    def validateLink(String token){
+        Map map=[:]
+        map = loginService.validateLink(token)
+        render map as JSON
+    }
 
 }

@@ -8,9 +8,12 @@ class Resource {
                       resourceOperations:ResourceOperation
     ]
 
+    static transients = ['ratingUserCount']
+
     static mapping = {
         createdBy lazy: false
         topic lazy: false
+        description type: "text"
 
     }
 
@@ -22,8 +25,8 @@ class Resource {
     Topic topic
     Date dateCreated
     Date lastUpdated
-    transient int averageRating=0
-    transient int ratingUserCount
+    int averageRating=0
+    transient  int ratingUserCount
     int getAverageRating(){
         if(id){
 

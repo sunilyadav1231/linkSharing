@@ -1,20 +1,20 @@
 <div class="row">
     <div class="col-xs-12">
-        <g:uploadForm class="form-horizontal" controller="login" action="register">
+        <g:uploadForm class="form-horizontal" id="register-form" name="register-form" action="">
             <div class="form-group form-group-sm">
                 <div class="col-xs-5">
-                    <label class=" control-label"  for="fName">First Name *</label>
+                    <label class=" control-label"  for="firstName">First Name *</label>
                 </div>
                 <div class="col-xs-7">
-                    <input class="form-control" name="firstName" type="text" id="fName">
+                    <input class="form-control" maxlength="15" name="firstName" type="text" id="firstName">
                 </div>
             </div>
             <div class="form-group form-group-sm">
                 <div class="col-xs-5">
-                    <label class="control-label" for="lName">Last Name *</label>
+                    <label class="control-label" for="lastName">Last Name *</label>
                 </div>
                 <div class="col-xs-7">
-                    <input class="form-control" name="lastName" type="text" id="lName">
+                    <input class="form-control" maxlength="15" name="lastName" type="text" id="lastName">
                 </div>
             </div>
             <div class="form-group form-group-sm">
@@ -22,39 +22,39 @@
                     <label class="control-label" for="email">Email *</label>
                 </div>
                 <div class="col-xs-7">
-                    <input class="form-control" name="email" type="text" id="email">
+                    <input class="form-control" maxlength="100" name="email" type="text" id="email">
                 </div>
             </div>
             <div class="form-group form-group-sm">
                 <div class="col-xs-5">
-                    <label class="control-label" for="rUsername">Username *</label>
+                    <label class="control-label" for="userName">Username *</label>
                 </div>
                 <div class="col-xs-7">
-                    <input class="form-control" name="userName" type="text" id="rUsername">
+                    <input class="form-control" maxlength="15" name="userName" type="text" id="userName">
                 </div>
             </div>
             <div class="form-group form-group-sm">
                 <div class="col-xs-5">
-                    <label class=" control-label" for="rPassword">Password *</label>
+                    <label class=" control-label" for="password">Password *</label>
                 </div>
                 <div class="col-xs-7">
-                    <input class="form-control" name="password" type="password" id="rPassword">
+                    <input class="form-control" maxlength="15" name="password" type="password" id="password">
                 </div>
             </div>
             <div class="form-group form-group-sm">
                 <div class="col-xs-5 ">
-                    <label class="  control-label" for="cPassword">Confirm Password *</label>
+                    <label class="  control-label" for="confirmPassword">Confirm Password *</label>
                 </div>
                 <div class="col-xs-7">
-                    <input class="form-control" name="confirmPassword" type="password" id="cPassword">
+                    <input class="form-control" maxlength="15" name="confirmPassword" type="password" id="confirmPassword">
                 </div>
             </div>
             <div class="form-group form-group-sm">
                 <div class="col-xs-5">
-                    <label class="control-label" for="photo">Photo</label>
+                    <label class="control-label" for="proflePicFile">Photo</label>
                 </div>
                 <div class="col-xs-7">
-                    <input class="form-control" name="proflePicFile"  type="file" id="photo">
+                    <input class="form-control" name="proflePicFile" type="file"  data-max-size="3m" type="image" id="proflePicFile">
                 </div>
             </div>
             <div>

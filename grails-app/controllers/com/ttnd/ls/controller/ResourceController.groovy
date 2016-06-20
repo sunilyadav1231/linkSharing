@@ -1,8 +1,10 @@
 package com.ttnd.ls.controller
 
 import com.ttnd.ls.entity.Resource
+import com.ttnd.ls.entity.User
 import com.ttnd.ls.service.ResourceService
 import com.ttnd.ls.service.TopicService
+import grails.converters.JSON
 
 class ResourceController {
 
@@ -11,23 +13,41 @@ class ResourceController {
 
     def createLinkResource(){
         params.createdBy = session.userData
-        resourceService.createLinkResource(params)
+        Map respMap =resourceService.createLinkResource(params)
 
-        redirect(controller: 'user', action: 'dashboard')
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+        render respMap as JSON
     }
 
     def createFileResource(){
         params.createdBy = session.userData
-        resourceService.createFileResource(params)
+        Map respMap =resourceService.createFileResource(params)
 
-        redirect(controller: 'user', action: 'dashboard')
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+        render respMap as JSON
+    }
+
+    def updateResource(){
+        Map respMap =resourceService.updateResource(params)
+
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+        render respMap as JSON
     }
 
     def deleteResource(){
-        resourceService.deleteResource(params)
-        redirect(controller: 'user', action: 'dashboard')
+        Map respMap =resourceService.deleteResource(params)
+
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+        render respMap as JSON
     }
 
+    def resourceList(){
+        params.max=10
+        params.user=session.userData
+        Map map = resourceService.userResourceList(params)
+        render(view: '/user/resources',model: map)
+
+    }
 
 
 

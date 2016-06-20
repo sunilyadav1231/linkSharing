@@ -1,3 +1,4 @@
+<g:render template="/templates/update_post"/>
 <g:if test="${session.userData}">
 <g:set var="resourceOp" value="${session.userData.resourceOperations.findAll({it.resource==resource})}"/>
 </g:if>
@@ -45,7 +46,14 @@
                     <div class=" row text-justify">
                         <div class="col-xs-12 " >
                             <p class="text-justify" >
-                                ${resource?.description}
+                                <g:if test="${resource?.description?.length()>150}">
+                                    ${resource?.description.substring(0,145)}...
+                                </g:if>
+                                <g:else>
+                                    ${resource?.description}
+                                </g:else>
+
+
                             </p>
 
                         </div>

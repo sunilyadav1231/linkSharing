@@ -9,30 +9,30 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Update Profile</div>
                     <div class="panel-body">
-                        <g:uploadForm class="form-horizontal" controller="user" action="updateProfile">
+                        <g:uploadForm class="form-horizontal" name="update-profile-form" id="update-profile-form" action="">
                             <div class="form-group form-group-sm">
                                 <div class="col-xs-5">
-                                    <label class=" control-label"  for="fName">First Name *</label>
+                                    <label class=" control-label"  for="firstName">First Name *</label>
                                 </div>
                                 <div class="col-xs-7">
-                                    <input class="form-control" value="${session.userData.firstName}" name="firstName" type="text" id="fName">
+                                    <input class="form-control" value="${session.userData.firstName}" name="firstName" type="text" id="firstName">
                                 </div>
                             </div>
                             <div class="form-group form-group-sm">
                                 <div class="col-xs-5">
-                                    <label class="control-label" for="lName">Last Name *</label>
+                                    <label class="control-label" for="lastName">Last Name *</label>
                                 </div>
                                 <div class="col-xs-7">
-                                    <input class="form-control" value="${session.userData.lastName}" name="lastName" type="text" id="lName">
+                                    <input class="form-control" value="${session.userData.lastName}" name="lastName" type="text" id="lastName">
                                 </div>
                             </div>
                             <div class="form-group form-group-sm">
                                 <div class="col-xs-5">
-                                    <label class="control-label" for="username">Username *</label>
+                                    <label class="control-label" for="userName">Username *</label>
                                 </div>
                                 <div class="col-xs-7">
                                     <input class="form-control" value="${session.userData.id}" name="id" type="hidden" >
-                                    <input class="form-control" value="${session.userData.userName}" name="userName" type="text" id="username">
+                                    <input class="form-control" value="${session.userData.userName}" name="userName" type="text" id="userName">
                                 </div>
                             </div>
 
@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div>
-                                <button type="submit" name="Register" class="pull-right col-xs-4">Update</button>
+                                <button type="submit" name="register" class="pull-right col-xs-4">Update</button>
                             </div>
                         </g:uploadForm>
                     </div>
@@ -54,30 +54,30 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Update Password</div>
                     <div class="panel-body">
-                        <g:uploadForm class="form-horizontal" controller="user" action="changePassword">
+                        <g:uploadForm class="form-horizontal" action="" name="change_password_form" id="change_password_form">
                             <div class="form-group form-group-sm">
                                 <div class="col-xs-5">
-                                    <label class=" control-label" for="cPassword">Current Password *</label>
+                                    <label class=" control-label" for="currentPassword">Current Password *</label>
                                 </div>
                                 <div class="col-xs-7">
-                                    <input class="form-control" name="currentPassword" type="password" id="cPassword">
+                                    <input class="form-control" name="currentPassword" type="password" id="currentPassword">
                                 </div>
                             </div>
                                 <div class="form-group form-group-sm">
                                     <div class="col-xs-5">
-                                        <label class=" control-label" for="nPassword">New Password *</label>
+                                        <label class=" control-label" for="newPassword">New Password *</label>
                                     </div>
                                     <div class="col-xs-7">
-                                        <input class="form-control" value="${session.userData.id}" name="id" type="hidden" >
-                                        <input class="form-control" name="newPassword" type="password" id="nPassword">
+                                        <input class="form-control" value="${session.userData.id}" name="id" id="id" type="hidden" >
+                                        <input class="form-control" name="newPassword" type="password" id="newPassword">
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <div class="col-xs-5 ">
-                                        <label class="  control-label" for="cnPassword">Confirm New Password *</label>
+                                        <label class="  control-label" for="confirmPassword">Confirm New Password *</label>
                                     </div>
                                     <div class="col-xs-7">
-                                        <input class="form-control" name="confirmPassword" type="password" id="cnPassword">
+                                        <input class="form-control" name="confirmPassword" type="password" id="confirmPassword">
                                     </div>
                                 </div>
                                 <div>

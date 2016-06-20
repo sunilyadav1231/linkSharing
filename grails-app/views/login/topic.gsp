@@ -2,71 +2,42 @@
 <html lang="en">
 <head>
         <meta name="layout" content="main">
-
-    <script>
-        $(document).ready(function(){
-
-            $(".topic_seriousness").change(function(){
-                $.ajax({
-                    url:"${g.createLink(controller:'subscription',action:'changeSeriousness')}",
-                    dataType: 'json',
-                    type : 'POST',
-                    data: {
-                        'subscriptionId':$(this).attr('identity'),
-                        'topicSeriousness':$(this).val()
-                    },
-                    success: function(data) {
-                        $("#seriousness_alert_model").modal();
-                    },
-                    error: function(request, status, error) {
-
-                    }
-                });
-            });
-
-/*            $(".topic_visiblity").change(function(){
-                $.ajax({
-                    url:"${g.createLink(controller:'topic',action:'changeVisiblity')}",
-                    dataType: 'json',
-                    type : 'POST',
-                    data: {
-                        'topicId':$(this).attr('identity'),
-                        'topicVisibility':$(this).val()
-                    },
-                    success: function(data) {
-                        //$(".visible_"+data.id).val(data.visibility);
-                        $("#seriousness_alert_model").modal();
-                    },
-                    error: function(request, status, error) {
-
-                    }
-                });
-            });*/
-        });
-    </script>
 </head>
 <body>
 
     <div class="row"   >
-        <div class="col-xs-7" >
+        <div class="col-xs-5" >
             <div class="panel panel-default">
 
                 <div class="panel-body">
                     <g:render template="/templates/topic_detail" model="${topic}" var="topic"/>
                 </div>
             </div>
-            <g:if test="${topic.resources}">
+            <g:if test="${topic.subscriptions}">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Resources</div>
+                    <div class="panel-heading">Subscribed User(s)</div>
                     <div class="panel-body">
-                        <g:render template="/templates/resource_detail" collection="${topic.resources}" var="resource"/>
+                        <g:render template="/templates/user_detail" collection="${topic.subscriptions*.user}" var="userData"/>
                     </div>
                 </div>
             </g:if>
         </div>
 
-        <div class="col-xs-5" >
-            <g:if test="${session.userData}">
+        <div class="col-xs-7" >
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Resource(s) <g:link controller="resource" action="resourceList" class="pull-right">View All</g:link></div>
+                    <div class="panel-body">
+                        <g:if test="${topic.resources}">
+                            <g:render template="/templates/resource_detail" collection="${topic.resources}" var="resource"/>
+                        </g:if>
+                        <g:else>
+                            No resources to show you
+                        </g:else>
+                    </div>
+                </div>
+
+           %{-- <g:if test="${session.userData}">
                 <div class="panel panel-default">
                     <div class="panel-heading">Trending topics</div>
                     <div class="panel-body">
@@ -94,7 +65,7 @@
                         <g:render template="/templates/register"/>
                     </div>
                 </div>
-            </g:else>
+            </g:else>--}%
 
 
         </div>

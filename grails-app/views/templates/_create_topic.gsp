@@ -1,7 +1,7 @@
 
 <div class="modal fade" id="create_topic" role="dialog " aria-hidden="true">
      <div class="modal-dialog">
-        <g:form  controller="topic" action="save" class="form-horizontal">
+        <g:form  name="create-topic-form" id="create-topic-form" class="form-horizontal" action="" novalidate="novalidate"  >
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -16,7 +16,7 @@
                         <label class=" control-label" for="name">Name* :</label>
                     </div>
                     <div class="col-xs-8">
-                        <input class="form-control" name="name" placeholder="Name" type="text" id="name"/>
+                        <input class="form-control" maxlength="20" name="name" placeholder="Name" type="text" id="name"/>
                     </div>
                 </div>
                 <div class="form-group form-group-sm">

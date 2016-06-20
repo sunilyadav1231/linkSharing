@@ -1,14 +1,8 @@
 package com.ttnd.ls.controller
 
-import com.ttnd.ls.dto.UserDto
-import com.ttnd.ls.entity.User
 import com.ttnd.ls.service.TopicService
 import com.ttnd.ls.service.UserService
 import grails.converters.JSON
-import org.apache.tomcat.util.http.ContentType
-
-import javax.servlet.http.HttpServletRequest
-import javax.servlet.http.HttpServletResponse
 
 class UserController {
 
@@ -32,22 +26,47 @@ class UserController {
 
     def sendInvitation(){
         params.user = session.userData
-        Map map = userService.sendInvitation(params)
-        render map as JSON
+        Map respMap = userService.sendInvitation(params)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+
+        render respMap as JSON
     }
 
     def updateProfile(){
-        userService.updateProfile(params)
-        redirect(controller: 'user', action: 'dashboard')
+        Map respMap = userService.updateProfile(params)
+        session.userData=respMap.user
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+
+        render respMap as JSON
+
+    }
+
+    def changeUserStatus(){
+        Map respMap= userService.changeStatus(params)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+
+        render respMap as JSON
 
     }
 
     def changePassword(){
-        userService.changePassword(params)
+        Map respMap=userService.changePassword(params)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
         session.invalidate()
-        redirect(controller: 'login', action: 'index')
+        render respMap as JSON
 
     }
+
+    def users(){
+        params.max=10
+        params.user=session.userData
+        Map map= userService.userList(params)
+        render(view: '/user/users',model:map)
+
+    }
+
+
+
 
 
 

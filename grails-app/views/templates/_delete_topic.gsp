@@ -3,7 +3,7 @@
 
         <!-- Modal content-->
         <div class="modal-content">
-        <g:form controller="topic" action="deleteTopic">
+        <g:form  action="" id="deleteTopic" name="deleteTopic" >
             <input type="hidden" id="deleteTopicId" name="id">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>

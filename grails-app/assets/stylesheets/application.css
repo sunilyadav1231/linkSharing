@@ -11,6 +11,7 @@
 *= require mobile
 *= require_self
 */
+
 .tab-space {padding-left: 10px}
 
 .padd-bottom {padding-bottom: 10px}
@@ -26,4 +27,6 @@ a {outline: none;outline: none}
 
 .header{background: none}
 .heading{color: #2b669a }
+
+.max-height{max-height: 600px; overflow-y:scroll; }
 

@@ -1,6 +1,6 @@
 <div class="modal fade" id="send_invitation" role="dialog">
     <div class="modal-dialog">
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="" name="sendInvitation_form" id="sendInvitation_form">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -13,7 +13,7 @@
                             <label class=" control-label" for="sentTo">Email* :</label>
                         </div>
                         <div class="col-xs-8">
-                            <textarea class="form-control" placeholder="Email" type="text" id="sentTo"></textarea>
+                            <textarea class="form-control" placeholder="Email" name="sentTo" type="text" id="sentTo"></textarea>
                         </div>
                     </div>
                     <div class="form-group form-group-sm">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="sendInvitation"  class="btn btn-default">Invite</button>
+                    <button type="submit"   class="btn btn-default">Invite</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 
                 </div>

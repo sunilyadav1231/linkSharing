@@ -1,7 +1,7 @@
 
 <div class="modal fade" id="share_link" role="dialog">
     <div class="modal-dialog">
-        <g:form controller="resource" action="createLinkResource" class="form-horizontal">
+        <g:form  action="" name="createLinkResource_form" class="form-horizontal">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -10,18 +10,18 @@
                 <div class="modal-body">
                     <div class="form-group form-group-sm">
                         <div class="col-xs-4 ">
-                            <label class=" control-label" for="documentUrl">Link* :</label>
+                            <label class=" control-label" for="urlDocument">Link* :</label>
                         </div>
                         <div class="col-xs-8 ">
-                            <input class="form-control" name="urlDocument" placeholder="link" type="text" id="documentUrl" >
+                            <input class="form-control" name="urlDocument" placeholder="link" type="text" id="urlDocument" >
                         </div>
                     </div>
                     <div class="form-group form-group-sm">
                         <div class="col-xs-4 ">
-                            <label class="control-label" for="link_description">Description* :</label>
+                            <label class="control-label" for="description">Description* :</label>
                         </div>
                         <div class="col-xs-8 ">
-                            <textarea class="form-control" name="description" placeholder="description" type="" id="link_description" ></textarea>
+                            <textarea class="form-control" name="description" placeholder="description"  id="description" ></textarea>
                         </div>
                     </div>
                     <div class="form-group form-group-sm">

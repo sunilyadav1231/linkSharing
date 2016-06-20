@@ -2,32 +2,9 @@
 <html lang="en">
 <head>
     <meta name="layout" content="main">
-    <script>
-        $(document).ready(function(){
-
-            $(".topic_seriousness").change(function(){
-                $.ajax({
-                    url:"${g.createLink(controller:'subscription',action:'changeSeriousness')}",
-                    dataType: 'json',
-                    type : 'POST',
-                    data: {
-                        'subscriptionId':$(this).attr('identity'),
-                        'topicSeriousness':$(this).val()
-                    },
-                    success: function(data) {
-                        $("#seriousness_alert_model").modal();
-                    },
-                    error: function(request, status, error) {
-
-                    }
-                });
-            });
-
-
-        });
-    </script>
 </head>
 <body>
+
    <!-- <div class="row">-->
         <div class="row"   >
             <div class="col-xs-5" >
@@ -38,7 +15,7 @@
                 </div>
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">Subscriptions <a href="#" class="pull-right">View All</a></div>
+                    <div class="panel-heading">Subscriptions <g:link controller="topic" action="userTopicList" class="pull-right">View All</g:link></div>
                     <div class="panel-body">
                         <g:if test="${subscriptions}">
                             <g:render template="/templates/topic_detail" collection="${subscriptions}" var="topic"/>
@@ -65,7 +42,7 @@
             </div>
             <div class="col-xs-7" >
                 <div class="panel panel-default">
-                    <div class="panel-heading">Inbox <a href="#" class="pull-right">View All</a></div>
+                    <div class="panel-heading">Inbox <g:link controller="resource" action="resourceList" class="pull-right">View All</g:link></div>
                     <div class="panel-body">
                         <div class="panel-body">
                             <g:if test="${inboxResources}">

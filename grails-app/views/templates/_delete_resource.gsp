@@ -3,7 +3,7 @@
 
         <!-- Modal content-->
         <div class="modal-content">
-            <g:form controller="resource" action="deleteResource">
+            <g:form id="deleteResource_form" name="deleteResource_form" action="">
                 <input type="hidden" id="deleteResourceId" name="id">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
