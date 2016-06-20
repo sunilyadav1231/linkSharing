@@ -30,15 +30,15 @@
 		$(document).ready(function(){
 			<g:if test="${session.userData}">
 			$(".resource-rating").rating('create',{coloron:'green',limit:5,glyph:'glyphicon-heart'});
-			$(".resource-rating").addClass('clickable')
+			$(".resource-rating").addClass('clickable');
 			</g:if>
 			<g:else>
 			$(".resource-rating").rating('show',{coloron:'green',limit:5,glyph:'glyphicon-heart'});
 			</g:else>
 
 			$(".clickable").click(function(){
-				var rating = $(this).rating('get')
-				var id = $(this).attr('identity')
+				var rating = $(this).rating('get');
+				var id = $(this).attr('identity');
 				$.ajax({
 					url:"${g.createLink(controller:'resourceOperation',action:'rateResource')}",
 					dataType: 'json',
@@ -49,7 +49,7 @@
 					},
 					success: function(data) {
 						$("#alert_model").modal();
-						$("#res_avg_count_"+id).rating('set',data.averageRating)
+						$("#res_avg_count_"+id).rating('set',data.averageRating);
 						$("#res_user_count_"+id).text(data.ratingUserCount)
 
 					},
@@ -58,14 +58,35 @@
 					}
 				});
 			});
-		});
-	</script>
-		<script>
 
-			$(document).ready(function(){
+			$(".user_status").change(function(){
+				var userStatus = false;
+				if($(this). prop("checked") == true){
+					userStatus = true
+				}else{
+					userStatus = false
+				}
+				$.ajax({
+					url:"${g.createLink(controller:'user',action:'changeUserStatus')}",
+					dataType: 'json',
+					type : 'POST',
+					data: {
+						'id':$(this).attr('identity'),
+						'status':userStatus
+					},
+					success: function(data) {
+						//$(".visible_"+data.id).val(data.visibility);
+						$("#user_alert_model").modal();
+					},
+					error: function(request, status, error) {
+
+					}
+				});
+			});
+
 
 				$(".topic_visibility").change(function(){
-					var topicVisibility = ""
+					var topicVisibility = "";
 					if($(this). prop("checked") == true){
 						topicVisibility = "PUBLIC"
 					}else{
@@ -81,12 +102,30 @@
 					 },
 					 success: function(data) {
 					 //$(".visible_"+data.id).val(data.visibility);
-					 $("#seriousness_alert_model").modal();
+					 $("#visiblity_alert_model").modal();
 					 },
 					 error: function(request, status, error) {
 
 					 }
 					 });
+				});
+
+				$(".topic_seriousness").change(function(){
+					$.ajax({
+						url:"${g.createLink(controller:'subscription',action:'changeSeriousness')}",
+						dataType: 'json',
+						type : 'POST',
+						data: {
+							'subscriptionId':$(this).attr('identity'),
+							'topicSeriousness':$(this).val()
+						},
+						success: function(data) {
+							$("#seriousness_alert_model").modal();
+						},
+						error: function(request, status, error) {
+
+						}
+					});
 				});
 
 				$("#sendInvitation").click(function(){
@@ -132,10 +171,15 @@
 
 				});
 
+			$(".refresh").click(function(){
+				window.location.reload(true);
+
 			});
+		});
 
 
-		</script>
+
+	</script>
 	</head>
 	<body class="container layout">
 
@@ -158,6 +202,7 @@
 
 						</div>
 						<div class="col-xs-4">
+							<g:render  template="/templates/forget_password"/>
 							<g:if test="${session.userData}">
 								<g:render  template="/templates/create_topic"/>
 								<g:render  template="/templates/share_link"/>
@@ -168,14 +213,14 @@
 								<g:render template="/templates/delete_resource"/>
 								<div class="row  pull-right ">
 									<div class="col-xs-12 pull-right">
-										<a href="#" title="Create Topic"  data-toggle="modal" data-target="#create_topic"><i class="fa fa-comment fa-lg"></i></a>
+										<a href="#" title="Create Topic"  data-toggle="modal" data-target="#create_topic"><i class="fa fa-comment "></i></a>
 										<g:if test="${session.userData.subscriptions}">
-											<a title="Send Invitation" class="tab-space invitation_modal" data-toggle="modal" data-target="#send_invitation"  href="#"><i class="fa fa-envelope-o fa-lg"></i></a>
-											<a href="#" title="Share Link" data-toggle="modal" data-target="#share_link" class="tab-space"><i class="fa fa-link fa-lg"></i></a>
-											<a href="#" title="Share Document" data-toggle="modal" data-target="#share_document" class="tab-space"><i class="fa fa-file-o fa-lg"></i></a>
+											<a title="Send Invitation" class="tab-space invitation_modal" data-toggle="modal" data-target="#send_invitation"  href="#"><i class="fa fa-envelope-o "></i></a>
+											<a href="#" title="Share Link" data-toggle="modal" data-target="#share_link" class="tab-space"><i class="fa fa-link "></i></a>
+											<a href="#" title="Share Document" data-toggle="modal" data-target="#share_document" class="tab-space"><i class="fa fa-file-o "></i></a>
 										</g:if>
 
-										<span class="tab-space"></span>
+										%{--<span class="tab-space"></span>--}%
 										<span class="tab-space">
 											<g:link controller="login" action="fetchUserDetail" params= "['userName':session.userData.userName]">
 												<g:if test="${session.userData.photoPath}">
@@ -187,7 +232,11 @@
 
 												<span>${session.userData.fullName}</span>
 											</g:link>
-											<g:link controller="login" action="logout" class="tab-space" href="#"><i class="fa fa-sign-out fa-lg"></i></g:link>
+											<g:if test="${session.userData.admin}">
+												<g:link controller="user" action="users" class="tab-space" ><i class="fa fa-users"></i></g:link>
+
+											</g:if>
+											<g:link controller="login" action="logout" class="tab-space" ><i class="fa fa-sign-out "></i></g:link>
 
 										</span>
 									</div>
@@ -244,9 +293,7 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title text-center">Visibility Changed Successfully</h4>
 				</div>
-				<div class="modal-body text-center">
-					<p>You have changed visibility successfully</p>
-				</div>
+
 				<div class="modal-footer">
 					<center><button type="submit" class="btn btn-default" data-dismiss="modal">Ok</button></center>
 				</div>
@@ -262,10 +309,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title text-center">Seriousness changed!!</h4>
-				</div>
-				<div class="modal-body text-center">
-					<p>You have changed seriousness successfully</p>
+					<h4 class="modal-title text-center">Seriousness changed successfully!!</h4>
 				</div>
 				<div class="modal-footer text-center">
 					<center><button type="submit" class="btn btn-default" data-dismiss="modal">Ok</button></center>
@@ -285,11 +329,25 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">Post Rated Successfully</h4>
 				</div>
-				<div class="modal-body">
-					<p>You rated the post successfully</p>
-				</div>
 				<div class="modal-footer">
 					<button type="submit" class="btn btn-default" data-dismiss="modal">Ok</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="modal fade" id="user_alert_model" role="alert">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">User status changed succesfully</h4>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-default refresh" data-dismiss="modal">Ok</button>
 				</div>
 			</div>
 

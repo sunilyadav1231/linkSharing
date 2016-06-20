@@ -1,4 +1,4 @@
-
+<g:render template="/templates/update_post"/>
 
 <g:if test="${session.userData?.admin || resource?.createdBy?.id==session.userData?.id}">
     <g:set var="canUpdateTopic" value="true"/>
@@ -77,8 +77,8 @@
                 <div class="pull-right">
                     <g:if test="${canUpdateTopic=='true'}">
                         <span class="tab-space"><a href="#" class="delete_resource" identity="${resource.id}" ><small>Delete</small></a></span>
-                        <span class="tab-space"><a href="#" identity="${resource.id}" ><small>Edit</small></a></span>
-                    </g:if>
+                            <span class="tab-space"><a href="#" title="Update Resource" data-toggle="modal" data-target="#update_post_${resource.id}" ><small>Edit</small></a></span>
+                        </g:if>
                     <g:if test="${resource instanceof com.ttnd.ls.entity.FileResource}">
                         <span class="tab-space"><g:link controller="login" action="downloadResource" params='[path: "${resource.fileDocument}"]'><small>Download</small></g:link></span>
                     </g:if>

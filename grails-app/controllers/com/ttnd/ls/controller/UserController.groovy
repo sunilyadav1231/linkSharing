@@ -1,14 +1,8 @@
 package com.ttnd.ls.controller
 
-import com.ttnd.ls.dto.UserDto
-import com.ttnd.ls.entity.User
 import com.ttnd.ls.service.TopicService
 import com.ttnd.ls.service.UserService
 import grails.converters.JSON
-import org.apache.tomcat.util.http.ContentType
-
-import javax.servlet.http.HttpServletRequest
-import javax.servlet.http.HttpServletResponse
 
 class UserController {
 
@@ -46,6 +40,19 @@ class UserController {
         userService.changePassword(params)
         session.invalidate()
         redirect(controller: 'login', action: 'index')
+
+    }
+
+    def users(){
+        Map map= userService.userList()
+        render(view: 'users',model:map)
+
+    }
+
+
+    def changeUserStatus(){
+        Map map= userService.changeStatus(params)
+        render map as JSON
 
     }
 

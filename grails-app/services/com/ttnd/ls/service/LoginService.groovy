@@ -10,6 +10,7 @@ import com.ttnd.ls.entity.User
 import com.ttnd.ls.enumConstant.Visibility
 import grails.transaction.Transactional
 import grails.util.Holders
+import groovy.time.TimeCategory
 import liquibase.util.file.FilenameUtils
 
 @Transactional
@@ -17,12 +18,13 @@ class LoginService {
 
     TopicService topicService
     ResourceService resourceService
+    UserService userService
 
     def validateLogin(Map map){
         def respData = new ResponseData()
 
         User user =User.findByUserNameOrEmail(map.userName,map.userName)
-        if(user && user.password.equals(map.password)){
+        if(user && user.password.equals(map.password.encodeAsSHA256())){
             if(user.active){
                 respData.respCode=LSConstants.SUCCESS_CODE
                 respData.respMessageCode=LSConstants.SUCCESS_DESC
@@ -53,14 +55,23 @@ class LoginService {
         user.save()
     }
 
-    def fetchUserData(Map userDto){
-        if(!userDto.password.equals(userDto.confirmPassword)){
+    def register(Map userDto){
+        User user=null
+        String pass = userDto.password.encodeAsSHA256()
+        String confirmPass = userDto.confirmPassword.encodeAsSHA256()
+        if(!pass.equals(confirmPass)){
             userDto.valid=false
-        }
-        if(userDto.proflePicFile.size){
-            saveImage(userDto)
+
+        }else{
+            if(userDto.proflePicFile.size){
+                saveImage(userDto)
+            }
+            userDto.password=pass
+            user=saveUser(new User(userDto))
+
         }
 
+        user
     }
 
     def fetchLoginData(){
@@ -107,6 +118,40 @@ class LoginService {
         map.put("userData",userDetail)
         map.put("posts",resourceList)
         map
+    }
+
+    def forgetPassword(Map map){
+        User user =User.findByUserNameOrEmail(map.userName,map.userName)
+        if(user){
+            Date date = new Date()
+
+            use(TimeCategory) {
+                date = date + 2.days
+            }
+            String uniqueToken=UUID.randomUUID().toString()
+            user.verificationExpiry=date
+            user.verificationToken=uniqueToken
+            String url = "http://localhost:8080/login/showTopic?token="+uniqueToken
+            Map mailMap = [:]
+            mailMap.fullName=user.fullName
+            mailMap.forgetPasswordUrl=url
+            userService.sendMail([user.email], "Forget Password", "_forget_password_mail",mailMap)
+            map
+        }
+    }
+
+    def validateLink(String token){
+        User user = User.findByVerificationToken(token)
+        if (user){
+            if(new Date()<user.verificationExpiry){
+                true
+            }else{
+                false
+            }
+        }else{
+            false
+        }
+
     }
 
 

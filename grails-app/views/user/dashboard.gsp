@@ -2,32 +2,10 @@
 <html lang="en">
 <head>
     <meta name="layout" content="main">
-    <script>
-        $(document).ready(function(){
 
-            $(".topic_seriousness").change(function(){
-                $.ajax({
-                    url:"${g.createLink(controller:'subscription',action:'changeSeriousness')}",
-                    dataType: 'json',
-                    type : 'POST',
-                    data: {
-                        'subscriptionId':$(this).attr('identity'),
-                        'topicSeriousness':$(this).val()
-                    },
-                    success: function(data) {
-                        $("#seriousness_alert_model").modal();
-                    },
-                    error: function(request, status, error) {
-
-                    }
-                });
-            });
-
-
-        });
-    </script>
 </head>
 <body>
+
    <!-- <div class="row">-->
         <div class="row"   >
             <div class="col-xs-5" >

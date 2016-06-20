@@ -1,3 +1,4 @@
+<g:render template="/templates/update_post"/>
 <g:if test="${session.userData}">
 <g:set var="resourceOp" value="${session.userData.resourceOperations.findAll({it.resource==resource})}"/>
 </g:if>

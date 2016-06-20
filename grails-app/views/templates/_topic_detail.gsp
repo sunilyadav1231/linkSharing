@@ -1,3 +1,5 @@
+<g:render template="/templates/update_topic"/>
+
 <g:set var="subscription" value="${session.userData?.subscriptions.findAll({it.topic.id==topic.id})}"/>
 <div class="row">
     <div class="col-xs-12">
@@ -13,10 +15,11 @@
                     <div class="col-xs-12">
                         <g:link controller="login" action="showTopic" params= "['topic.id': topic.id]">
                            <u>${topic?.name}</u>
-                           %{-- <g:if test="${topic?.visibility=='PRIVATE'}">
-                                <i class="fa fa-lock" aria-hidden="true"></i>
-                            </g:if>--}%
                         </g:link>
+                            <g:if test="${topic?.visibility==com.ttnd.ls.enumConstant.Visibility.PRIVATE}">
+                                <i class="fa fa-lock tab-space" aria-hidden="true"></i>
+                            </g:if>
+
                     </div>
                 </div>
                 %{--<div class="padd-bottom"></div>--}%
@@ -100,7 +103,7 @@
                         <a data-target="#send_invitation" class="invitation_modal" identity="${topic.id}" data-toggle="modal"  title="send invitation" href="#"><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i></a>
                     </g:if>
                     <g:if test="${canUpdateTopic=='true'}">
-                        <a href="#" title="edit"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a>
+                        <a href="#" title="Update Topic" data-toggle="modal" data-target="#update_topic_${topic.id}"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a>
                         <a href="#" class="delete_topic" identity="${topic.id}" title="Delete Topic"><i class=" fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
                     </g:if>
                 </span>

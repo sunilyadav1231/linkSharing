@@ -13,15 +13,17 @@
 </head>
 
 <body class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            Hey
-            <b>${sendersName}</b> have invited you to subscribe for topic <b>${topicName}</b>. click on below link to subscribe for the topic
+<div class="row">
+    <div class="col-xs-12">
+        Hey ${fullName},
 
-            <a href="${topicUrl}" type="button" id="sendInvitation" class="btn btn-default">See the topic</a>
-        </div>
+        Click on below link to reset you password. This link is valid for 2 days.
 
+
+        <a href="${forgetPasswordUrl}" type="button" class="btn btn-default">Click Here</a>
     </div>
+
+</div>
 
 </body>
 </html>

@@ -1,14 +1,12 @@
 package com.ttnd.ls.controller
 
 import com.ttnd.ls.constants.LSConstants
-import com.ttnd.ls.dto.ResponseData
-import com.ttnd.ls.dto.UserDto
 import com.ttnd.ls.entity.Resource
 import com.ttnd.ls.entity.Topic
 import com.ttnd.ls.entity.User
 import com.ttnd.ls.service.LoginService
 import com.ttnd.ls.service.ResourceService
-import grails.plugin.asyncmail.AsynchronousMailService
+import grails.converters.JSON
 
 class LoginController {
 
@@ -74,11 +72,7 @@ class LoginController {
     }
 
     def register() {
-        loginService.fetchUserData(params)
-        User user = new User()
-        bindData(user,params)
-        loginService.saveUser(user)
-        params.user=user
+        User user =loginService.register(params)
         session.userData=user
         redirect(controller: 'user', action: 'index')
     }
@@ -107,5 +101,16 @@ class LoginController {
 
     }
 
+    def forgetPassword(){
+        Map map=[:]
+        map = loginService.forgetPassword(params)
+        redirect(controller: 'login',action: 'home')
+    }
+
+    def validateLink(String token){
+        Map map=[:]
+        map = loginService.validateLink(token)
+        render map as JSON
+    }
 
 }

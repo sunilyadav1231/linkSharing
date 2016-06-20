@@ -74,4 +74,10 @@ class TopicService {
         topic.delete()
         topic
     }
+
+    def updateTopic(Map map){
+        Topic topic = Topic.load(map.id)
+        topic.name=map.name
+        topic
+    }
 }

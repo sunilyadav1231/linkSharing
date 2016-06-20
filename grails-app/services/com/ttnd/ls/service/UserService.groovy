@@ -72,6 +72,7 @@ class UserService {
         user.lastName =map.lastName
         user.userName = map.userName
         if(map.proflePicFile.size>0){
+            new File(user.photoPath).delete()
             map= loginService.saveImage(map)
             user.photoPath=map.photoPath
         }
@@ -84,6 +85,22 @@ class UserService {
             user.password=map.newPassword
         }
         user.merge()
+    }
+
+    def userList(){
+        Map map =[:]
+        List<User> users = User.findAllByAdmin(false)
+        map.put("users",users)
+        map
+    }
+
+    def changeStatus(Map map){
+        Map respMap = [:]
+        User user = User.load(map.id)
+        user.active=map.status.toBoolean()
+        respMap.response="Success"
+        respMap
+
     }
 
     def sendMail(String[] sentTo, String subjectMsg, String template,Map map){

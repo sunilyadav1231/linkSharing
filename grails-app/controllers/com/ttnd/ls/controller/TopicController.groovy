@@ -48,4 +48,9 @@ class TopicController {
         redirect(controller: 'user', action: 'dashboard')
     }
 
+    def updateTopic(){
+        topicService.updateTopic(params)
+        redirect(controller: 'user', action: 'dashboard')
+    }
+
 }
