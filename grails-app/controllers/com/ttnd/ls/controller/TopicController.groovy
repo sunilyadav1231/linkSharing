@@ -55,4 +55,9 @@ class TopicController {
         render(view: '/user/topics',model: map)
     }
 
+    def updateTopic(){
+        topicService.updateTopic(params)
+        redirect(controller: 'user', action: 'dashboard')
+    }
+
 }

@@ -34,6 +34,11 @@ class ResourceController {
         render respMap as JSON
     }
 
+    def updateResource(){
+        resourceService.updateResource(params)
+        redirect(controller: 'user', action: 'dashboard')
+    }
+
     def deleteResource(){
         Map respMap =resourceService.deleteResource(params)
 

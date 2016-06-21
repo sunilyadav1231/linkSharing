@@ -65,6 +65,19 @@ class UserController {
 
     }
 
+    def users(){
+        Map map= userService.userList()
+        render(view: 'users',model:map)
+
+    }
+
+
+    def changeUserStatus(){
+        Map map= userService.changeStatus(params)
+        render map as JSON
+
+    }
+
 
 
 
