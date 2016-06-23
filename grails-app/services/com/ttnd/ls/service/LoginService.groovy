@@ -96,17 +96,15 @@ class LoginService {
             userDto.password=pass
         user = new User(userDto)
             user.save()
-
         String uniqueToken=UUID.randomUUID().toString()
-        user.verificationExpiry=date
         user.verificationToken=uniqueToken
         String url = "http://localhost:8080/login/activateAccount?token="+uniqueToken
         Map mailMap = [:]
         mailMap.fullName=user.fullName
-        mailMap.activationAcoountUrl=url
+        mailMap.verifyLink=url
         println(user.email.split(","))
-        userService.sendMail(user.email.split(","), "Forget password link", "forget_password_mail",mailMap)
-        respData = new ResponseData(respCode: LSConstants.SUCCESS_CODE ,respMessageCode: LSConstants.REGISTER_SUCCESS)
+        userService.sendMail(user.email.split(","), "Welcome to  Link Sharing", "sign_up_mail",mailMap)
+            respData = new ResponseData(respCode: LSConstants.SUCCESS_CODE ,respMessageCode: LSConstants.REGISTER_SUCCESS)
         Map respMap =  ["respData":respData,"user":user]
     }
 
@@ -205,7 +203,19 @@ class LoginService {
     }
 
     def activateAccount(String token){
-
+        ResponseData respData = null
+        Map respMap = [:]
+        User user = User.findByVerificationToken(token)
+        if (user){
+            respData = new ResponseData(respCode: LSConstants.SUCCESS_CODE ,respMessageCode: LSConstants.REGISTER_ACTIVATE_SUCCESS)
+            user.verificationToken=null
+            user.active=true
+            user.merge()
+        }else{
+            respData = new ResponseData(respCode: LSConstants.FAILURE_CODE ,respMessageCode: LSConstants.FORGET_PASSWORD_INVALID_URL)
+        }
+        respMap.put('respData',respData)
+        respMap
     }
 
     def changePassword(Map map){

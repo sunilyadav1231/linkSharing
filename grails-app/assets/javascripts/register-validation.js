@@ -206,8 +206,8 @@ $().ready(function(){
                     'id':$('#deleteTopicId').val()
                 },
                 success: function(respMap) {
-                    $("#resp_model").modal();
-                    $("#resp_message").text(respMap.respData.respMessageCode)
+                    $("#resp_model_home").modal();
+                    $("#resp_message_home").text(respMap.respData.respMessageCode)
                 },
                 error: function(request, status, error) {
                     $("#resp_model").modal();

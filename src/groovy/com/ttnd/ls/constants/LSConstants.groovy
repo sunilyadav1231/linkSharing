@@ -18,6 +18,7 @@ class LSConstants {
     static final String FORGET_PASSWORD_INVALID_URL = "forget.password.invalid.url"
     static final String USERNAME_NOT_EXIST = "username.not.exist"
     static final String REGISTER_SUCCESS = "register.success"
+    static final String REGISTER_ACTIVATE_SUCCESS = "register.activate.success"
     static final String TOPIC_CREATE_SUCCESS = "topic.create.success"
     static final String TOPIC_ALREADY_EXIST = "topic.already.exist"
     static final String VISIBILITY_CHANGE_SUCCESS = "visibility.change.success"
