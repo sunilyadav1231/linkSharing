@@ -45,7 +45,7 @@
         <div class="box-footer clearfix">
             <ul class="pagination pagination-sm no-margin pull-right">
                 <li>
-                    <g:paginate max="10" total="${topicCount}"/>
+                    <g:paginate max="20" total="${topicCount}"/>
                 </li>
             </ul>
         </div>

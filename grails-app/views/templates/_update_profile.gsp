@@ -68,7 +68,7 @@
                                         <label class=" control-label" for="newPassword">New Password *</label>
                                     </div>
                                     <div class="col-xs-7">
-                                        <input class="form-control" value="${session.userData.id}" name="id" id="id" type="hidden" >
+                                        <input class="form-control" value="${session.userData.userName}" name="userName" id="ChangePassUserName" type="hidden" >
                                         <input class="form-control" name="newPassword" type="password" id="newPassword">
                                     </div>
                                 </div>

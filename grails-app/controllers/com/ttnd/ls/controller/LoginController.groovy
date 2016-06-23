@@ -23,6 +23,15 @@ class LoginController {
         }
     }
 
+    def validateUserName(){
+        params.user =session.userData
+        render loginService.validateUserName(params)
+    }
+
+    def validateEmail(){
+        render loginService.validateEmail(params)
+    }
+
 
     def showImage(){
         def photo = new File(params.path)
@@ -57,9 +66,7 @@ class LoginController {
         respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
         session.userData = respMap.user
         render respMap as JSON
-
     }
-
 
 
     def logout() {
@@ -99,15 +106,42 @@ class LoginController {
     }
 
     def forgetPassword(){
-        Map map=[:]
-        map = loginService.forgetPassword(params)
-        redirect(controller: 'login',action: 'home')
+        Map respMap = loginService.forgetPassword(params)
+
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+        render respMap as JSON
     }
 
-    def validateLink(String token){
-        Map map=[:]
-        map = loginService.validateLink(token)
-        render map as JSON
+    def validateLink(){
+        Map respMap = loginService.validateLink(params.token)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+        render(view: 'change_password',model:respMap)
+
+    }
+
+    def activateAccount(){
+        Map respMap = loginService.activateAccount(params.token)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+        render(view: 'account_active',model:respMap)
+    }
+
+    def changePassword(){
+        params.user =session.userData
+        Map respMap=loginService.changePassword(params)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+        session.invalidate()
+        render respMap as JSON
+
+    }
+
+
+    def mainSearch(Map map){
+        params.user =session.userData
+        Map respMap=loginService.changePassword(params)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+        session.invalidate()
+        render respMap as JSON
+
     }
 
 }

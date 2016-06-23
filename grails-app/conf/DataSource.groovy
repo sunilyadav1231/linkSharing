@@ -18,7 +18,7 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "create-drop"
+            dbCreate = "update"
             //dbCreate = "update"
             url = "jdbc:mysql://localhost:3306/link_sharing_schema"
         }

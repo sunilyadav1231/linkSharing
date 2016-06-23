@@ -16,7 +16,7 @@ $().ready(function(){
         },
         messages: {
             loginUsername: {required:"Please enter username name",
-                minlengt: "Username should contain atleast 8 characters",
+                minlength: "Username should contain atleast 8 characters",
                 maxlength:"Username should contain at most 50 characters"},
             loginPassword: {
                 required: "This field is required",
@@ -61,12 +61,30 @@ $().ready(function(){
             },
             email: {
                 required: true,
-                email: true
+                email: true,
+                remote: {
+                    url: validateEmailUrl,
+                    type: "post",
+                    data: {
+                        email: function() {
+                            return $( "#email" ).val();
+                        }
+                    }
+                }
             },
             userName: {
                 required: true,
                 minlength: 8,
-                maxlength:15
+                maxlength:15,
+                remote: {
+                    url: validateUserNameUrl,
+                    type: "post",
+                    data: {
+                        username: function() {
+                            return $( "#userName" ).val();
+                        }
+                    }
+                }
             },
             password: {
                 required: true,
@@ -83,10 +101,12 @@ $().ready(function(){
                 maxlength:"First name cannot be more then 15 characters"},
             lastName: {required:"Please enter last name",
                 maxlength:"Last name cannot be more then 15 characters"},
-            email: {required:"Please enter email"},
+            email: {required:"Please enter email",
+                remote:"Email Id already registered"},
             userName: {required:"Please enter username name",
                 minlengt: "Username should contain atleast 8 characters",
-                maxlength:"Username can contain at most 15 characters"},
+                maxlength:"Username can contain at most 15 characters",
+                remote:"Username already exist"},
             password: {
                 required: "Please enter a password",
                 minlength: "Your password must be at least 5 characters long",
@@ -347,7 +367,16 @@ $().ready(function(){
             userName: {
                 required: true,
                 minlength: 8,
-                maxlength:15
+                maxlength:15,
+                remote: {
+                    url: validateUserNameUrl,
+                    type: "post",
+                    data: {
+                        username: function() {
+                            return $( "#userName" ).val();
+                        }
+                    }
+                }
             }
         },
         messages: {
@@ -357,7 +386,8 @@ $().ready(function(){
                 maxlength:"Last name cannot be more then 15 characters"},
             userName: {required:"Please enter username name",
                 minlengt: "Username should contain atleast 8 characters",
-                maxlength:"Username can contain at most 15 characters"}
+                maxlength:"Username can contain at most 15 characters",
+                remote:"Username already exist"}
         },
 
         submitHandler: function(form) {
@@ -528,6 +558,11 @@ $().ready(function(){
 
     });
 
+    $(".goTohome").click(function(){
+        window.open(homeUrl,"_self");
+
+    });
+
 
     $(".user_status").change(function(){
         var userStatus = false;
@@ -593,14 +628,93 @@ $().ready(function(){
                 dataType: 'json',
                 type : 'POST',
                 data: {
-                    'id':$("#id").val(),
+                    'userName':$("#ChangePassUserName").val(),
                     'currentPassword':$("#currentPassword").val(),
                     'newPassword':$("#newPassword").val(),
                     'confirmPassword':$("#confirmPassword").val()
                 },
                 success: function(respMap) {
-                    $("#resp_model").modal();
-                    $("#resp_message").text(respMap.respData.respMessageCode)
+                    $("#resp_model_home").modal();
+                    $("#resp_message_home").text(respMap.respData.respMessageCode)
+                },
+                error: function(request, status, error) {
+                    $("#resp_model_home").modal();
+                    $("#resp_message_home").text(errorMsg)
+                }
+            });
+        }
+    });
+
+    $("#forget_password_change_password_form").validate({
+        rules: {
+            newPassword: {
+                required: true,
+                minlength: 8,
+                maxlength: 15
+            },
+            confirmPassword: {
+                required: true,
+                equalTo:"#newPassword"
+            }
+        },
+        messages: {
+            newPassword: {
+                required: "Please enter new password",
+                minlength: "Your password must be at least 5 characters long",
+                maxlength:"Your password should contain at most 15 characters"},
+            confirmPassword: {
+                required: "Please enter confirm password",
+                equalTo:"CoWnfirm password should be same as password"}
+        },
+
+        submitHandler: function(form) {
+            $.ajax({
+                url:changePasswordUrl,
+                dataType: 'json',
+                type : 'POST',
+                data: {
+                    'userName':$("#ChangePassUserName").val(),
+                    'newPassword':$("#newPassword").val(),
+                    'confirmPassword':$("#confirmPassword").val()
+                },
+                success: function(respMap) {
+                    $("#resp_model_home").modal();
+                    $("#resp_message_home").text(respMap.respData.respMessageCode)
+                },
+                error: function(request, status, error) {
+                    $("#resp_model_home").modal();
+                    $("#resp_message_home").text(errorMsg)
+                }
+            });
+        }
+    });
+
+
+
+    $("#forgetPassword_form").validate({
+        rules: {
+            userName: {
+                required: true,
+                minlength: 8,
+                maxlength:50
+            }
+        },
+        messages: {
+            userName: {required:"Please enter username/email",
+                minlength: "Username should contain atleast 8 characters",
+                maxlength:"Username should contain at most 50 characters"}
+        },
+        submitHandler: function(form) {
+            $.ajax({
+                url:forgetPasswordUrl,
+                dataType: 'json',
+                type : 'POST',
+                data: {
+                    'userName':$("#userName").val()
+                },
+                success: function(respMap) {
+                        $("#resp_model").modal();
+                        $("#resp_message").text(respMap.respData.respMessageCode)
                 },
                 error: function(request, status, error) {
                     $("#resp_model").modal();
@@ -609,6 +723,45 @@ $().ready(function(){
             });
         }
     });
+
+    $(".inbox-search-button").click(function(){
+        var searchKey=$('#inbox_search').val()
+            $.ajax({
+                url: inboxSearchUrl,
+                type: 'POST',
+                data: {
+                    'searchKey': searchKey
+                },
+                success: function (data) {
+                    $('#inbox_heading').text("Search for '"+searchKey+"'")
+                    $('#inboxContent').html(data)
+                }
+
+            });
+    });
+
+
+    $(".markRead").click(function(){
+        console.log($(this).attr('id'))
+        var resOpId =($(this).attr('id')).split("_")[1]
+        $.ajax({
+            url:markResourceReadUrl,
+            dataType: 'json',
+            type : 'POST',
+            data: {
+                'resourceOperationId':resOpId,
+                'resourceId':$(this).attr('value')
+            },
+            success: function(respMap) {
+                window.location.reload(true);
+            },
+            error: function(request, status, error) {
+                $("#resp_model").modal();
+                $("#resp_message").text(errorMsg)
+            }
+        });
+    });
+
 
 
 });

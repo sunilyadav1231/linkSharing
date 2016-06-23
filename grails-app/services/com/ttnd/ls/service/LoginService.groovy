@@ -12,6 +12,8 @@ import grails.util.Holders
 import groovy.time.TimeCategory
 import liquibase.util.file.FilenameUtils
 
+import java.text.SimpleDateFormat
+
 @Transactional
 class LoginService {
 
@@ -40,6 +42,34 @@ class LoginService {
         respMap
     }
 
+    Boolean validateUserName(Map map){
+        ResponseData respData = new ResponseData()
+        Map respMap =  [:]
+        User user =User.findByUserName(map.userName)
+        if(user ){
+            if(map.user && user.userName.equals(map.userName)){
+                true
+            }else{
+                false
+            }
+        }else{
+            return true
+
+
+        }
+    }
+
+    Boolean validateEmail(Map map){
+        ResponseData respData = new ResponseData()
+        Map respMap =  [:]
+        User user =User.findByEmail(map.email)
+        if(user){
+            return false
+        }else{
+            true
+        }
+    }
+
     def saveImage(Map userDto){
 
         File profilePicDir = new File(Holders.config.files.paths.profilePicDir as String)
@@ -66,7 +96,16 @@ class LoginService {
             userDto.password=pass
         user = new User(userDto)
             user.save()
-        user
+
+        String uniqueToken=UUID.randomUUID().toString()
+        user.verificationExpiry=date
+        user.verificationToken=uniqueToken
+        String url = "http://localhost:8080/login/activateAccount?token="+uniqueToken
+        Map mailMap = [:]
+        mailMap.fullName=user.fullName
+        mailMap.activationAcoountUrl=url
+        println(user.email.split(","))
+        userService.sendMail(user.email.split(","), "Forget password link", "forget_password_mail",mailMap)
         respData = new ResponseData(respCode: LSConstants.SUCCESS_CODE ,respMessageCode: LSConstants.REGISTER_SUCCESS)
         Map respMap =  ["respData":respData,"user":user]
     }
@@ -118,37 +157,88 @@ class LoginService {
     }
 
     def forgetPassword(Map map){
+        ResponseData respData = null
         User user =User.findByUserNameOrEmail(map.userName,map.userName)
         if(user){
-            Date date = new Date()
-
+            Date date =getCurrentUTCDate()
             use(TimeCategory) {
                 date = date + 2.days
             }
             String uniqueToken=UUID.randomUUID().toString()
             user.verificationExpiry=date
             user.verificationToken=uniqueToken
-            String url = "http://localhost:8080/login/showTopic?token="+uniqueToken
+            String url = "http://localhost:8080/login/validateLink?token="+uniqueToken
             Map mailMap = [:]
             mailMap.fullName=user.fullName
             mailMap.forgetPasswordUrl=url
-            userService.sendMail([user.email], "Forget Password", "_forget_password_mail",mailMap)
-            map
+            println(user.email.split(","))
+            userService.sendMail(user.email.split(","), "Forget password link", "forget_password_mail",mailMap)
+
+            respData = new ResponseData(respCode: LSConstants.SUCCESS_CODE ,respMessageCode: LSConstants.FORGET_PASSWORD_SUCCESS)
+        }else{
+            respData = new ResponseData(respCode: LSConstants.FAILURE_CODE ,respMessageCode: LSConstants.USERNAME_NOT_EXIST)
         }
+        Map respMap =  ["respData":respData]
+        respMap
     }
 
-    def validateLink(String token){
+    Map validateLink(String token){
+        ResponseData respData = null
+        Map respMap = [:]
         User user = User.findByVerificationToken(token)
         if (user){
-            if(new Date()<user.verificationExpiry){
-                true
+            if(getCurrentUTCDate()<user.verificationExpiry){
+                respData = new ResponseData(respCode: LSConstants.SUCCESS_CODE ,respMessageCode: LSConstants.FORGET_PASSWORD_SUCCESS)
+                respMap.userName=user.userName
+
+                user.verificationExpiry=null
+                user.verificationToken=null
+                user.merge()
             }else{
-                false
+                respData = new ResponseData(respCode: LSConstants.FAILURE_CODE ,respMessageCode: LSConstants.FORGET_PASSWORD_LINK_EXPIRED)
             }
         }else{
-            false
+            respData = new ResponseData(respCode: LSConstants.FAILURE_CODE ,respMessageCode: LSConstants.FORGET_PASSWORD_INVALID_URL)
+        }
+        respMap.put('respData',respData)
+        respMap
+    }
+
+    def activateAccount(String token){
+
+    }
+
+    def changePassword(Map map){
+        ResponseData respData = null
+        User user = User.findByUserName(map.userName)
+        if(map.user){
+            if(map.currentPassword.encodeAsSHA256().equals(user.password)){
+                user.password=map.newPassword.encodeAsSHA256()
+                user.merge()
+                respData = new ResponseData(respCode: LSConstants.SUCCESS_CODE ,respMessageCode: LSConstants.USER_PASSWORD_CHANGE_SUCCESS)
+            }else{
+                respData = new ResponseData(respCode: LSConstants.FAILURE_CODE ,respMessageCode: LSConstants.CURRENT_PASSWORD_INCCORECT)
+            }
+        }else{
+            user.password=map.newPassword.encodeAsSHA256()
+            user.merge()
+            respData = new ResponseData(respCode: LSConstants.SUCCESS_CODE ,respMessageCode: LSConstants.USER_PASSWORD_CHANGE_SUCCESS)
         }
 
+
+        Map respMap =  ["respData":respData]
+        respMap
+    }
+
+    def mainSearch(Map map){
+
+    }
+
+    def getCurrentUTCDate(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MMM-dd HH:mm:ss")
+        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"))
+
+        dateFormat.parse(dateFormat.format(new Date()))
     }
 
 

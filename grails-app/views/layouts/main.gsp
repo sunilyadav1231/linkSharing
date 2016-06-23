@@ -32,6 +32,8 @@
 		var signUrl = "${g.createLink(controller:'login',action:'loginHandler')}"
 		var homeUrl = "${g.createLink(controller:'user',action:'dashboard')}"
 		var registerUrl = "${g.createLink(controller:'login',action:'register')}"
+		var validateUserNameUrl = "${g.createLink(controller:'login',action:'validateUserName')}"
+		var validateEmailUrl= "${g.createLink(controller:'login',action:'validateEmail')}"
 		var saveTopicUrl = "${g.createLink(controller:'topic',action:'save')}"
 		var changeVisiblityUrl = "${g.createLink(controller:'topic',action:'changeVisiblity')}"
 		var deleteTopicUrl = "${g.createLink(controller:'topic',action:'deleteTopic')}"
@@ -46,8 +48,12 @@
 		var sendInvitationUrl ="${g.createLink(controller:'user',action:'sendInvitation')}"
 		var changeUserStatusUrl="${g.createLink(controller:'user',action:'changeUserStatus')}"
 		var updateUserProfileUrl="${g.createLink(controller:'user',action:'updateProfile')}"
-		var changePasswordUrl="${g.createLink(controller:'user',action:'changePassword')}"
+		var changePasswordUrl="${g.createLink(controller:'login',action:'changePassword')}"
 		var rateResourceUrl="${g.createLink(controller:'resourceOperation',action:'rateResource')}"
+		var forgetPasswordUrl="${g.createLink(controller:'login',action:'forgetPassword')}"
+		var markResourceReadUrl="${g.createLink(controller:'resourceOperation',action:'markRead')}"
+		var inboxSearchUrl="${g.createLink(controller:'user',action:'inboxSearch')}"
+
 
 		var errorMsg = "Cannot process your request at this moment. Please try again later"
 		var success =1
@@ -159,8 +165,9 @@
 							<div class="row">
 								<div class="col-xs-12 pull-right">
 									<div class="input-group">
-										<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+
 										<input type="text" class="form-control" placeholder="Search" name="q">
+										<span class="input-group-addon"><a href="#"><i class="glyphicon glyphicon-search"></i></a></span>
 
 									</div>
 								</div>
@@ -194,6 +201,23 @@
 				</div>
 				<div class="modal-footer">
 					<button type="submit" class="btn btn-default refresh" data-dismiss="modal">Ok</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="modal fade" id="resp_model_home" role="alert">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close goTohome" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title" id="resp_message_home"></h4>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-default goTohome" data-dismiss="modal">Ok</button>
 				</div>
 			</div>
 

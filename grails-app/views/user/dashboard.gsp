@@ -42,9 +42,23 @@
             </div>
             <div class="col-xs-7" >
                 <div class="panel panel-default">
-                    <div class="panel-heading">Inbox <g:link controller="resource" action="resourceList" class="pull-right">View All</g:link></div>
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h5 id="inbox_heading">Inbox</h5>
+                            </div>
+                            <div class="col-xs-6 ">
+                                <div class="input-group pull-right">
+                                    <input type="text" class="form-control" id="inbox_search"  placeholder="Search" name="q">
+                                    <span class="input-group-addon inbox-search-button"><a href="#" ><i class="glyphicon glyphicon-search"></i></a></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
                     <div class="panel-body">
-                        <div class="panel-body">
+                        <div class="panel-body" id="inboxContent">
                             <g:if test="${inboxResources}">
                                 <g:render template="/templates/resource_brief" collection="${inboxResources}" var="resource"/>
                             </g:if>

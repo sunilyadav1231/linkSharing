@@ -112,7 +112,7 @@
                         <a href="#" class="delete_topic" identity="${topic.id}" title="Delete Topic"><i class=" fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
                     </g:if>
                 </span>
-                <span class="tab-space"></span>
+                %{--<span class="tab-space"></span>--}%
             </div>
 
             %{--<div class="col-xs-4">

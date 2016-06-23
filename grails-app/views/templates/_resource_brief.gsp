@@ -1,8 +1,10 @@
 <g:render template="/templates/update_post"/>
+%{--
 <g:if test="${session.userData}">
 <g:set var="resourceOp" value="${session.userData.resourceOperations.findAll({it.resource==resource})}"/>
 </g:if>
 <g:if test="${(!session.userData) || (session.userData && !resourceOp) || (session.userData && resourceOp && !resourceOp[0]?.isRead) }">
+--}%
 
     <div class="row">
         <div class="col-xs-3 ">
@@ -73,13 +75,16 @@
                             <span class="tab-space"><a target="_blank" href="${resource.urlDocument}"><small>View full site</small></a></span>
                         </g:if>
                         <g:if test="${session.userData}">
-                            <g:if test="${resourceOp && resourceOp[0]?.isRead}">
+                            <g:if test="${resource.resourceOperations[0]?.isRead}">
                             </g:if>
                             <g:else>
                                 <span class="tab-space">
-                                    <g:link class="small" controller="resourceOperation" action="markRead" params="['resource.id':resource.id,'user.id':session.userData.id,'resourceOperation.id': resourceOp[0]?.id]">
+                                    %{--<g:link class="small" value="" controller="resourceOperation" action="markRead" params="['resource.id':resource.id,'user.id':session.userData.id,'resourceOperation.id': resource.resourceOperations[0]?.id]">
                                         Mark as read
-                                    </g:link>
+                                    </g:link>--}%
+                                    <a href="#"  id="markRead_${resource.resourceOperations[0]?.id}" value="${resource.id}" class="markRead">
+                                        Mark as read
+                                    </a>
                                 </span>
                             </g:else>
 
@@ -97,4 +102,4 @@
         </div>
     </div>
     <hr/>
-</g:if>
+%{--</g:if>--}%

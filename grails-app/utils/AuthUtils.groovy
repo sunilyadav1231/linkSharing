@@ -1,8 +1,11 @@
+/*
 import java.security.MessageDigest
 
+*/
 /**
  * Created by ttnd on 18/6/16.
- */
+ *//*
+
 class AuthUtils {
 
     static final String DIGEST_ALGORITHM = "SHA-256"
@@ -31,3 +34,4 @@ class AuthUtils {
         buffer.toString()
     }
 }
+*/

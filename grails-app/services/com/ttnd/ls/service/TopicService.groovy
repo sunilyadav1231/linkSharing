@@ -74,6 +74,21 @@ class TopicService {
         [topics:subscriptionList*.topic,topicCount:subscriptionList.size()]
     }
 
+    Map topicSubscribers(Map map){
+        User user = User.get(map.user.id)
+        Topic topic = Topic.get(map.topicId)
+        List<User> users = User.createCriteria().list(map) {
+            'subscriptions'{
+               eq('topic',topic)
+            }
+        }
+        /*List<Subscription> subscriptionList = Subscription.createCriteria().list(map) {
+            eq('topic',Topic.get(map.topicId))
+        }*/
+
+        [users:users,userCount:users.totalCount,topicId:map.topicId]
+    }
+
     def topicList(Long userId){
         List<Topic> topicList = Topic.findAllById(userId)
         topicList

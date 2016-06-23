@@ -15,7 +15,10 @@
                         <g:sortableColumn property="email" title="Email" />
                         <g:sortableColumn property="firstName" title="First Name" />
                         <g:sortableColumn property="lastName" title="Last Name" />
-                        <g:sortableColumn property="active" title="Status" />
+                        <g:if test="${session.userData.admin}">
+                            <g:sortableColumn property="active" title="Status" />
+                        </g:if>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -31,14 +34,17 @@
                             <td>${user.email}</td>
                             <td>${user.firstName}</td>
                             <td>${user.lastName}</td>
-                            <td>
+                            <g:if test="${session.userData.admin}">
+                                td>
                                 <g:if test="${user.active}">
                                     <input type="checkbox" identity="${user.id}" class="user_status" data-on="Active" data-off="Inactive" checked data-toggle="toggle" data-size="mini">
                                 </g:if>
                                 <g:else>
                                     <input type="checkbox" identity="${user.id}" class="user_status" data-on="Active" data-off="Inactive" data-toggle="toggle" data-size="mini"  >
                                 </g:else>
-                            </td>
+                                </td>
+                            </g:if>
+                            <
                             </tr>
                         </g:each>
 
@@ -48,7 +54,7 @@
             <div class="box-footer clearfix">
                 <ul class="pagination pagination-sm no-margin pull-right">
                     <li>
-                        <g:paginate max="10" total="${userCount}"/>
+                        <g:paginate max="20" total="${userCount}"/>
                     </li>
                 </ul>
             </div>

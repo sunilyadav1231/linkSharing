@@ -13,8 +13,10 @@ class ResourceOperationController {
 
     def markRead(){
         params.user=session.userData
-            resourceOperationService.markRead(params)
-        redirect(controller: 'user', action: 'dashboard')
+        Map respMap= resourceOperationService.markRead(params)
+        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
+
+        render respMap as JSON
     }
 
     def rateResource(){

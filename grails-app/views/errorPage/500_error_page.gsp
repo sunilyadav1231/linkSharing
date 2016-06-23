@@ -10,8 +10,9 @@
 
 
 </div>
-<h1>500 err</h1>
+<asset:image height="100%" width="100%" src="500.jpg">
 
+</asset:image>
 
 </body>
 </html>

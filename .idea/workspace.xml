@@ -1,78 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3fce290c-cfea-4347-b7b3-442ead38c597" name="Default" comment="user show for admin">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/assets/javascripts/register-validation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/assets/javascripts/resource.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/assets/stylesheets/bootstrap.no-icons.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/user/resources.gsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/user/topics.gsp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/service/LoginService$_fetchUserData_closure4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/service/TopicService$_topicList_closure2.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/constants/LSConstants.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/constants/LSConstants.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/controller/LoginController.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/controller/LoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/controller/ResourceController.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/controller/ResourceController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/controller/SubscriptionController.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/controller/SubscriptionController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/controller/TopicController.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/controller/TopicController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/controller/UserController.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/entity/Resource.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/entity/Resource.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/entity/ResourceOperation.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/entity/ResourceOperation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/entity/Subscription.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/entity/Subscription.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/entity/Topic.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/entity/Topic.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/entity/User$__clinit__closure1.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/entity/User$__clinit__closure1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/entity/User$__clinit__closure2.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/entity/User$__clinit__closure2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/entity/User.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/entity/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/service/LoginService$_validateLogin_closure1.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/service/LoginService$_validateLogin_closure1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/service/LoginService.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/service/LoginService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/service/SubscriptionService.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/service/SubscriptionService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/service/TopicService$_createTopic_closure1.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/service/TopicService$_createTopic_closure1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/service/TopicService.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/service/TopicService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/service/UserService.class" afterPath="$PROJECT_DIR$/out/production/linkSharing/com/ttnd/ls/service/UserService.class" />
+    <list default="true" id="3fce290c-cfea-4347-b7b3-442ead38c597" name="Default" comment="pagination, validation">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/assets/images/404.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/assets/images/500.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/login/account_active.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/login/change_password.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/user/topic_resources.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/user/topic_users.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.slcache/.index" afterPath="$PROJECT_DIR$/.slcache/.index" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/grails-app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/assets/javascripts/star-rating.js" afterPath="$PROJECT_DIR$/grails-app/assets/javascripts/star-rating.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/grails-app/assets/stylesheets/application.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/assets/stylesheets/star-rating.css" afterPath="$PROJECT_DIR$/grails-app/assets/stylesheets/star-rating.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/assets/javascripts/register-validation.js" afterPath="$PROJECT_DIR$/grails-app/assets/javascripts/register-validation.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/Config.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/LoginController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/LoginController.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/ResourceController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/ResourceController.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/ResourceOperationController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/ResourceOperationController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/SubscriptionController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/SubscriptionController.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/TopicController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/TopicController.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/UserController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/UserController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/Resource.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/Resource.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/User.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/User.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/i18n/messages.properties" afterPath="$PROJECT_DIR$/grails-app/i18n/messages.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/LoginService.groovy" afterPath="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/LoginService.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/SubscriptionService.groovy" afterPath="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/SubscriptionService.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/TopicService.groovy" afterPath="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/TopicService.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/UserService.groovy" afterPath="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/UserService.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/emails/_send_invitation_mail.gsp" afterPath="$PROJECT_DIR$/grails-app/views/emails/_send_invitation_mail.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/utils/AuthUtils.groovy" afterPath="$PROJECT_DIR$/grails-app/utils/AuthUtils.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/utils/DateUtils.groovy" afterPath="$PROJECT_DIR$/grails-app/utils/DateUtils.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/errorPage/404_error_page.gsp" afterPath="$PROJECT_DIR$/grails-app/views/errorPage/404_error_page.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/errorPage/500_error_page.gsp" afterPath="$PROJECT_DIR$/grails-app/views/errorPage/500_error_page.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/login/topic.gsp" afterPath="$PROJECT_DIR$/grails-app/views/login/topic.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/_create_topic.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/_create_topic.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/_delete_resource.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/_delete_resource.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/_delete_topic.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/_delete_topic.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/_register.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/_register.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/_forget_password.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/_forget_password.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/_resource_brief.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/_resource_brief.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/_resource_detail.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/_resource_detail.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/_send_invitation.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/_send_invitation.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/_share_document.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/_share_document.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/_share_link.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/_share_link.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/_topic_detail.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/_topic_detail.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/_update_post.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/_update_post.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/_update_profile.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/_update_profile.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/_update_topic.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/_update_topic.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/user/dashboard.gsp" afterPath="$PROJECT_DIR$/grails-app/views/user/dashboard.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/user/resources.gsp" afterPath="$PROJECT_DIR$/grails-app/views/user/resources.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/user/topics.gsp" afterPath="$PROJECT_DIR$/grails-app/views/user/topics.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/user/users.gsp" afterPath="$PROJECT_DIR$/grails-app/views/user/users.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linkSharing-grailsPlugins.iml" afterPath="$PROJECT_DIR$/linkSharing-grailsPlugins.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linkSharing.iml" afterPath="$PROJECT_DIR$/linkSharing.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/linkSharing/messages.properties" afterPath="$PROJECT_DIR$/out/production/linkSharing/messages.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/groovy/com/ttnd/ls/constants/LSConstants.groovy" afterPath="$PROJECT_DIR$/src/groovy/com/ttnd/ls/constants/LSConstants.groovy" />
     </list>
     <ignored path="linkSharing.iws" />
@@ -107,58 +72,18 @@
       <file leaf-file-name="dashboard.gsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/user/dashboard.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-105">
-              <caret line="17" column="109" selection-start-line="17" selection-start-column="109" selection-end-line="17" selection-end-column="109" />
+            <state relative-caret-position="70">
+              <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_topic_detail.gsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_topic_detail.gsp">
+      <file leaf-file-name="ResourceService.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/ResourceService.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="103" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_user_detail.gsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_user_detail.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="47" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/UserController.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="topics.gsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/user/topics.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="64" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserService.groovy" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/UserService.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+            <state relative-caret-position="259">
+              <caret line="263" column="66" selection-start-line="263" selection-start-column="66" selection-end-line="263" selection-end-column="66" />
               <folding>
                 <element signature="e#29#69#0" expanded="true" />
               </folding>
@@ -166,34 +91,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.gsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/user/users.gsp">
+      <file leaf-file-name="LoginService.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/LoginService.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="47" column="45" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
+            <state relative-caret-position="124">
+              <caret line="206" column="13" selection-start-line="206" selection-start-column="13" selection-end-line="206" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Topic.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/Topic.groovy">
+      <file leaf-file-name="LoginController.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/LoginController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="13" column="35" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="35" />
+            <state relative-caret-position="146">
+              <caret line="124" column="36" selection-start-line="124" selection-start-column="22" selection-end-line="124" selection-end-column="36" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-            <state />
-          </provider>
         </entry>
       </file>
-      <file leaf-file-name="TopicService.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/TopicService.groovy">
+      <file leaf-file-name="account_active.gsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/login/account_active.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="73" column="75" selection-start-line="70" selection-start-column="12" selection-end-line="73" selection-end-column="75" />
+            <state relative-caret-position="75">
+              <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -202,11 +124,56 @@
       <file leaf-file-name="TopicController.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/TopicController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="52" column="36" selection-start-line="51" selection-start-column="8" selection-end-line="52" selection-end-column="36" />
+            <state relative-caret-position="108">
+              <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
               <folding>
-                <marker date="1466507380915" expanded="true" signature="290:384" ph="/*...*/" />
+                <marker date="1466677732904" expanded="true" signature="290:384" ph="/*...*/" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TopicService.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/TopicService.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+              <folding>
+                <marker date="1466678155808" expanded="true" signature="2985:2999" ph="{" />
+                <marker date="1466678155808" expanded="true" signature="3033:3043" ph="}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="topic_users.gsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/user/topic_users.gsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-525">
+              <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+              <folding>
+                <marker date="1466677625308" expanded="true" signature="837:971" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register-validation.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/assets/javascripts/register-validation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="735" column="69" selection-start-line="735" selection-start-column="69" selection-end-line="735" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResourceController.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/ResourceController.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="116">
+              <caret line="47" column="44" selection-start-line="47" selection-start-column="44" selection-end-line="47" selection-end-column="44" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -240,18 +207,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/errorPage/500_error_page.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/assets/stylesheets/bootstrap.no-icons.min.css" />
-        <option value="$PROJECT_DIR$/grails-app/views/emails/_forget_password_mail.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/templates/_resource_detail.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/templates/_forget_password.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/login/user_profile.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/emails/_send_invitation_mail.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/User.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/LoginController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/templates/_user_detail.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/templates/_delete_topic.gsp" />
         <option value="$PROJECT_DIR$/grails-app/assets/javascripts/application.js" />
@@ -262,35 +217,47 @@
         <option value="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/SubscriptionController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/SubscriptionService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/templates/_send_invitation.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/LoginService.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/templates/_update_profile.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/templates/_share_document.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/templates/_share_link.gsp" />
         <option value="$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/Resource.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/templates/_delete_resource.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/templates/_resource_brief.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/templates/_topic_detail.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/templates/_update_post.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/assets/javascripts/register-validation.js" />
-        <option value="$PROJECT_DIR$/src/groovy/com/ttnd/ls/constants/LSConstants.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/i18n/messages.properties" />
-        <option value="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/ResourceOperationController.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/ResourceOperationService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/grails-app/assets/javascripts/resource.js" />
         <option value="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/ResourceController.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/login/topic.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/user/resources.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/TopicController.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/user/dashboard.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/user/topics.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/ResourceService.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/TopicService.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/errorPage/404_error_page.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/errorPage/500_error_page.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/templates/_forget_password.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/utils/DateUtils.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/utils/AuthUtils.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/templates/_change_password.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/templates/_update_profile.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
+        <option value="$PROJECT_DIR$/src/groovy/com/ttnd/ls/constants/LSConstants.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/i18n/messages.properties" />
+        <option value="$PROJECT_DIR$/grails-app/views/login/change_password.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/templates/_topic_detail.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/templates/_resource_brief.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/ResourceOperationService.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/ResourceOperationController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/user/users.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/user/topics.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/user/resources.gsp" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/UserController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/UserService.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/login/topic.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/user/topic_resources.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/user/topic_users.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/ResourceController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/ResourceService.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/TopicController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/TopicService.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/user/dashboard.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/assets/javascripts/register-validation.js" />
+        <option value="$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/LoginService.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/LoginController.groovy" />
       </list>
     </option>
   </component>
@@ -338,7 +305,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -395,32 +362,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="linkSharing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="linkSharing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="groovy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="constants" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -690,6 +631,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="i18n" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resource Bundle 'messages'" />
+              <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="linkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="linkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -733,10 +696,6 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -760,27 +719,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="linkSharing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="linkSharing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -796,11 +737,11 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/grails-app/views/login" />
+      <recent name="$PROJECT_DIR$/grails-app/assets/images" />
       <recent name="$PROJECT_DIR$/grails-app/assets/stylesheets" />
       <recent name="$PROJECT_DIR$/grails-app/views/user" />
       <recent name="$PROJECT_DIR$/grails-app/views/templates" />
-      <recent name="$PROJECT_DIR$/grails-app/views/errorPage" />
-      <recent name="$PROJECT_DIR$/grails-app/views/login" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/grails-app/assets/images" />
@@ -1290,7 +1231,9 @@
       <workItem from="1466344435614" duration="806000" />
       <workItem from="1466394895274" duration="25992000" />
       <workItem from="1466424074324" duration="827000" />
-      <workItem from="1466480504923" duration="22666000" />
+      <workItem from="1466480504923" duration="23021000" />
+      <workItem from="1466568641978" duration="22502000" />
+      <workItem from="1466653660489" duration="18450000" />
     </task>
     <task id="LOCAL-00001" summary="Home page and dashboard rendered">
       <created>1465539675657</created>
@@ -1334,11 +1277,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466396181048</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="pagination, validation">
+      <created>1466511287656</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1466511287656</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="384184000" />
+    <option name="totallyTimeSpent" value="425491000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
@@ -1350,15 +1300,13 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="ConsoleMavenPlugin" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.49721116" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Grails Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940239" sideWeight="0.49066666" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.225498" sideWeight="0.48097825" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6095679" sideWeight="0.48924303" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37808642" sideWeight="0.48924303" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1375,6 +1323,8 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940239" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Grails Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1432,7 +1382,8 @@
     <MESSAGE value="change seriousness, change visibility" />
     <MESSAGE value="update profile, delete resource and delete topic" />
     <MESSAGE value="user show for admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="user show for admin" />
+    <MESSAGE value="pagination, validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="pagination, validation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1442,18 +1393,6 @@
           <line>14</line>
           <properties />
           <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/LoginService.groovy</url>
-          <line>140</line>
-          <properties />
-          <option name="timeStamp" value="335" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/LoginService.groovy</url>
-          <line>120</line>
-          <properties />
-          <option name="timeStamp" value="336" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/TopicController.groovy</url>
@@ -1474,18 +1413,6 @@
           <option name="timeStamp" value="383" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/UserService.groovy</url>
-          <line>99</line>
-          <properties />
-          <option name="timeStamp" value="387" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/ResourceService.groovy</url>
-          <line>35</line>
-          <properties />
-          <option name="timeStamp" value="393" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/ResourceController.groovy</url>
           <line>22</line>
           <properties />
@@ -1497,8 +1424,32 @@
           <properties />
           <option name="timeStamp" value="395" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/LoginService.groovy</url>
+          <line>62</line>
+          <properties />
+          <option name="timeStamp" value="428" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/UserService.groovy</url>
+          <line>83</line>
+          <properties />
+          <option name="timeStamp" value="436" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/ResourceOperationService.groovy</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="453" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/ResourceService.groovy</url>
+          <line>231</line>
+          <properties />
+          <option name="timeStamp" value="482" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="404" />
+      <option name="time" value="486" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1507,260 +1458,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.1/dist/grails-plugin-gsp-2.5.1-sources.jar!/org/codehaus/groovy/grails/plugins/web/taglib/ValidationTagLib.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="286" column="12" selection-start-line="286" selection-start-column="12" selection-end-line="286" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_login.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="9" column="69" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_create_topic.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="18" column="65" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/assets/javascripts/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_delete_topic.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="63" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/Subscription.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/SubscriptionService.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="e#29#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_send_invitation.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="15" column="91" selection-start-line="15" selection-start-column="85" selection-end-line="15" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_register.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="61" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_update_topic.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="17" column="69" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#30#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/LoginService.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_update_profile.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="87" selection-start-line="11" selection-start-column="87" selection-end-line="11" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_share_document.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/LinkResource.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_share_link.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="30" column="38" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ideaLibSources/spring-tx-4.1.6.RELEASE-sources.jar!/org/springframework/transaction/support/TransactionTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.sdkman/candidates/grails/2.5.1/lib/org.springframework/spring-webmvc/jars/spring-webmvc-4.1.6.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="668" column="0" selection-start-line="668" selection-start-column="0" selection-end-line="668" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_delete_resource.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="57" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/i18n/messages.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="84" column="49" selection-start-line="84" selection-start-column="49" selection-end-line="84" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/groovy/com/ttnd/ls/constants/LSConstants.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="31" column="68" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_update_post.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="34" column="80" selection-start-line="34" selection-start-column="80" selection-end-line="34" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/ResourceOperationService.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="7" />
-          <folding>
-            <element signature="e#29#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/ResourceOperationController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/assets/stylesheets/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="4" column="21481" selection-start-line="4" selection-start-column="21481" selection-end-line="4" selection-end-column="21481" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/assets/stylesheets/application.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/assets/javascripts/register-validation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/assets/javascripts/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/assets/javascripts/resource.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_resource_detail.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="109" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="109" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1692">
@@ -1777,53 +1474,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_resource_brief.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/errorPage/404_error_page.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="91" column="33" selection-start-line="89" selection-start-column="24" selection-end-line="91" selection-end-column="33" />
-          <folding />
+        <state relative-caret-position="180">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="14" selection-end-column="14" />
+          <folding>
+            <marker date="1466568855470" expanded="true" signature="31:223" ph="..." />
+            <marker date="1466568855470" expanded="true" signature="95:215" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/Resource.groovy">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/errorPage/500_error_page.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="26" column="20" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/LoginController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="89" column="39" selection-start-line="89" selection-start-column="39" selection-end-line="89" selection-end-column="39" />
-          <folding />
+        <state relative-caret-position="180">
+          <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+          <folding>
+            <marker date="1466568867212" expanded="true" signature="31:221" ph="..." />
+            <marker date="1466568867212" expanded="true" signature="95:213" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/main.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/DataSource.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="26" column="51" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/login/topic.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/user/resources.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="54" column="39" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+        <state relative-caret-position="105">
+          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1836,48 +1512,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/Topic.groovy">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_register.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" column="35" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/user/dashboard.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="17" column="109" selection-start-line="17" selection-start-column="109" selection-end-line="17" selection-end-column="109" />
+        <state relative-caret-position="348">
+          <caret line="32" column="103" selection-start-line="32" selection-start-column="95" selection-end-line="32" selection-end-column="103" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_topic_detail.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/utils/AuthUtils.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="103" />
+        <state relative-caret-position="165">
+          <caret line="14" column="12" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/ResourceService.groovy">
+    <entry file="file://$PROJECT_DIR$/grails-app/utils/DateUtils.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="183" column="37" selection-start-line="183" selection-start-column="37" selection-end-line="183" selection-end-column="37" />
+        <state relative-caret-position="107">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="31" />
           <folding>
-            <element signature="e#29#69#0" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/ResourceController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="46" column="43" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1889,55 +1546,367 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/user/topics.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/login/home.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="64" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="64" />
+        <state relative-caret-position="90">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/TopicController.groovy">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_login.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="52" column="36" selection-start-line="51" selection-start-column="8" selection-end-line="52" selection-end-column="36" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_change_password.gsp" />
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_forget_password.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="15" column="96" selection-start-line="15" selection-start-column="88" selection-end-line="15" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_update_profile.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="70" column="143" selection-start-line="70" selection-start-column="125" selection-end-line="70" selection-end-column="143" />
           <folding>
-            <marker date="1466507380915" expanded="true" signature="290:384" ph="/*...*/" />
+            <marker date="1466576407438" expanded="true" signature="3341:5449" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/TopicService.groovy">
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="73" column="75" selection-start-line="70" selection-start-column="12" selection-end-line="73" selection-end-column="75" />
+        <state relative-caret-position="58">
+          <caret line="9" column="75" selection-start-line="9" selection-start-column="75" selection-end-line="9" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/groovy/com/ttnd/ls/constants/LSConstants.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="13" column="53" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/user/users.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/i18n/messages.properties">
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="47" column="45" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
+        <state relative-caret-position="193">
+          <caret line="88" column="37" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/User.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="6" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/login/change_password.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+          <folding>
+            <marker date="1466588409858" expanded="true" signature="31:2716" ph="..." />
+            <marker date="1466588409858" expanded="true" signature="282:630" ph="..." />
+            <marker date="1466588409858" expanded="true" signature="388:611" ph="..." />
+            <marker date="1466588409858" expanded="true" signature="426:588" ph="..." />
+            <marker date="1466588409858" expanded="true" signature="474:561" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/login/post.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_resource_detail.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="109" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/ResourceOperation.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/Subscription.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_show_image.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="168" selection-start-line="1" selection-start-column="142" selection-end-line="1" selection-end-column="168" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_topic_detail.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1665">
+          <caret line="114" column="51" selection-start-line="114" selection-start-column="16" selection-end-line="114" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ideaLibSources/spring-tx-4.1.6.RELEASE-sources.jar!/org/springframework/transaction/support/TransactionTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/ResourceOperationController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/SubscriptionService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-300">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/ResourceOperationService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+          <folding>
+            <element signature="e#29#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/Topic.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/ttnd/ls/entity/Resource.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/UserController.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+        <state relative-caret-position="183">
+          <caret line="61" column="83" selection-start-line="61" selection-start-column="83" selection-end-line="61" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_resource_brief.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="84" column="72" selection-start-line="84" selection-start-column="64" selection-end-line="84" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/main.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/UserService.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+        <state relative-caret-position="484">
+          <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
           <folding>
             <element signature="e#29#69#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/login/topic.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="28" column="133" selection-start-line="28" selection-start-column="133" selection-end-line="28" selection-end-column="133" />
+          <folding>
+            <marker date="1466676507616" expanded="true" signature="31:1670" ph="..." />
+            <marker date="1466676507616" expanded="true" signature="97:1662" ph="..." />
+            <marker date="1466676507616" expanded="true" signature="120:1653" ph="..." />
+            <marker date="1466676507616" expanded="true" signature="961:1641" ph="..." />
+            <marker date="1466676507616" expanded="true" signature="1013:1625" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/user/topics.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="42" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="54" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/user/resources.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="72" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="79" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/user/users.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="56" column="42" selection-start-line="0" selection-start-column="0" selection-end-line="63" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/user/topic_resources.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="111" selection-start-line="16" selection-start-column="111" selection-end-line="16" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/user/topic_users.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-525">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <folding>
+            <marker date="1466677625308" expanded="true" signature="837:971" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/ResourceController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="47" column="44" selection-start-line="47" selection-start-column="44" selection-end-line="47" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/ResourceService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="263" column="66" selection-start-line="263" selection-start-column="66" selection-end-line="263" selection-end-column="66" />
+          <folding>
+            <element signature="e#29#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/TopicController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
+          <folding>
+            <marker date="1466677732904" expanded="true" signature="290:384" ph="/*...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/TopicService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding>
+            <marker date="1466678155808" expanded="true" signature="2985:2999" ph="{" />
+            <marker date="1466678155808" expanded="true" signature="3033:3043" ph="}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/user/dashboard.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/assets/javascripts/register-validation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="735" column="69" selection-start-line="735" selection-start-column="69" selection-end-line="735" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/ttnd/ls/service/LoginService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="206" column="13" selection-start-line="206" selection-start-column="13" selection-end-line="206" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/ttnd/ls/controller/LoginController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="124" column="36" selection-start-line="124" selection-start-column="22" selection-end-line="124" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/login/account_active.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>

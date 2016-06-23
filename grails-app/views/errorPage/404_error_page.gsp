@@ -10,7 +10,7 @@
 
 
 </div>
-<asset:image height="100%" width="100%" src="404-not-found-error-page.png">
+<asset:image height="100%" width="100%" src="404.jpg">
 
 </asset:image>
 

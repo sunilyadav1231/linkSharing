@@ -34,10 +34,6 @@ class ResourceController {
         render respMap as JSON
     }
 
-    def updateResource(){
-        resourceService.updateResource(params)
-        redirect(controller: 'user', action: 'dashboard')
-    }
 
     def deleteResource(){
         Map respMap =resourceService.deleteResource(params)
@@ -47,10 +43,18 @@ class ResourceController {
     }
 
     def resourceList(){
-        params.max=10
+        params.max=20
         params.user=session.userData
         Map map = resourceService.userResourceList(params)
         render(view: '/user/resources',model: map)
+
+    }
+
+    def topicResourceList(){
+        params.max=20
+        params.user=session.userData
+        Map map = resourceService.topicResourceList(params)
+        render(view: '/user/topic_resources',model: map)
 
     }
 

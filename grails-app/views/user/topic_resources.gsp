@@ -11,10 +11,10 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <g:sortableColumn property="id" title="#" />
-                    <g:sortableColumn property="topic.name" title="Topic of Resource" />
-                    <g:sortableColumn property="createdBy.userName" title="Posted By" />
-                    <g:sortableColumn property="averageRating" title="Avg. Rating" />
+                    <g:sortableColumn property="id" title="#" params="['topicId':topicId]"/>
+                    <g:sortableColumn property="topic.name" title="Topic of Resource"  params="['topicId':topicId]"/>
+                    <g:sortableColumn property="createdBy.userName" title="Posted By" params="['topicId':topicId]"/>
+                    <g:sortableColumn property="averageRating" title="Avg. Rating" params="['topicId':topicId]" />
                     <th>Your Rating</th>
                     <th>Read</th>
                     <th>Access</th>
@@ -23,12 +23,12 @@
                 </thead>
                 <tbody>
                 <g:each in="${resources}" var="resource">
-                   %{-- <g:if test="${user.active}">
-                        <tr class="success">
-                    </g:if>
-                    <g:else>
-                        <tr class="danger">
-                    </g:else>--}%
+                %{-- <g:if test="${user.active}">
+                     <tr class="success">
+                 </g:if>
+                 <g:else>
+                     <tr class="danger">
+                 </g:else>--}%
                     <tr class="success">
                         <td>
                             <g:link class="small" controller="login" action="showPost" params= "['resource.id': resource.id]">
@@ -70,7 +70,7 @@
         <div class="box-footer clearfix">
             <ul class="pagination pagination-sm no-margin pull-right">
                 <li>
-                    <g:paginate max="20" total="${resourceCount}"/>
+                    <g:paginate max="20" total="${resourceCount}" params="['topicId':topicId]"/>
                 </li>
             </ul>
         </div>

@@ -15,7 +15,7 @@
             </div>
             <g:if test="${topic.subscriptions}">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Subscribed User(s)</div>
+                    <div class="panel-heading">Subscribed User(s) <g:link controller="topic" action="topicSubscribers" params="['topicId':topic.id]" class="pull-right">View All</g:link></div>
                     <div class="panel-body">
                         <g:render template="/templates/user_detail" collection="${topic.subscriptions*.user}" var="userData"/>
                     </div>
@@ -26,47 +26,16 @@
         <div class="col-xs-7" >
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">Resource(s) <g:link controller="resource" action="resourceList" class="pull-right">View All</g:link></div>
+                    <div class="panel-heading">Resource(s) <g:link controller="resource" action="topicResourceList" params="['topicId':topic.id]" class="pull-right">View All</g:link></div>
                     <div class="panel-body">
                         <g:if test="${topic.resources}">
-                            <g:render template="/templates/resource_detail" collection="${topic.resources}" var="resource"/>
+                            <g:render template="/templates/resource_brief" collection="${topicResources}" var="resource"/>
                         </g:if>
                         <g:else>
-                            No resources to show you
+                            No resources to show
                         </g:else>
                     </div>
                 </div>
-
-           %{-- <g:if test="${session.userData}">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Trending topics</div>
-                    <div class="panel-body">
-                        <g:if test="${trendingTopics}">
-                            <g:render template="/templates/topic_detail" collection="${trendingTopics}" var="topic"/>
-                        </g:if>
-                        <g:else>
-                            Nothing is trending for you :-(
-                        </g:else>
-                    </div>
-                </div>
-
-            </g:if>
-            <g:else>
-                <div class="panel panel-default">
-                    <div class="panel-heading">Login</div>
-                    <div class="panel-body">
-                        <g:render template="/templates/login"/>
-                    </div>
-                </div>
-
-                <div class="panel panel-default ">
-                    <div class="panel-heading">Register</div>
-                    <div class="panel-body">
-                        <g:render template="/templates/register"/>
-                    </div>
-                </div>
-            </g:else>--}%
-
 
         </div>
 

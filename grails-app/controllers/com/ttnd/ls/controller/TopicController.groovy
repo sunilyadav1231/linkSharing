@@ -48,6 +48,13 @@ class TopicController {
         render respMap as JSON
     }
 
+    def topicSubscribers(){
+        params.max=10
+        params.user=session.userData
+        Map map = topicService.topicSubscribers(params)
+        render(view: '/user/topic_users',model: map)
+    }
+
     def userTopicList(){
         params.max=10
         params.user=session.userData
@@ -55,9 +62,5 @@ class TopicController {
         render(view: '/user/topics',model: map)
     }
 
-    def updateTopic(){
-        topicService.updateTopic(params)
-        redirect(controller: 'user', action: 'dashboard')
-    }
 
 }
