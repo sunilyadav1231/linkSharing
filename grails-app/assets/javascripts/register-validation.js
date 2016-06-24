@@ -34,10 +34,9 @@ $().ready(function(){
                 },
                 success: function(respMap) {
                     if(respMap.respData.respCode==1){
-                        window.open(homeUrl,"_self");
+                        window.location.reload(true);
                     }else{
-                        $("#resp_model").modal();
-                        $("#resp_message").text(respMap.respData.respMessageCode)
+                        respModal(respMap.respData.respMessageCode)
                     }
                 },
                 error: function(request, status, error) {
@@ -94,6 +93,11 @@ $().ready(function(){
             confirmPassword: {
                 required: true,
                 equalTo:"#password"
+            },
+            proflePicFile:{
+                required: false,
+                accept: "image/*",
+                filesize: 5242880
             }
         },
         messages: {
@@ -113,7 +117,11 @@ $().ready(function(){
                 maxlength:"Your password should contain at most 15 characters"},
             confirmPassword: {
                 required: "Please enter confirm password",
-                equalTo:"Cnfirm password should be same as password"}
+                equalTo:"Cnfirm password should be same as password"},
+            proflePicFile: {
+                filesize: "Image size more  then 5mb is not allowed",
+                accept:"For profile, only image is allowed"
+            }
         },
 
         submitHandler: function(form) {
@@ -126,8 +134,7 @@ $().ready(function(){
                 processData: false,  // tell jQuery not to process the data
                 contentType: false,
                 success: function(respMap) {
-                    $("#resp_model").modal();
-                    $("#resp_message").text(respMap.respData.respMessageCode)
+                    respModal(respMap.respData.respMessageCode)
                 },
                 error: function(request, status, error) {
                     $("#resp_model").modal();
@@ -158,8 +165,7 @@ $().ready(function(){
                     'visibility':$('select[name=visibility]').val()
                 },
                 success: function(respMap) {
-                        $("#resp_model").modal();
-                        $("#resp_message").text(respMap.respData.respMessageCode)
+                    respModal(respMap.respData.respMessageCode)
                 },
                 error: function(request, status, error) {
                     $("#resp_model").modal();
@@ -185,8 +191,7 @@ $().ready(function(){
                 'topicVisibility':topicVisibility
             },
             success: function(respMap) {
-                $("#resp_model").modal();
-                $("#resp_message").text(respMap.respData.respMessageCode)
+                respModal(respMap.respData.respMessageCode)
             },
             error: function(request, status, error) {
                 $("#resp_model").modal();
@@ -206,8 +211,7 @@ $().ready(function(){
                     'id':$('#deleteTopicId').val()
                 },
                 success: function(respMap) {
-                    $("#resp_model_home").modal();
-                    $("#resp_message_home").text(respMap.respData.respMessageCode)
+                    respModal(respMap.respData.respMessageCode)
                 },
                 error: function(request, status, error) {
                     $("#resp_model").modal();
@@ -238,11 +242,7 @@ $().ready(function(){
                     'id':$("#id").val()
                 },
                 success: function(respMap) {
-                    if(respMap.respData.respCode==1){
-                        $("#resp_model").modal();
-                        $("#resp_message").text(respMap.respData.respMessageCode)
-                    }
-
+                        respModal(respMap.respData.respMessageCode)
                 },
                 error: function(request, status, error) {
                     $("#resp_model").modal();
@@ -261,8 +261,7 @@ $().ready(function(){
                 'topicId':$(this).attr('identity')
             },
             success: function(respMap) {
-                $("#resp_model").modal();
-                $("#resp_message").text(respMap.respData.respMessageCode)
+                respModal(respMap.respData.respMessageCode)
             },
             error: function(request, status, error) {
                 $("#resp_model").modal();
@@ -280,8 +279,7 @@ $().ready(function(){
                 'id':$(this).attr('identity')
             },
             success: function(respMap) {
-                $("#resp_model").modal();
-                $("#resp_message").text(respMap.respData.respMessageCode)
+                respModal(respMap.respData.respMessageCode)
             },
             error: function(request, status, error) {
                 $("#resp_model").modal();
@@ -301,8 +299,7 @@ $().ready(function(){
                 'topicSeriousness':$(this).val()
             },
             success: function(respMap) {
-                $("#resp_model").modal();
-                $("#resp_message").text(respMap.respData.respMessageCode)
+                respModal(respMap.respData.respMessageCode)
             },
             error: function(request, status, error) {
                 $("#resp_model").modal();
@@ -331,8 +328,7 @@ $().ready(function(){
                     'sentTo':$("#sentTo").val()
                 },
                 success: function(respMap) {
-                    $("#resp_model").modal();
-                    $("#resp_message").text(respMap.respData.respMessageCode)
+                    respModal(respMap.respData.respMessageCode)
                 },
                 error: function(request, status, error) {
                     $("#resp_model").modal();
@@ -377,6 +373,11 @@ $().ready(function(){
                         }
                     }
                 }
+            },
+            proflePicFile:{
+                required: false,
+                accept: "image/*",
+                filesize: 5242880
             }
         },
         messages: {
@@ -387,7 +388,11 @@ $().ready(function(){
             userName: {required:"Please enter username name",
                 minlengt: "Username should contain atleast 8 characters",
                 maxlength:"Username can contain at most 15 characters",
-                remote:"Username already exist"}
+                remote:"Username already exist"},
+            proflePicFile: {
+                filesize: "Image size more  then 5mb is not allowed",
+                accept:"For profile, only image is allowed"
+                }
         },
 
         submitHandler: function(form) {
@@ -400,8 +405,7 @@ $().ready(function(){
                 processData: false,  // tell jQuery not to process the data
                 contentType: false,
                 success: function(respMap) {
-                    $("#resp_model").modal();
-                    $("#resp_message").text(respMap.respData.respMessageCode)
+                    respModal(respMap.respData.respMessageCode)
                 },
                 error: function(request, status, error) {
                     $("#resp_model").modal();
@@ -443,8 +447,7 @@ $().ready(function(){
                     'topic':$('select[name=topic]').val()
                 },
                 success: function(respMap) {
-                    $("#resp_model").modal();
-                    $("#resp_message").text(respMap.respData.respMessageCode)
+                    respModal(respMap.respData.respMessageCode)
                 },
                 error: function(request, status, error) {
                     $("#resp_model").modal();
@@ -479,8 +482,7 @@ $().ready(function(){
                 processData: false,  // tell jQuery not to process the data
                 contentType: false,
                 success: function(respMap) {
-                    $("#resp_model").modal();
-                    $("#resp_message").text(respMap.respData.respMessageCode)
+                    respModal(respMap.respData.respMessageCode)
                 },
                 error: function(request, status, error) {
                     $("#resp_model").modal();
@@ -516,8 +518,7 @@ $().ready(function(){
 
                 },
                 success: function(respMap) {
-                    $("#resp_model").modal();
-                    $("#resp_message").text(respMap.respData.respMessageCode)
+                    respModal(respMap.respData.respMessageCode)
                 },
                 error: function(request, status, error) {
                     $("#resp_model").modal();
@@ -541,8 +542,7 @@ $().ready(function(){
                     if(respMap.respData.respCode==1){
                         window.open(homeUrl,"_self");
                     }else{
-                        $("#resp_model").modal();
-                        $("#resp_message").text(respMap.respData.respMessageCode)
+                        respModal(respMap.respData.respMessageCode)
                     }
                 },
                 error: function(request, status, error) {
@@ -553,15 +553,6 @@ $().ready(function(){
         }
     });
 
-    $(".refresh").click(function(){
-        window.location.reload(true);
-
-    });
-
-    $(".goTohome").click(function(){
-        window.open(homeUrl,"_self");
-
-    });
 
 
     $(".user_status").change(function(){
@@ -580,8 +571,7 @@ $().ready(function(){
                 'status':userStatus
             },
             success: function(respMap) {
-                $("#resp_model").modal();
-                $("#resp_message").text(respMap.respData.respMessageCode)
+                respModal(respMap.respData.respMessageCode)
             },
             error: function(request, status, error) {
                 $("#resp_model").modal();
@@ -634,8 +624,7 @@ $().ready(function(){
                     'confirmPassword':$("#confirmPassword").val()
                 },
                 success: function(respMap) {
-                    $("#resp_model_home").modal();
-                    $("#resp_message_home").text(respMap.respData.respMessageCode)
+                    respModalHome(respMap.respData.respMessageCode)
                 },
                 error: function(request, status, error) {
                     $("#resp_model_home").modal();
@@ -678,8 +667,7 @@ $().ready(function(){
                     'confirmPassword':$("#confirmPassword").val()
                 },
                 success: function(respMap) {
-                    $("#resp_model_home").modal();
-                    $("#resp_message_home").text(respMap.respData.respMessageCode)
+                    respModalHome(respMap.respData.respMessageCode)
                 },
                 error: function(request, status, error) {
                     $("#resp_model_home").modal();
@@ -713,8 +701,7 @@ $().ready(function(){
                     'userName':$("#userName").val()
                 },
                 success: function(respMap) {
-                        $("#resp_model").modal();
-                        $("#resp_message").text(respMap.respData.respMessageCode)
+                    respModal(respMap.respData.respMessageCode)
                 },
                 error: function(request, status, error) {
                     $("#resp_model").modal();
@@ -735,9 +722,33 @@ $().ready(function(){
                 success: function (data) {
                     $('#inbox_heading').text("Search for '"+searchKey+"'")
                     $('#inboxContent').html(data)
+                },
+                error: function(request, status, error) {
+                    $("#resp_model").modal();
+                    $("#resp_message").text(errorMsg)
                 }
 
             });
+    });
+
+    $(".user_topic_search_button").click(function(){
+        var searchKey=$('#user_topic_search').val()
+        $.ajax({
+            url: userTopicSearchUrl,
+            type: 'POST',
+            data: {
+                'searchKey': searchKey
+            },
+            success: function (data) {
+                $('#topic_heading').text("Search for '"+searchKey+"'")
+                $('#user_topic_content').html(data)
+            },
+            error: function(request, status, error) {
+                $("#resp_model").modal();
+                $("#resp_message").text(errorMsg)
+            }
+
+        });
     });
 
 
@@ -764,4 +775,39 @@ $().ready(function(){
 
 
 
+    function respModal(msg){
+        $("#resp_model").modal({
+            backdrop: 'static',
+            keyboard: false
+        })
+        $("#resp_message").text(msg)
+    }
+
+    function respModalHome(msg){
+        $("#resp_model").modal({
+            backdrop: 'static',
+            keyboard: false
+        })
+        $("#resp_message").text(msg)
+    }
+
+    $(".refresh").click(function(){
+        window.location.reload(true);
+
+    });
+
+    $(".goTohome").click(function(){
+        window.open(homeUrl,"_self");
+
+    });
+
+
+});
+
+
+$.validator.addMethod('filesize', function(value, element, param) {
+    // param = size (in bytes)
+    // element = element to validate (<input>)
+    // value = value of the element (file name)
+    return this.optional(element) || (element.files[0].size <= param)
 });

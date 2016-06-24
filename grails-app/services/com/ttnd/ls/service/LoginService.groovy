@@ -240,8 +240,60 @@ class LoginService {
         respMap
     }
 
-    def mainSearch(Map map){
+    Map mainSearch(Map map){
+        Map respMap =  [:]
 
+        def criteria = Resource.createCriteria()
+        List<Resource> resources=[]
+        List<Resource> resourceList = criteria.list {
+            if(map.user && map.user.admin){
+
+            }else if(map.user){
+                'topic' {
+                    'subscriptions' {
+                        eq('user', map.user)
+                    }
+                }
+            }else{
+                'topic' {
+                    eq('visibility', Visibility.PUBLIC)
+                }
+            }
+
+            or{
+                ilike('description','%'+map.searchKey+'%')
+                'topic'{
+                    ilike('name','%'+map.searchKey+'%')
+                }
+            }
+        }
+        if(map.user){
+            resourceList.forEach{Resource resource->
+                if(resource.resourceOperations){
+                    boolean stat = true
+                    resource.resourceOperations?.forEach{
+                        if(it.user==map.user ){
+                            resource.resourceOperations=[it]
+                            resources.add(resource)
+                            stat = false
+                        }
+                    }
+                    if(stat){
+                        resource.resourceOperations=[]
+                        resources.add(resource)
+                    }
+                }else{
+                    resources.add(resource)
+                }
+
+            }
+            respMap.put('resources',resources)
+        }else{
+            respMap.put('resources',resourceList)
+
+        }
+
+        respMap
     }
 
     def getCurrentUTCDate(){

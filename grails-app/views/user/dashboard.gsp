@@ -8,14 +8,14 @@
    <!-- <div class="row">-->
         <div class="row"   >
             <div class="col-xs-5" >
-                <div class="panel panel-default">
+                <div class="panel ">
                     <div class="panel-body">
                         <g:render template="/templates/user_detail" model="${session.userData}" var="userData"/>
                     </div>
                 </div>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">Subscriptions <g:link controller="topic" action="userTopicList" class="pull-right">View All</g:link></div>
+                <div class="panel ">
+                    <div class="panel-heading">Subscriptions <g:link controller="topic" action="userTopicList" class="pull-right font-color-white">View All</g:link></div>
                     <div class="panel-body">
                         <g:if test="${subscriptions}">
                             <g:render template="/templates/topic_detail" collection="${subscriptions}" var="topic"/>
@@ -28,7 +28,7 @@
                 </div>
 
 
-                <div class="panel panel-default">
+                <div class="panel ">
                     <div class="panel-heading">Trending topics</div>
                     <div class="panel-body">
                         <g:if test="${trendingTopics}">
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="col-xs-7" >
-                <div class="panel panel-default">
+                <div class="panel ">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-6">

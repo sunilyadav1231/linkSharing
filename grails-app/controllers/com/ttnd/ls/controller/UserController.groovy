@@ -62,5 +62,9 @@ class UserController {
         render template: '/templates/resource_brief', collection: userService.inboxSearch(params), var: 'resource'
     }
 
+    def userTopicSearch(){
+        params.user=session.userData
+        render template: '/templates/topic_detail', collection: userService.userTopicSearch(params), var: 'topic'
+    }
 
 }

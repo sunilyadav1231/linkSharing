@@ -40,7 +40,7 @@
         </div>
         <div class="row">
 
-            <g:if test="${resource?.averageRating}">
+            <g:if test="${resource?.ratingUserCount && resource?.averageRating}">
 
                 <span class="col-xs-5 pull-right resource-rating" identity="${resource?.id}" id="res_avg_count_${resource?.id}" data-rating="${resource.averageRating}">
                 </span>

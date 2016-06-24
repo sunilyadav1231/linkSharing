@@ -119,7 +119,6 @@ class UserService {
     }
 
     def inboxSearch(Map map){
-
         def criteria = Resource.createCriteria()
         List<Resource> resources=[]
         List<Resource> resourceList = criteria.list {
@@ -139,11 +138,10 @@ class UserService {
             if(resource.resourceOperations){
                 boolean stat = true
                 resource.resourceOperations?.forEach{
-                    if(it.user==user ){
+                    if(it.user==map.user ){
                         if(!it.isRead){
                             resource.resourceOperations=[it]
                             resources.add(resource)
-
                         }
                         stat = false
                     }
@@ -155,13 +153,18 @@ class UserService {
             }else{
                 resources.add(resource)
             }
-
         }
-
-        /*Map respMap =  ["respData":respData]
-        respMap*/
         resources
+    }
 
+
+    def userTopicSearch(Map map){
+        def criteria = Topic.createCriteria()
+        List<Topic> topics = criteria.list {
+            eq('createdBy',map.user)
+            ilike('name','%'+map.searchKey+'%')
+        }
+        topics
     }
 
 

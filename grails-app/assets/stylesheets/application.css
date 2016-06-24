@@ -22,7 +22,8 @@ a {outline: none;outline: none}
 
 
 .layout {
-    background-image: url(../images/dark_wood.png);
+    background-color:#B8D2F5;
+   /* background-image: url(../images/dark_wood.png);*/
 }
 
 .header{background: none}
@@ -30,3 +31,23 @@ a {outline: none;outline: none}
 
 .max-height{max-height: 600px; overflow-y:scroll; }
 
+.searchButton
+{
+    background: #2b669a;
+    box-shadow: none;
+    color: white;
+}
+.removePadding{
+    padding: 0 0 0 0 !important;
+    margin: 0 0 0 0 !important;
+}
+
+.panel > .panel-heading {
+    background-image: none;
+    background-color: #2b669a !important;
+    color: white;
+}
+
+.font-color-white {
+    color: white; !important;
+}

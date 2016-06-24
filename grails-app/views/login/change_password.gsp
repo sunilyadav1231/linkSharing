@@ -9,7 +9,7 @@
 <div class="row"   >
     <div class="col-xs-12" >
         <g:if test="${respData.respCode==com.ttnd.ls.constants.LSConstants.FAILURE_CODE}">
-            <div class="panel panel-default">
+            <div class="panel">
                 <div class="panel-heading">Change Password</div>
                 <div class="panel-body">
                     <div class="row">
@@ -21,7 +21,7 @@
             </div>
         </g:if>
         <g:else>
-            <div class="panel panel-default">
+            <div class="panel">
                 <div class="panel-heading">Change Password</div>
                 <div class="panel-body">
                     <div class="row">

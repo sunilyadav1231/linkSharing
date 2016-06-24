@@ -9,7 +9,7 @@
     <!-- <div class="row">-->
     <div class="row">
         <div class="col-xs-5" >
-            <div class="panel panel-default">
+            <div class="panel">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-4 ">
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="panel panel-default">
+            <div class="panel">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-7">Topics </div>
@@ -121,7 +121,7 @@
 
 
         <div class="col-xs-7">
-            <div class=" panel panel-default">
+            <div class="panel">
                 <div class="panel-heading">Profile</div>
                 <div class="panel-body">
                     <form class="form-horizontal">
@@ -165,7 +165,7 @@
                 </div>
             </div>
 
-            <div class=" panel panel-default">
+            <div class="panel">
                 <div class="panel-heading">Change Password</div>
                 <div class="panel-body">
                     <form class="form-horizontal">

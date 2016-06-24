@@ -9,27 +9,6 @@
                 </div>
                 <div class="modal-body">
 
-                    %{--<g:if test="${resource instanceof com.ttnd.ls.entity.LinkResource}">
-                        <div class="form-group form-group-sm">
-                            <div class="col-xs-4 ">
-                                <label class=" control-label" for="documentUrl">Link* :</label>
-                            </div>
-                            <div class="col-xs-8 ">
-                                    <input class="form-control" value="${resource?.urlDocument}" name="urlDocument" placeholder="link" type="text" id="documentUrl" >
-                            </div>
-                        </div>
-                    </g:if>
-                    <g:else>
-                        <div class="form-group form-group-sm">
-                            <div class="col-xs-4">
-                                <label class="control-label" for="doc">Document* :</label>
-                            </div>
-                            <div class="col-xs-8">
-                                <input class="" name="docFile" type="file" id="doc">
-                            </div>
-                        </div>
-                    </g:else>
---}%
                     <div class="form-group form-group-sm">
                         <div class="col-xs-4 ">
                             <label class="control-label" for="update_description">Description* :</label>

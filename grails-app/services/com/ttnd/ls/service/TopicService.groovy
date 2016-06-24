@@ -66,12 +66,16 @@ class TopicService {
 
     Map userTopicList(Map map){
         User user = User.get(map.user.id)
-
-        List<Subscription> subscriptionList = Subscription.createCriteria().list(map) {
-            eq('user',map.user)
+        List<Topic> topics =Topic.createCriteria().list(map) {
+            'subscriptions'{
+                eq('user',map.user)
+            }
         }
+        /*List<Subscription> subscriptionList = Subscription.createCriteria().list(map) {
+            eq('user',map.user)
+        }*/
 
-        [topics:subscriptionList*.topic,topicCount:subscriptionList.size()]
+        [topics:topics,topicCount:topics.size()]
     }
 
     Map topicSubscribers(Map map){

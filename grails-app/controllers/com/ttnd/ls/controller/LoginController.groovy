@@ -135,12 +135,10 @@ class LoginController {
     }
 
 
-    def mainSearch(Map map){
+    def mainSearch(){
         params.user =session.userData
-        Map respMap=loginService.changePassword(params)
-        respMap.respData.respMessageCode = message(code: respMap.respData.respMessageCode)
-        session.invalidate()
-        render respMap as JSON
+        Map respMap=loginService.mainSearch(params)
+        render(view: 'mainSearch',model:respMap)
 
     }
 

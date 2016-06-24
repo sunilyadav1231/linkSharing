@@ -22,6 +22,7 @@
 		<asset:javascript src="bootstrap.min.js"/>
 		<asset:javascript src="bootstrap-toggle.min.js"/>
 		<asset:javascript src="jquery.validate.js"/>
+		<asset:javascript src="jquery.validate.additional-methods.min.js"/>
 		<asset:javascript src="register-validation.js"/>
 
 		<asset:javascript src="jquery.timeago.js"/>
@@ -53,7 +54,7 @@
 		var forgetPasswordUrl="${g.createLink(controller:'login',action:'forgetPassword')}"
 		var markResourceReadUrl="${g.createLink(controller:'resourceOperation',action:'markRead')}"
 		var inboxSearchUrl="${g.createLink(controller:'user',action:'inboxSearch')}"
-
+		var userTopicSearchUrl="${g.createLink(controller:'user',action:'userTopicSearch')}"
 
 		var errorMsg = "Cannot process your request at this moment. Please try again later"
 		var success =1
@@ -91,8 +92,16 @@
 				});
 			});
 
-
-
+			$('#mainSearchClick').click(function(){
+				var search = $('#mainSearch').val()
+				if(search==""){
+					$("#resp_model").modal();
+					$("#resp_message").text("Please enter text to search")
+				}else{
+					$('#searchKey').val(search);
+					$( "#mainSearchForm" ).submit();
+				}
+			});
 
 		});
 
@@ -104,7 +113,7 @@
 
 
 			<div class="row header">
-				<div  class=" panel panel-default">
+				<div class="panel">
 					<div class="panel-body header">
 						<div class="col-xs-8">
 							<div class="row">
@@ -165,9 +174,15 @@
 							<div class="row">
 								<div class="col-xs-12 pull-right">
 									<div class="input-group">
-
-										<input type="text" class="form-control" placeholder="Search" name="q">
-										<span class="input-group-addon"><a href="#"><i class="glyphicon glyphicon-search"></i></a></span>
+										<g:form controller="login" action="mainSearch" id="mainSearchForm" name="mainSearchForm">
+											<input type="hidden" id="searchKey" name="searchKey"/>
+										</g:form>
+										<input id="mainSearch" type="text" class="form-control" placeholder="Search" name="q">
+										<span class="input-group-addon">
+											<a href="#" id="mainSearchClick" name="mainSearchClick">
+												<i class="glyphicon glyphicon-search"></i>
+											</a>
+										</span>
 
 									</div>
 								</div>
@@ -192,17 +207,27 @@
 
 	<div class="modal fade" id="resp_model" role="alert">
 		<div class="modal-dialog">
-
+			<form>
 			<!-- Modal content-->
-			<div class="modal-content">
+			<div class="modal-content alert alert-info text-center">
 				<div class="modal-header">
 					<button type="button" class="close refresh" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title" id="resp_message"></h4>
+					<h4 class="modal-title">
+						Message
+					</h4>
+
 				</div>
-				<div class="modal-footer">
+				<div class="model-body">
+
+					<h5 id="resp_message"></h5>
 					<button type="submit" class="btn btn-default refresh" data-dismiss="modal">Ok</button>
 				</div>
+
+				%{--<div class="modal-footer">
+
+				</div>--}%
 			</div>
+			</form>
 
 		</div>
 	</div>

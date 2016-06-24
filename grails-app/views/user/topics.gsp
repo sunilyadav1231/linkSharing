@@ -13,8 +13,8 @@
                     <g:sortableColumn property="id" title="#" />
                     <g:sortableColumn property="name" title="Topic Name" />
                     <g:sortableColumn property="createdBy.userName" title="Created By" />
-                    <g:sortableColumn property="subscriptions.size()" title="Subscriptions" />
-                    <g:sortableColumn property="resources.size()" title="Resources" />
+                    <th>Subscriptions</th>
+                    <th>Resources</th>
                     <g:sortableColumn property="visibility" title="Visibility" />
                 </tr>
                 </thead>

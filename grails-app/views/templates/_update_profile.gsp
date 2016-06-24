@@ -6,7 +6,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="panel panel-default">
+                <div class="panel ">
                     <div class="panel-heading">Update Profile</div>
                     <div class="panel-body">
                         <g:uploadForm class="form-horizontal" name="update-profile-form" id="update-profile-form" action="">
@@ -38,10 +38,10 @@
 
                             <div class="form-group form-group-sm">
                                 <div class="col-xs-5">
-                                    <label class="control-label" for="photo">Photo</label>
+                                    <label class="control-label" for="proflePicFile">Photo</label>
                                 </div>
                                 <div class="col-xs-7">
-                                    <input class="form-control" name="proflePicFile"  type="file" id="photo">
+                                    <input class="form-control" name="proflePicFile"  type="file" id="proflePicFile">
                                 </div>
                             </div>
                             <div>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
 
-                <div class="panel panel-default">
+                <div class="panel">
                     <div class="panel-heading">Update Password</div>
                     <div class="panel-body">
                         <g:uploadForm class="form-horizontal" action="" name="change_password_form" id="change_password_form">

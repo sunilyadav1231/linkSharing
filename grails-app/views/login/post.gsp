@@ -9,7 +9,7 @@
 
     <div class="row"   >
         <div class="col-xs-7" >
-            <div class="panel panel-default">
+            <div class="panel">
                 <div class="panel-body">
                     <g:render template="/templates/resource_detail" model="${resource}" var="resource"/>
                 </div>
@@ -18,7 +18,7 @@
 
         <div class="col-xs-5" >
             <g:if test="${session.userData}">
-                <div class="panel panel-default">
+                <div class="panel">
                     <div class="panel-heading">Trending topics</div>
                     <div class="panel-body">
                         <g:if test="${trendingTopics}">
@@ -32,14 +32,14 @@
 
             </g:if>
             <g:else>
-                <div class="panel panel-default">
+                <div class="panel">
                     <div class="panel-heading">Login</div>
                     <div class="panel-body">
                         <g:render template="/templates/login"/>
                     </div>
                 </div>
 
-                <div class="panel panel-default ">
+                <div class="panel">
                     <div class="panel-heading">Register</div>
                     <div class="panel-body">
                         <g:render template="/templates/register"/>

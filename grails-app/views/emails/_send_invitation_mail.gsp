@@ -24,11 +24,11 @@
     <div style="display:block; margin:10px auto 10px auto; max-width:586px; width:100%;">
         <div align="center" style="display:block; text-align:center; margin:0 auto;"> <img src="https://s32.postimg.org/7zkxwpuyt/logo_2099511_web.png" width="119" style="max-width:100%; border:0;"> </div>
         <hr color="#ff5200" size="2px">
-        <h2 style="font-family:Helvetica, Arial, sans-serif; font-size:18px; font-weight:normal;color:#ff5200; display:block; text-align:center;">You got a invitation for topic ${topicName}</h2>
+        <h2 style="font-family:Helvetica, Arial, sans-serif; font-size:18px; font-weight:normal;color:#ff5200; display:block; text-align:center;">You got a invitation for topic <b>"${topicName}"</b></h2>
         <div align="center" style="display:block; text-align:center;"> <img src="https://gallery.mailchimp.com/8f2d4c0ad20993008d9f445e7/images/af76f9c2-1833-4540-be66-642c483cd34a.png" style="max-width:100%; border:0; padding: 10px 0;"> </div>
         <p style="font-family:Helvetica, Arial, sans-serif; font-size:12px; color:#6f6f6f; text-align:center; padding:0 0 10px;">Your got invited by ${sendersName} for the topic  ${topicName}. Kindly click on below link to access and subscribe the topic.
         </p>
-        <p style="text-align:center; margin:0px auto;"> <a href="${topicUrl}" style="color:#ff5200; text-decoration:underline;">Go To ${topicName}</a> </p>
+        <p style="text-align:center; margin:0px auto;"> <a href="${topicUrl}" style="color:#ff5200; text-decoration:underline;">Go To <b>"${topicName}"</b></a> </p>
 
         <p style="font-size:12px; color:#414042; text-align:center; font-family:Helvetica, Arial, sans-serif;">For questions about Link Sharing please visit our Help Center</p>
 

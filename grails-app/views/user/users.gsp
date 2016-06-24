@@ -35,7 +35,7 @@
                             <td>${user.firstName}</td>
                             <td>${user.lastName}</td>
                             <g:if test="${session.userData.admin}">
-                                td>
+                                <td>
                                 <g:if test="${user.active}">
                                     <input type="checkbox" identity="${user.id}" class="user_status" data-on="Active" data-off="Inactive" checked data-toggle="toggle" data-size="mini">
                                 </g:if>

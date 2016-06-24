@@ -26,7 +26,7 @@ class Resource {
     Date dateCreated
     Date lastUpdated
     int averageRating=0
-    transient  int ratingUserCount
+    int ratingUserCount
     int getAverageRating(){
         if(id){
 

@@ -7,7 +7,7 @@
 <body>
     <div class="row">
         <div class="col-xs-7">
-            <div class="panel panel-default">
+            <div class="panel">
                 <div class="panel-heading">Recent Shares</div>
                 <div class="panel-body">
                     <g:if test="${recentShares}">
@@ -19,7 +19,7 @@
 
                 </div>
             </div>
-            <div class="panel panel-default">
+            <<div class="panel">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-9"><span>Top posts</span></div>
@@ -48,14 +48,14 @@
         </div>
         <div class="col-xs-5">
 
-            <div class="panel panel-default">
+            <div class="panel">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
                     <g:render template="/templates/login"/>
                 </div>
             </div>
 
-            <div class="panel panel-default ">
+            <div class="panel">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
                     <g:render template="/templates/register"/>
